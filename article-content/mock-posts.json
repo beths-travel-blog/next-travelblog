@@ -1,10 +1,10 @@
 {
-  "test": {
-    "title": "test post",
-    "content": "Hey some post content"
+  "cambodia": {
+    "title": "Cambodia",
+    "content": "Cambodia details"
   },
-  "second": {
-    "title": "second post",
-    "content": "Hey this is the second post content"
+  "indonesia": {
+    "title": "Indonesia",
+    "content": "Indonesia"
   }
 }
