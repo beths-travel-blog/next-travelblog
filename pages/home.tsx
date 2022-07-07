@@ -8,14 +8,19 @@ export const HomePage = () => {
     <React.Fragment>
       <NavBar />
       <h1> Plane It By Ear</h1>
-      <div>
+      {/* <div>
         Route: Singapore - Hanoi - Phong nha - Da nang - Hoi an - Ho chi Minh -
         Phnom Penh - Kampot - Koh rong - Siem reap - Bangkok - Chiang mai - Pai
         - Bangkok - Bali - Java - Bali - Gili t - Bali - Singapore
-      </div>
+      </div> */}
       <ul>
         {Object.entries(posts).map((value, index) => {
-          return <li key={index}>{value[1].title}</li>;
+          const test = "/blog/" + value[0];
+          return (
+            <li key={index}>
+              <a href={test}> {value[1].title} </a>
+            </li>
+          );
         })}
       </ul>
     </React.Fragment>
