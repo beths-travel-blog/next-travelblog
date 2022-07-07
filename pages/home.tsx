@@ -1,7 +1,6 @@
 import React from "react";
 
 import NavBar from "../components/NavBar";
-import posts from "../article-content/mock-posts.json";
 
 export const HomePage = () => {
   return (
@@ -13,16 +12,6 @@ export const HomePage = () => {
         Phnom Penh - Kampot - Koh rong - Siem reap - Bangkok - Chiang mai - Pai
         - Bangkok - Bali - Java - Bali - Gili t - Bali - Singapore
       </div> */}
-      <ul>
-        {Object.entries(posts).map((value, index) => {
-          const test = "/blog/" + value[0];
-          return (
-            <li key={index}>
-              <a href={test}> {value[1].title} </a>
-            </li>
-          );
-        })}
-      </ul>
     </React.Fragment>
   );
 };
