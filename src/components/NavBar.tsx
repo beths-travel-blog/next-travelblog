@@ -1,11 +1,21 @@
 import React from "react";
+import styled from "styled-components";
 
-import posts from "../article-content/mock-posts.json";
+import posts from "../../src/article-content/mock-posts.json";
+
+const StyledNav = styled.nav`
+  width: 100%;
+`;
+
+const StyledUl = styled.ul`
+  display: flex;
+  text-align: center;
+`;
 
 const NavBar = () => {
   return (
-    <nav>
-      <ul>
+    <StyledNav>
+      <StyledUl>
         <li>
           <a href="/home"> Home </a>
         </li>
@@ -17,8 +27,8 @@ const NavBar = () => {
             </li>
           );
         })}
-      </ul>
-    </nav>
+      </StyledUl>
+    </StyledNav>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import NavBar from "../components/NavBar";
+import NavBar from "../src/components/NavBar";
 
 export const HomePage = () => {
   return (

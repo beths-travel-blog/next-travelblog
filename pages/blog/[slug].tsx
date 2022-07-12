@@ -1,8 +1,9 @@
+import React from "react";
+
 import { useRouter } from "next/router";
 
-import NavBar from "../../components/NavBar";
-import posts from "../../article-content/mock-posts.json";
-import React from "react";
+import NavBar from "../../src/components/NavBar";
+import posts from "../../src/article-content/mock-posts.json";
 
 const Slug = () => {
   const router = useRouter();
