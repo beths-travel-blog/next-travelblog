@@ -1,12 +1,11 @@
 import React from "react";
 
-import NavBar from "../src/components/NavBar";
+import Header from "../src/components/Header/Header";
 
 export const HomePage = () => {
   return (
     <React.Fragment>
-      <NavBar />
-      <h1> Plane It By Ear</h1>
+      <Header />
       {/* <div>
         Route: Singapore - Hanoi - Phong nha - Da nang - Hoi an - Ho chi Minh -
         Phnom Penh - Kampot - Koh rong - Siem reap - Bangkok - Chiang mai - Pai

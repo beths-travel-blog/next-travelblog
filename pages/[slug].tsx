@@ -2,8 +2,8 @@ import React from "react";
 
 import { useRouter } from "next/router";
 
-import NavBar from "../../src/components/NavBar";
-import posts from "../../src/article-content/mock-posts.json";
+import Header from "../src/components/Header/Header";
+import posts from "../src/article-content/mock-posts.json";
 
 const Slug = () => {
   const router = useRouter();
@@ -14,7 +14,7 @@ const Slug = () => {
 
   return (
     <React.Fragment>
-      <NavBar />
+      <Header />
       <h1>{post.title}</h1>
       <p>{post.content}</p>
     </React.Fragment>
