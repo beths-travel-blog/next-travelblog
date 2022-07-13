@@ -28,7 +28,6 @@ interface ItemProps {
   style?: React.CSSProperties;
 }
 
-// change types
 interface MediaQueryArgs {
   breakpoint: string;
   colStart?: any;
@@ -65,7 +64,7 @@ const gridRowEndCalculation = (rowSpan: number) => {
   return `span 1`;
 };
 
-const createMediaQuery = (mediaQueryArgs: MediaQueryArgs, props: ItemProps) => {
+const createMediaQuery = (mediaQueryArgs: MediaQueryArgs) => {
   const breakpointUtilsMap = { xs: 0, sm: 600, md: 900, lg: 1200 };
   return `@media (min-width: ${
     breakpointUtilsMap[
@@ -120,7 +119,6 @@ const GridItemStyling = (props: ItemProps) => {
 };
 
 const Item = styled.div<ItemProps>`
-  border: solid 1px black;
   ${(props) => GridItemStyling(props)};
 `;
 
