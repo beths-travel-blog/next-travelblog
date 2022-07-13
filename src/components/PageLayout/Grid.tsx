@@ -17,10 +17,6 @@ export interface GridProps {
   breakpoints?: string[];
 }
 
-interface MediaQueryPadding {
-  breakpoint: any;
-}
-
 const GridContainer = styled(GridItem)<GridProps>`
   box-sizing: content;
   display: -ms-grid;

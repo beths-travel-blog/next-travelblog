@@ -113,7 +113,7 @@ const GridItemStyling = (props: ItemProps) => {
       rowStart: rowStartArray && rowStartArray[index],
       rowSpan: rowSpanArray && rowSpanArray[index],
     };
-    styles = `${styles}  ${createMediaQuery(argumentsObject, props)}`;
+    styles = `${styles}  ${createMediaQuery(argumentsObject)}`;
   }
   return styles;
 };
