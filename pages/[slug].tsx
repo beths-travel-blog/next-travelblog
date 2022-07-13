@@ -15,8 +15,8 @@ const Slug = () => {
   return (
     <React.Fragment>
       <Header />
-      <h1>{post.title}</h1>
-      <p>{post.content}</p>
+      <h1>{post.submenu[0].title}</h1>
+      <p>{post.submenu[0].content}</p>
     </React.Fragment>
   );
 };

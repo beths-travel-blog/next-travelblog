@@ -1,10 +1,70 @@
 {
-  "cambodia": {
-    "title": "Cambodia",
-    "content": "Cambodia details"
+  "asia": {
+    "category": "Asia",
+    "submenu": [
+      {
+        "title": "Cambodia",
+         "content": "pending"
+      },
+      {
+        "title": "Indonesia",
+         "content": "pending"
+      },
+      {
+        "title": "Singapore",
+         "content": "pending"
+      },
+      {
+        "title": "Thailand",
+         "content": "pending"
+      },
+      {
+        "title": "Vietnam",
+         "content": "pending"
+      }
+    ]
   },
-  "indonesia": {
-    "title": "Indonesia",
-    "content": "Indonesia"
+  "europe": {
+    "category": "Europe",
+    "submenu": [
+      {
+        "title": "Italy",
+         "content": "pending"
+      },
+      {
+        "title": "Germany",
+         "content": "pending"
+      },
+      {
+        "title": "Greece",
+         "content": "pending"
+      }
+    ]
+  },
+  "north-america": {
+    "category": "North America",
+    "submenu": [
+      {
+        "title": "California",
+         "content": "pending"
+      },
+      {
+        "title": "New York",
+         "content": "pending"
+      }
+    ]
+  },
+  "oceania": {
+    "category": "Oceania",
+    "submenu": [
+      {
+        "title": "Australia",
+         "content": "pending"
+      },
+      {
+        "title": "New Zealand",
+         "content": "pending"
+      }
+    ]
   }
 }

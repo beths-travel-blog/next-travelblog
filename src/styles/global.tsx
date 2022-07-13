@@ -12,6 +12,13 @@ const GlobalStyle = createGlobalStyle`
 
     a:hover {
         text-decoration: underline;
+        color: #fcb900
+    }
+
+    a:focus {
+        outline: none;
+        text-decoration: underline;
+        color: #fcb900 
     }
  `;
 
