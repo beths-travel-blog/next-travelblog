@@ -10,9 +10,14 @@ const StyledNav = styled.nav`
 
 const StyledContainer = styled.ul`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   list-style: none;
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+  }
 `;
 
 const StyledItems = styled.li`
