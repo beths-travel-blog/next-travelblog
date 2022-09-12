@@ -1,3 +1,5 @@
+//Application entry point?
+
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {

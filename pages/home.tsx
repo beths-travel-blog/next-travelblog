@@ -1,12 +1,12 @@
 import React from "react";
 
-import Header from "../src/components/Header/Header";
+import NavBar from "../src/components/NavBar/NavBar";
 import FeaturedImages from "../src/components/FeaturedImages";
 
 export const HomePage = () => {
   return (
     <React.Fragment>
-      <Header />
+      <NavBar />
       <FeaturedImages />
       {/* <div>
         Route: Singapore - Hanoi - Phong nha - Da nang - Hoi an - Ho chi Minh -

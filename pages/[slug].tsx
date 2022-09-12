@@ -2,7 +2,7 @@ import React from "react";
 
 import { useRouter } from "next/router";
 
-import Header from "../src/components/Header/Header";
+import NavBar from "../src/components/NavBar/NavBar";
 import posts from "../src/article-content/mock-posts.json";
 
 const Slug = () => {
@@ -14,7 +14,7 @@ const Slug = () => {
 
   return (
     <React.Fragment>
-      <Header />
+      <NavBar />
       <h1>{post.submenu[0].title}</h1>
       <p>{post.submenu[0].content}</p>
     </React.Fragment>

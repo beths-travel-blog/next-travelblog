@@ -66,5 +66,14 @@
          "content": "pending"
       }
     ]
+  },
+  "south-america": {
+  "category": "South America",
+  "submenu": [
+    {
+      "title": "Mexico",
+        "content": "pending"
+    }
+  ]
   }
 }
