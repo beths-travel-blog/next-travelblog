@@ -7,7 +7,7 @@ interface NavProps {
 export const StyledMenuIcon = styled.div<NavProps>`
   display: block;
   position: fixed;
-  top: 15px;
+  top: 30px;
   left: 20px;
   z-index: 20;
 
@@ -18,30 +18,25 @@ export const StyledMenuIcon = styled.div<NavProps>`
 
 export const StyledNav = styled.nav`
   width: 100%;
-  /* margin: 30px 0; */
-  border: 1px solid #f0f;
-  align-items: center;
-  /* position: relative; */
+  display: flex;
+  justify-content: center;
 `;
 
-export const StyledContainer = styled.ul<NavProps>`
+export const StyledList = styled.ul<NavProps>`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   list-style: none;
-  margin: 0;
-  padding: 20px 200px;
   position: fixed;
-  background-color: #fdfdfdfa;
+  background-color: #fff;
   transform: ${(props) => (props.open ? "translateX(0)" : "translateX(100%)")};
-  top: -16px;
+  top: -20px;
   right: 0;
   height: 100%;
   width: 100%;
-  padding-top: 100px;
+  padding-top: 200px;
   transition: transform 0.3s ease-in-out;
-  z-index: 9;
-  justify-content: normal;
+  z-index: 10;
 
   @media (min-width: 900px) {
     flex-flow: row nowrap;
@@ -49,18 +44,32 @@ export const StyledContainer = styled.ul<NavProps>`
       props.open ? "translateX(100%)" : "translateX(0)"};
     position: absolute;
     width: 100%;
-    top: 0;
     justify-content: flex-end;
     margin-top: 0px;
     align-items: center;
-    height: 110px;
+    height: 250px;
     margin-left: 20px;
+    padding-top: 0;
   }
 `;
 
 export const StyledItems = styled.li`
   width: 20%;
   text-align: center;
-  font-size: 20px;
+  font-size: 30px;
   text-transform: uppercase;
+  padding: 10px 0;
+
+  @media (min-width: 900px) {
+    font-size: 20px;
+    padding: 0;
+  }
+`;
+
+export const ImageContainer = styled.div`
+  display: none;
+
+  @media (min-width: 900px) {
+    display: block;
+  }
 `;

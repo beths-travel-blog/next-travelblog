@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import * as S from "./styles";
+import Image from "next/image";
 
-import posts from "../../article-content/mock-posts.json";
+import Logo from "../../../public/Logo.png";
 import Menu from "../../../public/Menu.png";
 import Close from "../../../public/Close.png";
-import Image from "next/image";
+import posts from "../../article-content/mock-posts.json";
+import * as S from "./styles";
 
 interface NavProps {
   open: boolean;
@@ -12,7 +13,7 @@ interface NavProps {
 
 const VerticalNav = ({ open }: NavProps) => {
   return (
-    <S.StyledContainer open={open}>
+    <S.StyledList open={open}>
       <S.StyledItems>
         <a href="/home"> Home </a>
       </S.StyledItems>
@@ -25,6 +26,16 @@ const VerticalNav = ({ open }: NavProps) => {
           );
         }
       })}
+      <S.ImageContainer>
+        <a href="/home">
+          <Image
+            src={Logo}
+            alt="Plane It By Ear Logo"
+            width={600}
+            height={350}
+          />
+        </a>
+      </S.ImageContainer>
       {Object.entries(posts).map((value, index) => {
         if (index > 1) {
           return (
@@ -34,11 +45,11 @@ const VerticalNav = ({ open }: NavProps) => {
           );
         }
       })}
-    </S.StyledContainer>
+    </S.StyledList>
   );
 };
 
-const MobileNav = () => {
+const NavItems = () => {
   const [open, setOpen] = useState(false);
   return (
     <React.Fragment>
@@ -55,4 +66,4 @@ const MobileNav = () => {
   );
 };
 
-export default MobileNav;
+export default NavItems;
