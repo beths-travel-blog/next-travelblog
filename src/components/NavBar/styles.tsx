@@ -20,6 +20,14 @@ export const StyledNav = styled.nav`
   width: 100%;
   display: flex;
   justify-content: center;
+  background: #fff;
+
+  position: sticky;
+  top: 0;
+
+  @media (min-width: 900px) {
+    min-height: 230px;
+  }
 `;
 
 export const StyledList = styled.ul<NavProps>`
@@ -47,9 +55,9 @@ export const StyledList = styled.ul<NavProps>`
     justify-content: flex-end;
     margin-top: 0px;
     align-items: center;
-    height: 250px;
     margin-left: 20px;
     padding-top: 0;
+    height: 250px;
   }
 `;
 
