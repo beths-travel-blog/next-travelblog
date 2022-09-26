@@ -1,23 +1,23 @@
 import React from "react";
 
-import Masonry from "./Masonry";
+import MasonryLayout from "./MasonryLayout";
 
-import Bungee from "../../../public/BlogPhotos/bungee.jpg";
-import Footprints from "../../../public/BlogPhotos/footprints.jpg";
-import Fraser from "../../../public/BlogPhotos/fraser.jpg";
-import Grandcanyon from "../../../public/BlogPhotos/grandcanyon.jpg";
-import Cali from "../../../public/BlogPhotos/cali.jpg";
-import BlueLake from "../../../public/BlogPhotos/bluelake.jpg";
-import NZswing from "../../../public/BlogPhotos/nzswing.jpg";
-import QuadDesert from "../../../public/BlogPhotos/quaddesert.jpg";
-import RiceFields from "../../../public/BlogPhotos/ricefields.jpg";
-import Singapore from "../../../public/BlogPhotos/singapore.jpg";
-import Skii from "../../../public/BlogPhotos/skii.jpg";
-import Soller from "../../../public/BlogPhotos/soller.jpg";
-import SunsetDesert from "../../../public/BlogPhotos/sunsetdesert.jpg";
-import TimesSquare from "../../../public/BlogPhotos/timessquare.jpg";
-import Trex from "../../../public/BlogPhotos/trex.jpg";
-import Whitsundays from "../../../public/BlogPhotos/whitsundays.jpg";
+import Bungee from "../../../public/TravelPhotos/bungee.jpg";
+import Footprints from "../../../public/TravelPhotos/footprints.jpg";
+import Fraser from "../../../public/TravelPhotos/fraser.jpg";
+import Grandcanyon from "../../../public/TravelPhotos/grandcanyon.jpg";
+import Cali from "../../../public/TravelPhotos/cali.jpg";
+import BlueLake from "../../../public/TravelPhotos/bluelake.jpg";
+import NZswing from "../../../public/TravelPhotos/nzswing.jpg";
+import QuadDesert from "../../../public/TravelPhotos/quaddesert.jpg";
+import RiceFields from "../../../public/TravelPhotos/ricefields.jpg";
+import Singapore from "../../../public/TravelPhotos/singapore.jpg";
+import Skii from "../../../public/TravelPhotos/skii.jpg";
+import Soller from "../../../public/TravelPhotos/soller.jpg";
+import SunsetDesert from "../../../public/TravelPhotos/sunsetdesert.jpg";
+import TimesSquare from "../../../public/TravelPhotos/timessquare.jpg";
+import Trex from "../../../public/TravelPhotos/trex.jpg";
+import Whitsundays from "../../../public/TravelPhotos/whitsundays.jpg";
 
 const images = [
   { src: Bungee.src, alt: "My bungee jump in Singapore" },
@@ -40,7 +40,7 @@ const images = [
 
 export default function PhotoGrid() {
   return (
-    <Masonry minWidth={300}>
+    <MasonryLayout minWidth={300}>
       {images.map((_image, i) => (
         <img
           src={images[i].src}
@@ -49,6 +49,6 @@ export default function PhotoGrid() {
           height="auto"
         />
       ))}
-    </Masonry>
+    </MasonryLayout>
   );
 }

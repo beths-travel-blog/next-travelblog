@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
 
-import Grid from "./PageLayout/Grid";
-import GridItem from "./PageLayout/GridItem";
+import Grid from "../PageLayout/Grid";
+import GridItem from "../PageLayout/GridItem";
 import Greece from "../../public/Greece.png";
 import Sunset from "../../public/Sunset.png";
 import Rome from "../../public/Rome.png";

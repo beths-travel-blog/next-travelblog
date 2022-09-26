@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { useEventListener } from "./useEventListener";
+import { useEventListener } from "../../hooks/useEventListener";
 import { Col, MasonryDiv } from "./styles";
 
 const fillCols = (children: any, cols: any) => {
@@ -9,7 +9,7 @@ const fillCols = (children: any, cols: any) => {
   );
 };
 
-const Masonry = ({ children, gap, minWidth = 300, ...rest }: any) => {
+const MasonryLayout = ({ children, gap, minWidth = 300, ...rest }: any) => {
   const ref = useRef();
   const [numCols, setNumCols] = useState(3); //
   const cols = [...Array(numCols)].map(() => []);
@@ -29,4 +29,4 @@ const Masonry = ({ children, gap, minWidth = 300, ...rest }: any) => {
   );
 };
 
-export default Masonry;
+export default MasonryLayout;
