@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Image from "next/image";
 
-import Logo from "../../../public/Logo.png";
+import Logo from "./Logo";
 import Menu from "../../../public/Menu.png";
 import Close from "../../../public/Close.png";
 import posts from "../../article-content/mock-posts.json";
@@ -28,12 +27,7 @@ const VerticalNav = ({ open }: NavProps) => {
       })}
       <S.ImageContainer>
         <a href="/home">
-          <Image
-            src={Logo}
-            alt="Plane It By Ear Logo"
-            width={600}
-            height={350}
-          />
+          <Logo />
         </a>
       </S.ImageContainer>
       {Object.entries(posts).map((value, index) => {
@@ -54,8 +48,8 @@ const NavItems = () => {
   return (
     <React.Fragment>
       <S.StyledMenuIcon open={open} onClick={() => setOpen(!open)}>
-        <Image
-          src={open === false ? Menu : Close}
+        <img
+          src={open === false ? Menu.src : Close.src}
           alt="Menu Burger Icon/Close Menu Icon"
           width={30}
           height={30}

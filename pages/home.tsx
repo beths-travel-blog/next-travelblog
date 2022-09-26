@@ -1,26 +1,14 @@
 import React from "react";
 
 import NavBar from "../src/components/NavBar/NavBar";
-import ImageGrid from "../src/components/ImageGrid/ImageGrid";
-
-import Logo from "../public/Logo.png";
-
-const images = [
-  { src: Logo.src },
-  { src: Logo.src },
-  { src: Logo.src },
-  { src: Logo.src },
-  { src: Logo.src },
-  { src: Logo.src },
-  { src: Logo.src },
-  { src: Logo.src },
-];
+import PhotoGrid from "../src/components/PhotoGrid/PhotoGrid";
 
 export const HomePage = () => {
   return (
     <React.Fragment>
       <NavBar />
-      <ImageGrid images={images} />
+      <PhotoGrid />
+      {/* <ImageGrid images={images} /> */}
       {/* <div>
         Route: Singapore - Hanoi - Phong nha - Da nang - Hoi an - Ho chi Minh -
         Phnom Penh - Kampot - Koh rong - Siem reap - Bangkok - Chiang mai - Pai

@@ -2086,6 +2086,11 @@ use-sync-external-store@1.1.0:
   resolved "https://artifactory.io.thehut.local:443/artifactory/api/npm/npm-registry/use-sync-external-store/-/use-sync-external-store-1.1.0.tgz#3343c3fe7f7e404db70f8c687adf5c1652d34e82"
   integrity sha1-M0PD/n9+QE23D4xoet9cFlLTToI=
 
+usehooks-ts@^2.7.1:
+  version "2.7.1"
+  resolved "https://artifactory.io.thehut.local:443/artifactory/api/npm/npm-registry/usehooks-ts/-/usehooks-ts-2.7.1.tgz#6b009aa1adda128f32fd31266201fc9e715ccf12"
+  integrity sha1-awCaoa3aEo8y/TEmYgH8nnFczxI=
+
 v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://artifactory.io.thehut.local:443/artifactory/api/npm/npm-registry/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
