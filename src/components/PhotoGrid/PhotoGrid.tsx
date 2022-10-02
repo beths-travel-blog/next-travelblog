@@ -18,6 +18,9 @@ import SunsetDesert from "../../../public/TravelPhotos/sunsetdesert.jpg";
 import TimesSquare from "../../../public/TravelPhotos/timessquare.jpg";
 import Trex from "../../../public/TravelPhotos/trex.jpg";
 import Whitsundays from "../../../public/TravelPhotos/whitsundays.jpg";
+import Route from "../../../public/TravelPhotos/route.jpg";
+import YosemiteLake from "../../../public/TravelPhotos/yosemitelake.jpg";
+import Yosemite from "../../../public/TravelPhotos/yosemite.jpg";
 
 const images = [
   { src: Bungee.src, alt: "My bungee jump in Singapore" },
@@ -31,11 +34,14 @@ const images = [
   { src: Singapore.src, alt: "" },
   { src: Skii.src, alt: "" },
   { src: Fraser.src, alt: "" },
-  { src: Soller.src, alt: "" },
+  { src: Whitsundays.src, alt: "" },
   { src: SunsetDesert.src, alt: "" },
   { src: TimesSquare.src, alt: "" },
   { src: Trex.src, alt: "" },
-  { src: Whitsundays.src, alt: "" },
+  { src: Soller.src, alt: "" },
+  { src: Yosemite.src, alt: "" },
+  { src: Route.src, alt: "" },
+  { src: YosemiteLake.src, alt: "" },
 ];
 
 export default function PhotoGrid() {
