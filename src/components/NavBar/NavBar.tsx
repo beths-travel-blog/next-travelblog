@@ -12,7 +12,7 @@ const NavBar = (props: Props) => {
   return (
     <React.Fragment>
       <S.StyledNav>
-        <a href="/home">
+        <a href="/">
           <Logo />
         </a>
         <NavItems />

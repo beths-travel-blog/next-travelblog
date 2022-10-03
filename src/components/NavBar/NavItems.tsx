@@ -14,7 +14,7 @@ const VerticalNav = ({ open }: NavProps) => {
   return (
     <S.StyledList open={open}>
       <S.StyledItems>
-        <a href="/home"> Home </a>
+        <a href="/"> Home </a>
       </S.StyledItems>
       {Object.entries(posts).map((value, index) => {
         if (index < 2) {
@@ -26,7 +26,7 @@ const VerticalNav = ({ open }: NavProps) => {
         }
       })}
       <S.ImageContainer>
-        <a href="/home">
+        <a href="/">
           <Logo />
         </a>
       </S.ImageContainer>
