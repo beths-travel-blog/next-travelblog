@@ -1,6 +1,6 @@
 import { GraphQLClient, gql } from "graphql-request";
 
-import BlogCard from "../src/components/BlogCard/BlogCard";
+import BlogCard from "../../src/components/BlogCard/BlogCard";
 import React from "react";
 
 const graphcms = new GraphQLClient(
@@ -39,14 +39,14 @@ export const getStaticPaths = async () => {
   const { categories } = await graphcms.request(GET_CATEGORIES);
   return {
     paths: categories.map((category: any) => ({
-      params: { slug: category.slug },
+      params: { category: category.slug },
     })),
     fallback: false,
   };
 };
 
 export const getStaticProps = async ({ params }: any) => {
-  const slug = params.slug;
+  const slug = params.category;
   const data = await graphcms.request(GET_SINGLE_CATEGORY, { slug });
   const category = data.category;
   return {

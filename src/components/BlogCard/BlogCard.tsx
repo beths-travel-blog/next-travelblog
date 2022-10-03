@@ -28,7 +28,7 @@ const BlogCard = ({
 }: BlogCardProps) => {
   return (
     <div>
-      <Link href={"/posts/" + slug}>
+      <Link href={"/" + category?.slug + "/" + slug}>
         <div>
           <h2>{title}</h2>
           <img src={image.url} alt="" />
