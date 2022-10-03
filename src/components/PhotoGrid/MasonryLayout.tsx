@@ -18,6 +18,7 @@ const MasonryLayout = ({ children, gap, minWidth = 300, ...rest }: any) => {
     ref.current && setNumCols(Math.ceil(ref.current["offsetWidth"] / minWidth));
   useEffect(resizeHandler, []);
   useEventListener(`resize`, resizeHandler);
+
   return (
     <MasonryDiv ref={ref} gap={gap} {...rest}>
       {[...Array(numCols)].map((_, index) => (

@@ -49,6 +49,7 @@ export default function PhotoGrid() {
     <MasonryLayout minWidth={300}>
       {images.map((_image, i) => (
         <img
+          key={i}
           src={images[i].src}
           alt={images[i].alt}
           width="100%"

@@ -6,7 +6,7 @@ interface BlogCardProps {
   title: string;
   slug: string;
   image: ImageProps;
-  datePublished: any;
+  datePublished: string;
   category?: CategoryProps;
 }
 

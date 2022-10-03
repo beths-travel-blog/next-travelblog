@@ -60,8 +60,9 @@ export const getStaticProps = async ({ params }: any) => {
 const CategoryPosts = ({ category }: any) => {
   return (
     <React.Fragment>
-      {category.posts.map((post: any) => (
+      {category.posts.map((post: any, i) => (
         <BlogCard
+          key={i}
           title={post.title}
           slug={post.slug}
           image={post.image}

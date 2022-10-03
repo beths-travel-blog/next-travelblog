@@ -31,14 +31,14 @@ const GET_ALL_POSTS = gql`
   }
 `;
 
-// Fetch request
 export const getStaticProps = async () => {
+  // fetch request
   const { posts } = await graphcms.request(GET_ALL_POSTS);
   return {
     props: {
       posts,
     },
-    revalidate: 30, // if new content, generate new files every 30 seconds
+    revalidate: 30, // if new content, regenerate every 30 seconds
   };
 };
 
@@ -46,8 +46,9 @@ const Home: NextPage = ({ posts }: any) => {
   return (
     <div>
       <PhotoGrid />
-      {posts.map((post: any) => (
+      {posts.map((post: any, i) => (
         <BlogCard
+          key={i}
           title={post.title}
           slug={post.slug}
           image={post.image}
