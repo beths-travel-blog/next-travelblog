@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface NavProps {
-  open: boolean;
+  open?: boolean;
 }
 
 export const StyledMenuIcon = styled.div<NavProps>`

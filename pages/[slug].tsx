@@ -1,6 +1,6 @@
 import { GraphQLClient, gql } from "graphql-request";
 
-import BlogCard from "../../src/components/BlogCard/BlogCard";
+import BlogCard from "../src/components/BlogCard/BlogCard";
 import React from "react";
 
 const graphcms = new GraphQLClient(

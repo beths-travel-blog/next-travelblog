@@ -3,47 +3,54 @@ import React, { useState } from "react";
 import Logo from "./Logo";
 import Menu from "../../../public/Menu.png";
 import Close from "../../../public/Close.png";
-import posts from "../../article-content/mock-posts.json";
 import * as S from "./styles";
 
-interface NavProps {
-  open: boolean;
+export interface NavProps {
+  postCategories: CategoryProps[];
+  open?: boolean;
 }
 
-const VerticalNav = ({ open }: NavProps) => {
+interface CategoryProps {
+  name: string;
+  slug: string;
+}
+
+const VerticalNav = ({ postCategories, open }: NavProps) => {
   return (
     <S.StyledList open={open}>
       <S.StyledItems>
         <a href="/"> Home </a>
       </S.StyledItems>
-      {Object.entries(posts).map((value, index) => {
-        if (index < 2) {
-          return (
-            <S.StyledItems key={index}>
-              <a href={value[0]}> {value[1].category} </a>
-            </S.StyledItems>
-          );
-        }
-      })}
+      {postCategories &&
+        postCategories.map((category, index) => {
+          if (index < 2) {
+            return (
+              <S.StyledItems key={index}>
+                <a href={category.slug}> {category.name} </a>
+              </S.StyledItems>
+            );
+          }
+        })}
       <S.ImageContainer>
         <a href="/">
           <Logo />
         </a>
       </S.ImageContainer>
-      {Object.entries(posts).map((value, index) => {
-        if (index > 1) {
-          return (
-            <S.StyledItems key={index}>
-              <a href={value[0]}> {value[1].category} </a>
-            </S.StyledItems>
-          );
-        }
-      })}
+      {postCategories &&
+        postCategories.map((category, index) => {
+          if (index > 1) {
+            return (
+              <S.StyledItems key={index}>
+                <a href={category.slug}> {category.name} </a>
+              </S.StyledItems>
+            );
+          }
+        })}
     </S.StyledList>
   );
 };
 
-const NavItems = () => {
+const NavItems = (props: NavProps) => {
   const [open, setOpen] = useState(false);
   return (
     <React.Fragment>
@@ -55,7 +62,7 @@ const NavItems = () => {
           height={30}
         />
       </S.StyledMenuIcon>
-      <VerticalNav open={open} />
+      <VerticalNav postCategories={props.postCategories} />
     </React.Fragment>
   );
 };

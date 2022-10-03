@@ -35,7 +35,7 @@ const BlogCard = ({
         </div>
       </Link>
       {category?.slug && (
-        <Link href={"/category/" + category.slug}>
+        <Link href={category.slug}>
           <div>{category.name}</div>
         </Link>
       )}
