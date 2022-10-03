@@ -26,7 +26,7 @@ const VerticalNav = ({ postCategories, open }: NavProps) => {
           if (index < 2) {
             return (
               <S.StyledItems key={index}>
-                <a href={category.slug}> {category.name} </a>
+                <a href={"/" + category.slug}> {category.name} </a>
               </S.StyledItems>
             );
           }
@@ -41,7 +41,7 @@ const VerticalNav = ({ postCategories, open }: NavProps) => {
           if (index > 1) {
             return (
               <S.StyledItems key={index}>
-                <a href={category.slug}> {category.name} </a>
+                <a href={"/" + category.slug}> {category.name} </a>
               </S.StyledItems>
             );
           }
