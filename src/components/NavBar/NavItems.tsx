@@ -62,7 +62,7 @@ const NavItems = (props: NavProps) => {
           height={30}
         />
       </S.StyledMenuIcon>
-      <VerticalNav postCategories={props.postCategories} />
+      <VerticalNav open={open} postCategories={props.postCategories} />
     </React.Fragment>
   );
 };

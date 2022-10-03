@@ -1,12 +1,8 @@
-import React, { Children } from "react";
+import React from "react";
 
 import Logo from "./Logo";
 import NavItems, { NavProps } from "./NavItems";
 import * as S from "./styles";
-
-// type Props = {
-//   children?: any;
-// };
 
 const NavBar = (props: NavProps) => {
   return (
