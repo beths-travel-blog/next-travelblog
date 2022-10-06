@@ -1,7 +1,9 @@
+import React from "react";
 import { GraphQLClient, gql } from "graphql-request";
 
+import Grid from "../../src/components/Grid/Grid";
+import GridItem from "../../src/components/Grid/GridItem";
 import BlogCard from "../../src/components/BlogCard/BlogCard";
-import React from "react";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -18,6 +20,11 @@ const GET_SINGLE_CATEGORY = gql`
         image {
           url
         }
+        datePublished
+        category {
+          name
+          slug
+        }
       }
     }
   }
@@ -30,6 +37,15 @@ export const GET_CATEGORIES = gql`
       slug
       posts {
         title
+        slug
+        image {
+          url
+        }
+        datePublished
+        category {
+          name
+          slug
+        }
       }
     }
   }
@@ -58,18 +74,22 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 const CategoryPosts = ({ category }: any) => {
+  // do rowstart
   return (
-    <React.Fragment>
-      {category.posts.map((post: any, i) => (
-        <BlogCard
-          key={i}
-          title={post.title}
-          slug={post.slug}
-          image={post.image}
-          datePublished={post.datePublished}
-        />
+    <Grid columns={12}>
+      {category.posts.map((post: any, i: number) => (
+        <GridItem colStart={3} colSpan={8}>
+          <BlogCard
+            key={i}
+            title={post.title}
+            slug={post.slug}
+            image={post.image}
+            datePublished={post.datePublished}
+            category={post.category}
+          />
+        </GridItem>
       ))}
-    </React.Fragment>
+    </Grid>
   );
 };
 

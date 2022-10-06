@@ -46,7 +46,7 @@ const Home: NextPage = ({ posts }: any) => {
   return (
     <div>
       <PhotoGrid />
-      {posts.map((post: any, i) => (
+      {posts.map((post: any, i: number) => (
         <BlogCard
           key={i}
           title={post.title}

@@ -4,9 +4,10 @@ import styled from "styled-components";
 
 import Grid from "../Grid/Grid";
 import GridItem from "../Grid/GridItem";
-import Greece from "../../public/Greece.png";
-import Sunset from "../../public/Sunset.png";
-import Rome from "../../public/Rome.png";
+
+import Bungee from "../../../public/TravelPhotos/bungee.jpg";
+import Footprints from "../../../public/TravelPhotos/footprints.jpg";
+import Fraser from "../../../public/TravelPhotos/fraser.jpg";
 
 const StyledGrid = styled(Grid)`
   margin: 10px 15px;
@@ -27,16 +28,16 @@ const StyledGridItem = styled(GridItem)`
 const FeaturedImages = () => {
   const imageAttributes = [
     {
-      src: Greece,
-      alt: "Greek building",
+      src: Bungee.src,
+      alt: "",
     },
     {
-      src: Sunset,
-      alt: "Sunset",
+      src: Footprints.src,
+      alt: "",
     },
     {
-      src: Rome,
-      alt: "Roman building",
+      src: Fraser.src,
+      alt: "",
     },
   ];
 

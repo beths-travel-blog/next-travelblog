@@ -1,6 +1,7 @@
 import * as React from "react";
-
 import Link from "next/Link";
+
+import * as S from "./styles";
 
 interface BlogCardProps {
   title: string;
@@ -26,21 +27,23 @@ const BlogCard = ({
   datePublished,
   category,
 }: BlogCardProps) => {
+  const postLink = "/" + category?.slug + "/" + slug;
+
   return (
-    <div>
-      <Link href={"/" + category?.slug + "/" + slug}>
-        <div>
-          <h2>{title}</h2>
-          <img src={image.url} alt="" />
-        </div>
+    <S.BlogCardContainer>
+      <Link href={postLink}>
+        <S.BlogImageContainer>
+          <S.BlogCardImage src={image.url} alt="" />
+        </S.BlogImageContainer>
       </Link>
-      {category?.slug && (
-        <Link href={category.slug}>
-          <div>{category.name}</div>
+      <S.BlogTextContainer>
+        <Link href={postLink}>
+          <h2>{title}</h2>
         </Link>
-      )}
-      <div>{datePublished}</div>
-    </div>
+        {category?.slug && <Link href={category.slug}>{category.name}</Link>}
+        {datePublished}
+      </S.BlogTextContainer>
+    </S.BlogCardContainer>
   );
 };
 
