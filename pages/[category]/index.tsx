@@ -74,23 +74,22 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 const CategoryPosts = ({ category }: any) => {
-  // do rowstart
-  return (
-    <Grid columns={12}>
-      {category.posts.map((post: any, i: number) => (
-        <GridItem colStart={3} colSpan={8}>
-          <BlogCard
-            key={i}
-            title={post.title}
-            slug={post.slug}
-            image={post.image}
-            datePublished={post.datePublished}
-            category={post.category}
-          />
-        </GridItem>
-      ))}
-    </Grid>
-  );
+  const gridItemColSpan = [10, 8, 8, 8];
+  const gridItemColStart = [2, 3, 3, 3];
+  const blogCards = category.posts.map((post: any, i: number) => (
+    <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart}>
+      <BlogCard
+        key={i}
+        title={post.title}
+        slug={post.slug}
+        image={post.image}
+        datePublished={post.datePublished}
+        category={post.category}
+      />
+    </GridItem>
+  ));
+
+  return <Grid columns={12}>{blogCards}</Grid>;
 };
 
 export default CategoryPosts;

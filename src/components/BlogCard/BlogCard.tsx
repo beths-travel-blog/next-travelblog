@@ -32,16 +32,18 @@ const BlogCard = ({
   return (
     <S.BlogCardContainer>
       <Link href={postLink}>
-        <S.BlogImageContainer>
-          <S.BlogCardImage src={image.url} alt="" />
-        </S.BlogImageContainer>
+        <S.BlogCardImage src={image.url} alt="" />
       </Link>
       <S.BlogTextContainer>
         <Link href={postLink}>
           <h2>{title}</h2>
         </Link>
-        {category?.slug && <Link href={category.slug}>{category.name}</Link>}
-        {datePublished}
+        {category?.slug && (
+          <Link href={category.slug}>
+            <h3>{category.name}</h3>
+          </Link>
+        )}
+        <span>{datePublished}</span>
       </S.BlogTextContainer>
     </S.BlogCardContainer>
   );

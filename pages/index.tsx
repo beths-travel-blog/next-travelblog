@@ -5,6 +5,9 @@ import React from "react";
 import { GraphQLClient, gql } from "graphql-request";
 
 import PhotoGrid from "../src/components/PhotoGrid/PhotoGrid";
+import Grid from "../src/components/Grid/Grid";
+import GridItem from "../src/components/Grid/GridItem";
+import Seperator from "../src/components/Seperator/Seperator";
 import BlogCard from "../src/components/BlogCard/BlogCard";
 
 const graphcms = new GraphQLClient(
@@ -43,20 +46,26 @@ export const getStaticProps = async () => {
 };
 
 const Home: NextPage = ({ posts }: any) => {
+  const gridItemColSpan = [10, 8, 8, 8];
+  const gridItemColStart = [2, 3, 3, 3];
+  const blogCards = posts.map((post: any, i: number) => (
+    <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart}>
+      <BlogCard
+        key={i}
+        title={post.title}
+        slug={post.slug}
+        image={post.image}
+        datePublished={post.datePublished}
+        category={post.category}
+      />
+    </GridItem>
+  ));
   return (
-    <div>
+    <>
       <PhotoGrid />
-      {posts.map((post: any, i: number) => (
-        <BlogCard
-          key={i}
-          title={post.title}
-          slug={post.slug}
-          image={post.image}
-          datePublished={post.datePublished}
-          category={post.category}
-        />
-      ))}
-    </div>
+      <Seperator text="Recent Posts" />
+      <Grid columns={12}>{blogCards}</Grid>
+    </>
   );
 };
 
