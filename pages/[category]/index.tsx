@@ -25,6 +25,9 @@ const GET_SINGLE_CATEGORY = gql`
           name
           slug
         }
+        content {
+          html
+        }
       }
     }
   }
@@ -45,6 +48,9 @@ export const GET_CATEGORIES = gql`
         category {
           name
           slug
+        }
+        content {
+          html
         }
       }
     }
@@ -85,6 +91,7 @@ const CategoryPosts = ({ category }: any) => {
         image={post.image}
         datePublished={post.datePublished}
         category={post.category}
+        content={post.content.html}
       />
     </GridItem>
   ));

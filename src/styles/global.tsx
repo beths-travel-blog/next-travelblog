@@ -46,6 +46,7 @@ const GlobalStyle = createGlobalStyle`
     span {
         font-size: 18px;
         margin: 5px 0;
+        text-align: center;
 
         @media (min-width: 900px) {
             font-size: 24px;

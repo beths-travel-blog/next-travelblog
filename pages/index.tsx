@@ -57,6 +57,7 @@ const Home: NextPage = ({ posts }: any) => {
         image={post.image}
         datePublished={post.datePublished}
         category={post.category}
+        content={post.content.html}
       />
     </GridItem>
   ));

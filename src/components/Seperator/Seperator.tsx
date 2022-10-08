@@ -9,7 +9,7 @@ const SeperatorContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 100px;
+  margin: 100px 200px 0;
 `;
 
 const StyledSeperator = styled.div`

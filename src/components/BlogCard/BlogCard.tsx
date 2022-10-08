@@ -9,6 +9,7 @@ interface BlogCardProps {
   image: ImageProps;
   datePublished: string;
   category?: CategoryProps;
+  content: string;
 }
 
 interface ImageProps {
@@ -26,9 +27,9 @@ const BlogCard = ({
   image,
   datePublished,
   category,
+  content,
 }: BlogCardProps) => {
   const postLink = "/" + category?.slug + "/" + slug;
-
   return (
     <S.BlogCardContainer>
       <Link href={postLink}>
@@ -44,6 +45,7 @@ const BlogCard = ({
           </Link>
         )}
         <span>{datePublished}</span>
+        <span> {content.substring(0, 400)} </span>
       </S.BlogTextContainer>
     </S.BlogCardContainer>
   );
