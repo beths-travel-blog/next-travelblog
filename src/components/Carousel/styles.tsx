@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface CarouselItemProps {
-  width?: any; // none optional?
+  width?: string; // none optional?
 }
 
 interface IndicatorProps {
