@@ -33,6 +33,7 @@ const GET_ALL_POSTS = gql`
       image {
         url
       }
+      postPreview
       content {
         html
       }

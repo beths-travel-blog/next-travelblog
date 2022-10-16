@@ -25,6 +25,7 @@ const GET_SINGLE_CATEGORY = gql`
           name
           slug
         }
+        postPreview
         content {
           html
         }
@@ -49,6 +50,7 @@ export const GET_CATEGORIES = gql`
           name
           slug
         }
+        postPreview
         content {
           html
         }
@@ -80,10 +82,10 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 const CategoryPosts = ({ category }: any) => {
-  const gridItemColSpan = [10, 8, 8, 8];
-  const gridItemColStart = [2, 3, 3, 3];
+  const gridItemColSpan = [10, 6, 6, 6];
+  const gridItemColStart = [2, 4, 4, 4];
   const blogCards = category.posts.map((post: any, i: number) => (
-    <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart}>
+    <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart} key={i}>
       <BlogCard
         key={i}
         title={post.title}
@@ -91,7 +93,7 @@ const CategoryPosts = ({ category }: any) => {
         image={post.image}
         datePublished={post.datePublished}
         category={post.category}
-        content={post.content.html}
+        postPreview={post.postPreview}
       />
     </GridItem>
   ));

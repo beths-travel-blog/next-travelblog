@@ -44,7 +44,7 @@ const images = [
   { src: YosemiteLake.src, alt: "" },
 ];
 
-export default function PhotoGrid() {
+const PhotoGrid = () => {
   return (
     <MasonryLayout minWidth={300}>
       {images.map((_image, i) => (
@@ -58,4 +58,6 @@ export default function PhotoGrid() {
       ))}
     </MasonryLayout>
   );
-}
+};
+
+export default PhotoGrid;

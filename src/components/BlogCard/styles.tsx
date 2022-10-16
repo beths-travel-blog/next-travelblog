@@ -18,13 +18,19 @@ export const BlogCardImage = styled.img`
 
   @media (min-width: 900px) {
     width: 100%;
-    max-width: 400px;
+    max-width: 250px;
     height: auto;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1100px) {
     width: 100%;
-    max-width: 600px;
+    max-width: 300px;
+    height: auto;
+  }
+
+  @media (min-width: 1300px) {
+    width: 100%;
+    max-width: 400px;
     height: auto;
   }
 `;

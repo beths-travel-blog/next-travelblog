@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
     h2 {
         font-size: 24px;
         margin: 10px 0;
+        text-align: center;
 
         @media (min-width: 900px) {
             font-size: 40px;
@@ -36,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
     h3 {
         font-size: 20px;
         margin: 5px 0;
+        text-align: center;
 
         @media (min-width: 900px) {
             font-size: 30px;

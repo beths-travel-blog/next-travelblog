@@ -9,6 +9,7 @@ import Grid from "../src/components/Grid/Grid";
 import GridItem from "../src/components/Grid/GridItem";
 import Seperator from "../src/components/Seperator/Seperator";
 import BlogCard from "../src/components/BlogCard/BlogCard";
+import SafeHtml from "../src/elements/SafeHtml";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -22,6 +23,7 @@ const GET_ALL_POSTS = gql`
       image {
         url
       }
+      postPreview
       content {
         html
       }
@@ -46,10 +48,10 @@ export const getStaticProps = async () => {
 };
 
 const Home: NextPage = ({ posts }: any) => {
-  const gridItemColSpan = [10, 8, 8, 8];
-  const gridItemColStart = [2, 3, 3, 3];
+  const gridItemColSpan = [10, 6, 6, 6];
+  const gridItemColStart = [2, 4, 4, 4];
   const blogCards = posts.map((post: any, i: number) => (
-    <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart}>
+    <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart} key={i}>
       <BlogCard
         key={i}
         title={post.title}
@@ -57,7 +59,7 @@ const Home: NextPage = ({ posts }: any) => {
         image={post.image}
         datePublished={post.datePublished}
         category={post.category}
-        content={post.content.html}
+        postPreview={post.postPreview}
       />
     </GridItem>
   ));

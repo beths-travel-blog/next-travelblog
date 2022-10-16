@@ -2,6 +2,7 @@ import * as React from "react";
 import Link from "next/Link";
 
 import * as S from "./styles";
+import SafeHtml from "../../elements/SafeHtml";
 
 interface BlogCardProps {
   title: string;
@@ -9,7 +10,7 @@ interface BlogCardProps {
   image: ImageProps;
   datePublished: string;
   category?: CategoryProps;
-  content: string;
+  postPreview: string;
 }
 
 interface ImageProps {
@@ -27,9 +28,11 @@ const BlogCard = ({
   image,
   datePublished,
   category,
-  content,
+  postPreview,
 }: BlogCardProps) => {
   const postLink = "/" + category?.slug + "/" + slug;
+  const date = new Date(datePublished);
+
   return (
     <S.BlogCardContainer>
       <Link href={postLink}>
@@ -44,8 +47,15 @@ const BlogCard = ({
             <h3>{category.name}</h3>
           </Link>
         )}
-        <span>{datePublished}</span>
-        <span> {content.substring(0, 400)} </span>
+        <span>
+          {date.toLocaleDateString(undefined, {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+          })}
+        </span>
+
+        <SafeHtml content={postPreview} />
       </S.BlogTextContainer>
     </S.BlogCardContainer>
   );
