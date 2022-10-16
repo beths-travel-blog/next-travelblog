@@ -9,7 +9,8 @@ import Grid from "../src/components/Grid/Grid";
 import GridItem from "../src/components/Grid/GridItem";
 import Seperator from "../src/components/Seperator/Seperator";
 import BlogCard from "../src/components/BlogCard/BlogCard";
-import SafeHtml from "../src/elements/SafeHtml";
+import Carousel from "../src/components/Carousel/Carousel";
+import { CarouselItem } from "../src/components/Carousel/Carousel";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -66,6 +67,11 @@ const Home: NextPage = ({ posts }: any) => {
   return (
     <>
       <PhotoGrid />
+      <Carousel>
+        <CarouselItem> Item 1 </CarouselItem>
+        <CarouselItem> Item 2 </CarouselItem>
+        <CarouselItem> Item 3 </CarouselItem>
+      </Carousel>
       <Seperator text="Recent Posts" />
       <Grid columns={12}>{blogCards}</Grid>
     </>
