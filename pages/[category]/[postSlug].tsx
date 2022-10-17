@@ -1,5 +1,6 @@
 import { GraphQLClient, gql } from "graphql-request";
-import moment from "moment";
+
+import ArticleRenderer from "../../src/components/ArticleRenderer/ArticleRenderer";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -70,18 +71,13 @@ export const getStaticProps = async ({ params }: any) => {
 
 const BlogPost = ({ post }: any) => {
   return (
-    <main>
-      <img src={post.image.url} alt={post.title} />
-      <div>
-        <div>
-          <div>
-            <h6>{moment(post.datePublished).format("MMMM d, YYYY")}</h6>
-          </div>
-        </div>
-        <h2>{post.title}</h2>
-      </div>
-      <div dangerouslySetInnerHTML={{ __html: post.content.html }}></div>
-    </main>
+    <ArticleRenderer
+      title={post.title}
+      image={post.image}
+      datePublished={post.datePublished}
+      content={post.content}
+      // category={post.category}
+    />
   );
 };
 

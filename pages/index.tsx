@@ -12,6 +12,10 @@ import BlogCard from "../src/components/BlogCard/BlogCard";
 import Carousel from "../src/components/Carousel/Carousel";
 import { CarouselItem } from "../src/components/Carousel/Carousel";
 
+// import Bungee from "../public/TravelPhotos/bungee.jpg";
+// import Footprints from "../public/TravelPhotos/footprints.jpg";
+// import Fraser from "../public/TravelPhotos/fraser.jpg";
+
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
@@ -67,11 +71,17 @@ const Home: NextPage = ({ posts }: any) => {
   return (
     <>
       <PhotoGrid />
-      <Carousel>
-        <CarouselItem> Item 1 </CarouselItem>
-        <CarouselItem> Item 2 </CarouselItem>
-        <CarouselItem> Item 3 </CarouselItem>
-      </Carousel>
+      {/* <Carousel>
+        <CarouselItem>
+          <img src={Bungee.src} />
+        </CarouselItem>
+        <CarouselItem>
+          <img src={Footprints.src} />
+        </CarouselItem>
+        <CarouselItem>
+          <img src={Fraser.src} />
+        </CarouselItem>
+      </Carousel> */}
       <Seperator text="Recent Posts" />
       <Grid columns={12}>{blogCards}</Grid>
     </>

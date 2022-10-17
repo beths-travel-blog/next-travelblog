@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface CarouselItemProps {
-  width?: string; // none optional?
+  width?: string;
 }
 
 interface IndicatorProps {
@@ -16,6 +16,11 @@ export const CarouselItem = styled.div<CarouselItemProps>`
   height: 200px;
   background-color: green;
   color: #fff;
+
+  & > img {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const Carousel = styled.div`
