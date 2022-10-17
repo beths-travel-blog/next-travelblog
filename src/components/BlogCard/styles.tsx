@@ -33,6 +33,10 @@ export const BlogCardImage = styled.img`
     max-width: 400px;
     height: auto;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const BlogTextContainer = styled.div`
@@ -42,4 +46,18 @@ export const BlogTextContainer = styled.div`
   align-items: center;
 
   width: 100%;
+`;
+
+export const ArticleTitle = styled.h2`
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+`;
+
+export const CategoryTitle = styled.h3`
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;

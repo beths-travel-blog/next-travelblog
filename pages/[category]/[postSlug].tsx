@@ -76,7 +76,7 @@ const BlogPost = ({ post }: any) => {
       image={post.image}
       datePublished={post.datePublished}
       content={post.content}
-      // category={post.category}
+      category={post.category}
     />
   );
 };

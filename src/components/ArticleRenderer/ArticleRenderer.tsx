@@ -1,8 +1,6 @@
-import styled from "styled-components";
-import moment from "moment";
-
+import * as S from "./styles";
 import Grid from "../Grid/Grid";
-import { ElementGridItem } from "./styles";
+import GridItem from "../Grid/GridItem";
 import SafeHtml from "../../elements/SafeHtml";
 
 interface ArticleProps {
@@ -26,21 +24,39 @@ const ArticleRenderer = ({
   image,
   datePublished,
   content,
-}: //   category,
-ArticleProps) => {
+  category,
+}: ArticleProps) => {
   const gridItemColSpan = [10, 6, 6, 6];
   const gridItemColStart = [2, 4, 4, 4];
+
+  const date = new Date(datePublished);
   return (
     <main>
-      <h2>{title}</h2>
-      <img src={image.url} alt={title} />
       <Grid columns={12}>
-        <ElementGridItem colSpan={gridItemColSpan} colStart={gridItemColStart}>
-          <div>
-            <h6>{moment(datePublished).format("MMMM d, YYYY")}</h6>
-          </div>
+        <S.ArticleInfoContainer
+          colSpan={gridItemColSpan}
+          colStart={gridItemColStart}
+        >
+          <h4> {category && category.name} </h4>
+          <h2>{title}</h2>
+          <h4>
+            {date.toLocaleDateString(undefined, {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            })}
+          </h4>
+        </S.ArticleInfoContainer>
+        <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart}>
+          <img src={image.url} alt={title} width="100%" height="auto" />
+        </GridItem>
+        <S.ElementGridItem
+          colSpan={gridItemColSpan}
+          colStart={gridItemColStart}
+        >
+          <div></div>
           <SafeHtml content={content.html} />
-        </ElementGridItem>
+        </S.ElementGridItem>
       </Grid>
     </main>
   );

@@ -2,6 +2,26 @@ import styled from "styled-components";
 
 import GridItem from "../Grid/GridItem";
 
+export const ArticleInfoContainer = styled(GridItem)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    margin: 0;
+  }
+
+  h4 {
+    margin: 0;
+    color: #fcb900;
+  }
+
+  h4:last-child {
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+`;
+
 export const ElementGridItem = styled(GridItem)`
   margin-bottom: 0;
 
