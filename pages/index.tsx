@@ -9,8 +9,8 @@ import Grid from "../src/components/Grid/Grid";
 import GridItem from "../src/components/Grid/GridItem";
 import Seperator from "../src/components/Seperator/Seperator";
 import BlogCard from "../src/components/BlogCard/BlogCard";
-import Carousel from "../src/components/Carousel/Carousel";
-import { CarouselItem } from "../src/components/Carousel/Carousel";
+// import Carousel from "../src/components/Carousel/Carousel";
+// import { CarouselItem } from "../src/components/Carousel/Carousel";
 
 // import Bungee from "../public/TravelPhotos/bungee.jpg";
 // import Footprints from "../public/TravelPhotos/footprints.jpg";

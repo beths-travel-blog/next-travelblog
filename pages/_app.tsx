@@ -6,6 +6,7 @@ import { GraphQLClient, gql } from "graphql-request";
 
 import GlobalStyle from "../src/styles/global";
 import NavBar from "../src/components/NavBar/NavBar";
+import Footer from "../src/components/Footer/Footer";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -33,6 +34,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <GlobalStyle />
       <NavBar postCategories={pageProps.data["categories"]} />
       <Component {...pageProps} />
+      <Footer />
     </React.Fragment>
   );
 };
