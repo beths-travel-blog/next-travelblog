@@ -33,8 +33,6 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
     setWordEntered("");
   };
 
-  // console.log(filteredData);
-
   return (
     <S.SearchContainer hideSearch={hideSearch}>
       <S.SearchInput>
@@ -67,7 +65,10 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
         <S.DataResultContainer>
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <S.DataItem href={value["link"]} target="_blank">
+              <S.DataItem
+                href={"/" + value["category"]["slug"] + "/" + value["slug"]}
+                target="_self" // change to blank to open in new tab
+              >
                 <p>{value["title"]} </p>
               </S.DataItem>
             );

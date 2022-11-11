@@ -4,10 +4,10 @@ import * as S from "./styles";
 import Logo from "../Logo/Logo";
 import NavItems from "./NavItems";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import Data from "../../components/mock-data.json";
 
 export interface NavProps {
   postCategories: CategoryProps[];
+  postData: any;
 }
 
 interface CategoryProps {
@@ -30,7 +30,7 @@ const NavBar = (props: NavProps) => {
       </S.StyledNav>
       <SearchBar
         placeholder="What are you looking for?"
-        data={Data}
+        data={props.postData}
         hideSearch={hideSearch}
       />
     </React.Fragment>

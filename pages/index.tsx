@@ -20,7 +20,7 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
-const GET_ALL_POSTS = gql`
+export const GET_ALL_POSTS = gql`
   {
     posts {
       title
