@@ -9,7 +9,12 @@ const SeperatorContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 100px 200px 0;
+  justify-content: center;
+  margin-top: 100px;
+
+  @media (min-width: 600px) {
+    margin: 100px 200px 0;
+  }
 `;
 
 const StyledSeperator = styled.div`

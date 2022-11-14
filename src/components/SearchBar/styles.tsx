@@ -6,22 +6,34 @@ interface SearchBarProps {
 
 export const SearchInput = styled.div`
   display: flex;
+  border: solid 1px #fcb900;
+  border-radius: 5px;
+  overflow: hidden;
+
+  &:focus {
+    border: solid 5px #fcb900;
+  }
 `;
 
 export const SearchContainer = styled.div<SearchBarProps>`
   display: ${(props) => (props.hideSearch ? "none" : "flex")};
+  flex-direction: row;
   justify-content: center;
+  margin: 100px 0 500px;
   input {
     background-color: white;
     border: 0;
-    border-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
     font-size: 18px;
     padding: 15px;
     height: 30px;
     width: 300px;
   }
+`;
+
+export const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const SearchIconContainer = styled.div`
@@ -40,10 +52,6 @@ export const DataResultContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 export const DataItem = styled.a`
@@ -53,8 +61,20 @@ export const DataItem = styled.a`
   align-items: center;
   color: black;
 
+  &:hover {
+    text-decoration: none;
+  }
+
   p {
     margin-left: 10px;
+  }
+
+  p:focus {
+    text-decoration: underline;
+  }
+
+  p:hover {
+    text-decoration: underline;
   }
 `;
 

@@ -17,9 +17,10 @@ const graphcms = new GraphQLClient(
 const categories = [
   { name: "Asia", slug: "asia" },
   { name: "Europe", slug: "europe" },
-  { name: "Australasia", slug: "australasia" },
   { name: "North America", slug: "north-america" },
   { name: "South America", slug: "south-america" },
+  { name: "Australasia", slug: "australasia" },
+  { name: "Africa", slug: "africa" },
 ];
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

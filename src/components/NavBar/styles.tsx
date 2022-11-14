@@ -59,10 +59,21 @@ export const StyledList = styled.ul<NavProps>`
     padding-top: 0;
     height: 250px;
   }
+
+  * {
+    width: 10%;
+  }
+
+  & > :nth-child(5) {
+    width: 30%;
+  }
+
+  & > :nth-child(9) {
+    object-fit: contain;
+  }
 `;
 
 export const StyledItems = styled.li`
-  width: 20%;
   text-align: center;
   font-size: 30px;
   text-transform: uppercase;
@@ -74,10 +85,11 @@ export const StyledItems = styled.li`
   }
 `;
 
-export const ImageContainer = styled.div`
+export const ImageContainer = styled.a`
   display: none;
 
   @media (min-width: 900px) {
-    display: block;
+    display: flex;
+    justify-content: center;
   }
 `;

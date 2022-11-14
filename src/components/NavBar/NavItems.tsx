@@ -19,6 +19,7 @@ interface CategoryProps {
 
 const VerticalNav = ({ postCategories, open, setHideSearch }: NavProps) => {
   const [hideSearchBar, setHideSearchBar] = React.useState(true);
+  console.log(postCategories);
   return (
     <>
       <S.StyledList open={open}>
@@ -27,7 +28,7 @@ const VerticalNav = ({ postCategories, open, setHideSearch }: NavProps) => {
         </S.StyledItems>
         {postCategories &&
           postCategories.map((category, index) => {
-            if (index < 2) {
+            if (index < 3) {
               return (
                 <S.StyledItems key={index}>
                   <a href={"/" + category.slug}> {category.name} </a>
@@ -35,14 +36,12 @@ const VerticalNav = ({ postCategories, open, setHideSearch }: NavProps) => {
               );
             }
           })}
-        <S.ImageContainer>
-          <a href="/">
-            <Logo />
-          </a>
+        <S.ImageContainer href="/">
+          <Logo />
         </S.ImageContainer>
         {postCategories &&
           postCategories.map((category, index) => {
-            if (index > 1) {
+            if (index > 2) {
               return (
                 <S.StyledItems key={index}>
                   <a href={"/" + category.slug}> {category.name} </a>
@@ -53,8 +52,8 @@ const VerticalNav = ({ postCategories, open, setHideSearch }: NavProps) => {
         <img
           src={hideSearchBar ? SearchIcon.src : Close.src}
           alt="Search"
-          width={30}
-          height={30}
+          width={50}
+          height={50}
           onClick={() => {
             setHideSearch(!hideSearchBar);
             setHideSearchBar(!hideSearchBar);

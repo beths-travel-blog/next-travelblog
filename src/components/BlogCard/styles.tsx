@@ -14,24 +14,17 @@ export const BlogCardContainer = styled.div`
 
 export const BlogCardImage = styled.img`
   max-width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
 
   @media (min-width: 900px) {
     width: 100%;
     max-width: 250px;
-    height: auto;
   }
 
   @media (min-width: 1100px) {
     width: 100%;
     max-width: 300px;
-    height: auto;
-  }
-
-  @media (min-width: 1300px) {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
   }
 
   &:hover {
