@@ -1,6 +1,5 @@
 import * as S from "./styles";
 import Grid from "../Grid/Grid";
-import GridItem from "../Grid/GridItem";
 import SafeHtml from "../../elements/SafeHtml";
 
 interface ArticleProps {
@@ -30,6 +29,7 @@ const ArticleRenderer = ({
   const gridItemColStart = [2, 4, 4, 4];
 
   const date = new Date(datePublished);
+
   return (
     <main>
       <Grid columns={12}>
@@ -47,14 +47,13 @@ const ArticleRenderer = ({
             })}
           </h4>
         </S.ArticleInfoContainer>
-        <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart}>
+        <S.ImageGridItem colSpan={gridItemColSpan} colStart={gridItemColStart}>
           <img src={image.url} alt={title} width="100%" height="auto" />
-        </GridItem>
+        </S.ImageGridItem>
         <S.ElementGridItem
           colSpan={gridItemColSpan}
           colStart={gridItemColStart}
         >
-          <div></div>
           <SafeHtml content={content.html} />
         </S.ElementGridItem>
       </Grid>

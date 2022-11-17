@@ -22,11 +22,15 @@ export const ArticleInfoContainer = styled(GridItem)`
   }
 `;
 
+export const ImageGridItem = styled(GridItem)`
+  margin: 50px 0;
+`;
+
 export const ElementGridItem = styled(GridItem)`
-  margin-bottom: 0;
+  margin-bottom: 50px;
 
   p {
-    margin: 0 0 16px;
+    margin: 0 0 30px;
   }
 
   h1,

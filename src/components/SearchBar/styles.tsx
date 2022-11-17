@@ -10,8 +10,9 @@ export const SearchInput = styled.div`
   border-radius: 5px;
   overflow: hidden;
 
-  &:focus {
-    border: solid 5px #fcb900;
+  *:focus {
+    border: solid 2px #fcb900;
+    outline: none;
   }
 `;
 
