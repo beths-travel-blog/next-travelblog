@@ -93,3 +93,11 @@ export const ImageContainer = styled.a`
     justify-content: center;
   }
 `;
+
+export const StyledImage = styled.img`
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+`;

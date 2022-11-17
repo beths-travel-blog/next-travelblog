@@ -2,7 +2,6 @@ import * as React from "react";
 import Link from "next/Link";
 
 import * as S from "./styles";
-import SafeHtml from "../../elements/SafeHtml";
 
 interface BlogCardProps {
   title: string;
@@ -54,8 +53,7 @@ const BlogCard = ({
             year: "numeric",
           })}
         </span>
-
-        <SafeHtml content={postPreview} />
+        <S.StyledSafeHtml content={postPreview.substring(0, 150) + "..."} />
       </S.BlogTextContainer>
     </S.BlogCardContainer>
   );

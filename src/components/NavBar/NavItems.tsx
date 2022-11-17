@@ -19,7 +19,6 @@ interface CategoryProps {
 
 const VerticalNav = ({ postCategories, open, setHideSearch }: NavProps) => {
   const [hideSearchBar, setHideSearchBar] = React.useState(true);
-  console.log(postCategories);
   return (
     <>
       <S.StyledList open={open}>
@@ -49,8 +48,9 @@ const VerticalNav = ({ postCategories, open, setHideSearch }: NavProps) => {
               );
             }
           })}
-        <img
+        <S.StyledImage
           src={hideSearchBar ? SearchIcon.src : Close.src}
+          tabIndex={0}
           alt="Search"
           width={50}
           height={50}
