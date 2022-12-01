@@ -6,6 +6,7 @@ export const ArticleInfoContainer = styled(GridItem)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
 
   h2 {
     margin: 0;
@@ -45,25 +46,25 @@ export const ElementGridItem = styled(GridItem)`
   h1,
   h1 a {
     font-size: 30px;
-    text-decoration: bold;
+    font-weight: 400;
   }
 
   h2,
   h2 a {
     font-size: 30px;
-    text-decoration: bold;
+    font-weight: 400;
   }
 
   h3,
   h3 a {
     font-size: 30px;
-    text-decoration: bold;
+    font-weight: 400;
   }
 
   h4,
   h4 a {
     font-size: 22px;
-    text-decoration: bold;
+    font-weight: 400;
   }
 
   h5,
@@ -71,17 +72,18 @@ export const ElementGridItem = styled(GridItem)`
   h6,
   h6 a {
     font-size: 16px;
-    text-decoration: bold;
+    font-weight: 400;
   }
 
   img {
     width: 100%;
     height: auto;
+    margin: 30px 0;
   }
 
   strong {
     font-size: 16px;
-    text-decoration: bold;
+    font-weight: 400;
     font-size: inherit;
     font-style: inherit;
   }
@@ -93,7 +95,8 @@ export const ElementGridItem = styled(GridItem)`
   }
 
   ol {
-    counter-reset: item;
+    margin: 16px 0;
+    /* counter-reset: item;
 
     li {
       display: block;
@@ -104,24 +107,24 @@ export const ElementGridItem = styled(GridItem)`
         width: 2em;
         display: inline-block;
       }
-    }
+    } */
   }
 
   ul {
     list-style: disc;
-    margin-bottom: 16px;
-    margin-left: 20px;
+    margin: 16px 0;
   }
 
   table {
-    display: block;
+    display: inline-table;
     margin-top: 56px;
     width: 100%;
     overflow-x: auto;
+    margin: 20px 0;
 
     thead {
       font-size: 16px;
-      text-decoration: bold;
+      font-weight: 400;
     }
 
     tr {
@@ -164,8 +167,8 @@ export const ElementGridItem = styled(GridItem)`
 
   blockquote {
     font-size: 30px;
-    text-decoration: bold;
-    display: inline-block;
+    font-weight: 400;
+    display: block;
     text-align: center;
     quotes: "“" "”" "‘" "’";
 
@@ -180,26 +183,26 @@ export const ElementGridItem = styled(GridItem)`
     &::before,
     &::after {
       font-size: 40px;
-      text-decoration: bold;
+      font-weight: 400;
     }
 
     * {
       font-size: 30px;
-      text-decoration: bold;
+      font-weight: 400;
       text-align: center;
     }
   }
 
   sup {
     font-size: 20px;
-    text-decoration: bold;
+    font-weight: 400;
     position: relative;
     top: -0.5em;
   }
 
   sub {
     font-size: 20px;
-    text-decoration: bold;
+    font-weight: 400;
     position: relative;
     bottom: -0.25em;
   }

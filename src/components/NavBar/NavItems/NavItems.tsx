@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-import * as S from "./styles";
-import Logo from "../Logo/Logo";
-import Menu from "../../../public/Menu.png";
-import Close from "../../../public/Close.png";
-import SearchIcon from "../../../public/SearchIcon.png";
+import * as S from "../styles";
+import Logo from "../../Logo/Logo";
+import Menu from "../../../../public/Menu.png";
+import Close from "../../../../public/Close.png";
+import SearchIcon from "../../../../public/SearchIcon.png";
+import SearchBar from "../../SearchBar/SearchBar";
 
 export interface NavProps {
   postCategories: CategoryProps[];
@@ -66,6 +67,8 @@ const VerticalNav = ({ postCategories, open, setHideSearch }: NavProps) => {
 
 const NavItems = (props: NavProps) => {
   const [open, setOpen] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
+
   return (
     <React.Fragment>
       <S.StyledMenuIcon open={open} onClick={() => setOpen(!open)}>
@@ -81,6 +84,17 @@ const NavItems = (props: NavProps) => {
         postCategories={props.postCategories}
         setHideSearch={props.setHideSearch}
       />
+      <S.StyledSearchIcon
+        open={openSearch}
+        onClick={() => setOpenSearch(!openSearch)}
+      >
+        <img
+          src={openSearch === false ? SearchIcon.src : Close.src}
+          alt="Search bar"
+          width={30}
+          height={30}
+        />
+      </S.StyledSearchIcon>
     </React.Fragment>
   );
 };

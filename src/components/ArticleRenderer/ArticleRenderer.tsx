@@ -18,6 +18,31 @@ interface CategoryProps {
   name?: string;
 }
 
+// const widgetMap: any = {
+//   imageCarousel: { component: ImageCarousel },
+// };
+
+// const widgetNodeRenderer = (
+//   node: WidgetNode,
+//   context: RendererContext,
+//   index: number
+// ) => {
+
+//   // const widgetChildren =
+//   //   node.props && "children" in node.props
+//   //     ? nodeRenderer(node.props.children, context)
+//   //     : {};
+
+//   return React.createElement<any>(
+//     widgetMap[node.type].component,
+//     {
+//       ...node.props,
+//       key: index,
+//     },
+//     widgetChildren
+//   );
+// };
+
 const ArticleRenderer = ({
   title,
   image,

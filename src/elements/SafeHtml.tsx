@@ -35,7 +35,7 @@ const StyledText = styled.div`
     overflow-x: auto;
 
     thead {
-      text-decoration: bold;
+      font-weight: 400;
     }
 
     td {

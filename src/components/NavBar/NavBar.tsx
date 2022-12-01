@@ -2,7 +2,7 @@ import React from "react";
 
 import * as S from "./styles";
 import Logo from "../Logo/Logo";
-import NavItems from "./NavItems";
+import NavItems from "./NavItems/NavItems";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 export interface NavProps {

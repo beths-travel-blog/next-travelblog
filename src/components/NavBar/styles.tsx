@@ -4,6 +4,20 @@ interface NavProps {
   open?: boolean;
 }
 
+export const StyledNav = styled.nav`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+
+  position: sticky;
+  top: 0;
+
+  @media (min-width: 900px) {
+    min-height: 230px;
+  }
+`;
+
 export const StyledMenuIcon = styled.div<NavProps>`
   display: block;
   position: fixed;
@@ -16,17 +30,15 @@ export const StyledMenuIcon = styled.div<NavProps>`
   }
 `;
 
-export const StyledNav = styled.nav`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background: #fff;
-
-  position: sticky;
-  top: 0;
+export const StyledSearchIcon = styled.div<NavProps>`
+  display: block;
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  z-index: 20;
 
   @media (min-width: 900px) {
-    min-height: 230px;
+    display: none;
   }
 `;
 
@@ -42,7 +54,7 @@ export const StyledList = styled.ul<NavProps>`
   right: 0;
   height: 100%;
   width: 100%;
-  padding-top: 200px;
+  padding-top: 100px;
   transition: transform 0.3s ease-in-out;
   z-index: 10;
 
@@ -80,6 +92,11 @@ export const StyledItems = styled.li`
   padding: 10px 0;
 
   @media (min-width: 900px) {
+    font-size: 14px;
+    padding: 0;
+  }
+
+  @media (min-width: 1200px) {
     font-size: 20px;
     padding: 0;
   }
@@ -95,9 +112,14 @@ export const ImageContainer = styled.a`
 `;
 
 export const StyledImage = styled.img`
+  display: none;
   opacity: 0.5;
 
   &:hover {
     opacity: 1;
+  }
+
+  @media (min-width: 900px) {
+    display: block;
   }
 `;
