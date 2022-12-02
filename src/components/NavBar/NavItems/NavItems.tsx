@@ -5,11 +5,10 @@ import Logo from "../../Logo/Logo";
 import Menu from "../../../../public/Menu.png";
 import Close from "../../../../public/Close.png";
 import SearchIcon from "../../../../public/SearchIcon.png";
-import SearchBar from "../../SearchBar/SearchBar";
 
 export interface NavProps {
   postCategories: CategoryProps[];
-  open?: boolean;
+  openMobileNav?: boolean;
   setHideSearch: (value: boolean) => void;
 }
 
@@ -18,11 +17,15 @@ interface CategoryProps {
   slug: string;
 }
 
-const VerticalNav = ({ postCategories, open, setHideSearch }: NavProps) => {
+const VerticalNav = ({
+  postCategories,
+  openMobileNav,
+  setHideSearch,
+}: NavProps) => {
   const [hideSearchBar, setHideSearchBar] = React.useState(true);
   return (
     <>
-      <S.StyledList open={open}>
+      <S.StyledList openMobileNav={openMobileNav}>
         <S.StyledItems>
           <a href="/"> Home </a>
         </S.StyledItems>
@@ -65,28 +68,36 @@ const VerticalNav = ({ postCategories, open, setHideSearch }: NavProps) => {
   );
 };
 
-const NavItems = (props: NavProps) => {
-  const [open, setOpen] = useState(false);
+const NavItems = ({ postCategories, setHideSearch }: NavProps) => {
+  const [openMenu, setOpenMenu] = useState(false);
+  const [hideSearchBar, setHideSearchBar] = React.useState(true);
   const [openSearch, setOpenSearch] = useState(false);
 
   return (
     <React.Fragment>
-      <S.StyledMenuIcon open={open} onClick={() => setOpen(!open)}>
+      <S.StyledMenuIcon
+        openMobileNav={openMenu}
+        onClick={() => setOpenMenu(!openMenu)}
+      >
         <img
-          src={open === false ? Menu.src : Close.src}
+          src={openMenu === false ? Menu.src : Close.src}
           alt="Menu Burger Icon/Close Menu Icon"
           width={30}
           height={30}
         />
       </S.StyledMenuIcon>
       <VerticalNav
-        open={open}
-        postCategories={props.postCategories}
-        setHideSearch={props.setHideSearch}
+        openMobileNav={openMenu}
+        postCategories={postCategories}
+        setHideSearch={setHideSearch}
       />
       <S.StyledSearchIcon
-        open={openSearch}
-        onClick={() => setOpenSearch(!openSearch)}
+        onClick={() => {
+          setHideSearch(!hideSearchBar);
+          setHideSearchBar(!hideSearchBar);
+          setOpenSearch(!openSearch);
+        }}
+        openSearch={openSearch}
       >
         <img
           src={openSearch === false ? SearchIcon.src : Close.src}

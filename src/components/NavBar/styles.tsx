@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface NavProps {
-  open?: boolean;
+  openMobileNav?: boolean;
 }
 
 export const StyledNav = styled.nav`
@@ -30,7 +30,7 @@ export const StyledMenuIcon = styled.div<NavProps>`
   }
 `;
 
-export const StyledSearchIcon = styled.div<NavProps>`
+export const StyledSearchIcon = styled.div<{ openSearch: boolean }>`
   display: block;
   position: fixed;
   top: 30px;
@@ -49,7 +49,8 @@ export const StyledList = styled.ul<NavProps>`
   list-style: none;
   position: fixed;
   background-color: #fff;
-  transform: ${(props) => (props.open ? "translateX(0)" : "translateX(100%)")};
+  transform: ${(props) =>
+    props.openMobileNav ? "translateX(0)" : "translateX(100%)"};
   top: -20px;
   right: 0;
   height: 100%;
@@ -61,7 +62,7 @@ export const StyledList = styled.ul<NavProps>`
   @media (min-width: 900px) {
     flex-flow: row nowrap;
     transform: ${(props) =>
-      props.open ? "translateX(100%)" : "translateX(0)"};
+      props.openMobileNav ? "translateX(100%)" : "translateX(0)"};
     position: absolute;
     width: 100%;
     justify-content: flex-end;
