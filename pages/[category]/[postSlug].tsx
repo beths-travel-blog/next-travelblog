@@ -48,7 +48,7 @@ const GET_ALL_POSTS = gql`
 `;
 
 export const getStaticPaths = async () => {
-  const { posts } = await graphcms.request(GET_ALL_POSTS);
+  const { posts }: any = await graphcms.request(GET_ALL_POSTS);
   return {
     paths: posts.map((post: any) => ({
       params: { category: post.category.slug, postSlug: post.slug },
@@ -59,7 +59,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: any) => {
   const slug = params.postSlug;
-  const data = await graphcms.request(GET_SINGLE_POST, { slug });
+  const data: any = await graphcms.request(GET_SINGLE_POST, { slug });
   const post = data.post;
   return {
     props: {

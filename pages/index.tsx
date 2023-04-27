@@ -43,7 +43,7 @@ export const GET_ALL_POSTS = gql`
 
 export const getStaticProps = async () => {
   // fetch request
-  const { posts } = await graphcms.request(GET_ALL_POSTS);
+  const { posts }: any = await graphcms.request(GET_ALL_POSTS);
   return {
     props: {
       posts,

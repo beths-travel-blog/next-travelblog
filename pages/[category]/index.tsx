@@ -60,7 +60,7 @@ export const GET_CATEGORIES = gql`
 `;
 
 export const getStaticPaths = async () => {
-  const { categories } = await graphcms.request(GET_CATEGORIES);
+  const { categories }: any = await graphcms.request(GET_CATEGORIES);
   return {
     paths: categories.map((category: any) => ({
       params: { category: category.slug },
@@ -71,7 +71,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: any) => {
   const slug = params.category;
-  const data = await graphcms.request(GET_SINGLE_CATEGORY, { slug });
+  const data: any = await graphcms.request(GET_SINGLE_CATEGORY, { slug });
   const category = data.category;
   return {
     props: {
