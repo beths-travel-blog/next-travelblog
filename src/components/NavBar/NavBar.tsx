@@ -6,11 +6,11 @@ import NavItems from "./NavItems/NavItems";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 export interface NavProps {
-  postCategories: CategoryProps[];
+  postContinents: ContinentProps[];
   postData: any;
 }
 
-interface CategoryProps {
+interface ContinentProps {
   name: string;
   slug: string;
 }
@@ -24,7 +24,7 @@ const NavBar = (props: NavProps) => {
           <Logo />
         </a>
         <NavItems
-          postCategories={props.postCategories}
+          postContinents={props.postContinents}
           setHideSearch={setHideSearch}
         />
       </S.StyledNav>

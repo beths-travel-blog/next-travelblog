@@ -13,8 +13,8 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
-// have to manually add any new categories this way
-const categories = [
+// have to manually add any new continents this way
+const continents = [
   { name: "Asia", slug: "asia" },
   { name: "Europe", slug: "europe" },
   { name: "North America", slug: "north-america" },
@@ -31,7 +31,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <meta name="description" content="Plane it by ear: travel blog" />
       </Head>
       <GlobalStyle />
-      <NavBar postCategories={categories} postData={pageProps.data["posts"]} />
+      <NavBar postContinents={continents} postData={pageProps.data["posts"]} />
       <Component {...pageProps} />
       <Footer />
     </React.Fragment>

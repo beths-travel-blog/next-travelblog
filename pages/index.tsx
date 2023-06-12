@@ -33,7 +33,7 @@ export const GET_ALL_POSTS = gql`
         html
       }
       
-      category {
+      continent {
         name
         slug
       }
@@ -41,7 +41,7 @@ export const GET_ALL_POSTS = gql`
   }
 `;
 
-// datePublished above last category {}
+// datePublished above last continent {}
 
 export const getStaticProps = async () => {
   // fetch request
@@ -66,7 +66,7 @@ const Home: NextPage = ({ posts }: any) => {
         image={post.image}
         // datePublished={post.datePublished}
 
-        category={post.category}
+        continent={post.continent}
         postPreview={post.postPreview}
       />
     </GridItem>

@@ -49,7 +49,7 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
             {filteredData.slice(0, 15).map((value, key) => {
               return (
                 <S.DataItem
-                  href={"/" + value["category"]["slug"] + "/" + value["slug"]}
+                  href={"/" + value["continent"]["slug"] + "/" + value["slug"]}
                   target="_self" // change to blank to open in new tab
                 >
                   <p>{value["title"]} </p>

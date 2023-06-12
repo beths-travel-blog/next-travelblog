@@ -9,11 +9,11 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
-// datePublished above category in both gql calls
+// datePublished above continent in both gql calls
 
-const GET_SINGLE_CATEGORY = gql`
-  query Category($slug: String!) {
-    category(where: { slug: $slug }) {
+const GET_SINGLE_CONTINENT = gql`
+  query Continent($slug: String!) {
+    continent(where: { slug: $slug }) {
       name
       slug
       posts {
@@ -23,7 +23,7 @@ const GET_SINGLE_CATEGORY = gql`
           url
         }
         
-        category {
+        continent {
           name
           slug
         }
@@ -36,9 +36,9 @@ const GET_SINGLE_CATEGORY = gql`
   }
 `;
 
-export const GET_CATEGORIES = gql`
+export const GET_CONTINENTS = gql`
   {
-    categories {
+    continents {
       name
       slug
       posts {
@@ -47,8 +47,7 @@ export const GET_CATEGORIES = gql`
         image {
           url
         }
-        
-        category {
+        continent {
           name
           slug
         }
@@ -62,31 +61,31 @@ export const GET_CATEGORIES = gql`
 `;
 
 export const getStaticPaths = async () => {
-  const { categories }: any = await graphcms.request(GET_CATEGORIES);
+  const { continents }: any = await graphcms.request(GET_CONTINENTS);
   return {
-    paths: categories.map((category: any) => ({
-      params: { category: category.slug },
+    paths: continents.map((continent: any) => ({
+      params: { continent: continent.slug },
     })),
     fallback: false,
   };
 };
 
 export const getStaticProps = async ({ params }: any) => {
-  const slug = params.category;
-  const data: any = await graphcms.request(GET_SINGLE_CATEGORY, { slug });
-  const category = data.category;
+  const slug = params.continent;
+  const data: any = await graphcms.request(GET_SINGLE_CONTINENT, { slug });
+  const continent = data.continent;
   return {
     props: {
-      category,
+      continent,
     },
     revalidate: 30,
   };
 };
 
-const CategoryPosts = ({ category }: any) => {
+const ContinentPosts = ({ continent }: any) => {
   const gridItemColSpan = [10, 6, 6, 6];
   const gridItemColStart = [2, 4, 4, 4];
-  const blogCards = category.posts.map((post: any, i: number) => (
+  const blogCards = continent.posts.map((post: any, i: number) => (
     <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart} key={i}>
       <BlogCard
         key={i}
@@ -94,7 +93,7 @@ const CategoryPosts = ({ category }: any) => {
         slug={post.slug}
         image={post.image}
         // datePublished={post.datePublished}
-        category={post.category}
+        continent={post.continent}
         postPreview={post.postPreview}
       />
     </GridItem>
@@ -103,4 +102,4 @@ const CategoryPosts = ({ category }: any) => {
   return <Grid columns={12}>{blogCards}</Grid>;
 };
 
-export default CategoryPosts;
+export default ContinentPosts;

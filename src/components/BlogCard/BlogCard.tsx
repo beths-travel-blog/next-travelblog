@@ -8,7 +8,7 @@ interface BlogCardProps {
   slug: string;
   image: ImageProps;
   // datePublished: string;
-  category?: CategoryProps;
+  continent?: ContinentProps;
   postPreview: string;
 }
 
@@ -16,7 +16,7 @@ interface ImageProps {
   url: string;
 }
 
-interface CategoryProps {
+interface ContinentProps {
   name?: string;
   slug?: string;
 }
@@ -26,10 +26,10 @@ const BlogCard = ({
   slug,
   image,
   // datePublished: string;
-  category,
+  continent,
   postPreview,
 }: BlogCardProps) => {
-  const postLink = "/" + category?.slug + "/" + slug;
+  const postLink = "/" + continent?.slug + "/" + slug;
   // const date = new Date(datePublished);
 
   return (
@@ -41,9 +41,9 @@ const BlogCard = ({
         <Link href={postLink}>
           <S.ArticleTitle>{title}</S.ArticleTitle>
         </Link>
-        {category?.slug && (
-          <Link href={category.slug}>
-            <S.CategoryTitle>{category.name}</S.CategoryTitle>
+        {continent?.slug && (
+          <Link href={continent.slug}>
+            <S.ContinentTitle>{continent.name}</S.ContinentTitle>
           </Link>
         )}
         {/* <span>

@@ -19,7 +19,7 @@ const GET_SINGLE_POST = gql`
       image {
         url
       }
-      category {
+      continent {
         name
         slug
       }
@@ -39,8 +39,7 @@ const GET_ALL_POSTS = gql`
       content {
         html
       }
-      
-      category {
+      continent {
         name
         slug
       }
@@ -48,13 +47,13 @@ const GET_ALL_POSTS = gql`
   }
 `;
 
-// datePublished above category{}
+// datePublished above continent{}
 
 export const getStaticPaths = async () => {
   const { posts }: any = await graphcms.request(GET_ALL_POSTS);
   return {
     paths: posts.map((post: any) => ({
-      params: { category: post.category.slug, postSlug: post.slug },
+      params: { continent: post.continent.slug, postSlug: post.slug },
     })),
     fallback: false,
   };
@@ -80,7 +79,7 @@ const BlogPost = ({ post }: any) => {
       // datePublished={post.datePublished}
 
       content={post.content}
-      category={post.category}
+      continent={post.continent}
     />
   );
 };

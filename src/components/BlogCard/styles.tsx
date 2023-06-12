@@ -61,7 +61,7 @@ export const ArticleTitle = styled.h3`
   }
 `;
 
-export const CategoryTitle = styled.h4`
+export const ContinentTitle = styled.h4`
   &:hover {
     text-decoration: underline;
     cursor: pointer;

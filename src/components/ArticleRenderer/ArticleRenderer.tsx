@@ -7,14 +7,14 @@ interface ArticleProps {
   image: ImageProps;
   // datePublished: string;
   content: any; // string?
-  category?: CategoryProps;
+  continent?: ContinentProps;
 }
 
 interface ImageProps {
   url: string;
 }
 
-interface CategoryProps {
+interface ContinentProps {
   name?: string;
 }
 
@@ -48,7 +48,7 @@ const ArticleRenderer = ({
   image,
   // datePublished,
   content,
-  category,
+  continent,
 }: ArticleProps) => {
   const gridItemColSpan = [10, 6, 6, 6];
   const gridItemColStart = [2, 4, 4, 4];
@@ -62,7 +62,7 @@ const ArticleRenderer = ({
           colSpan={gridItemColSpan}
           colStart={gridItemColStart}
         >
-          <h4> {category && category.name} </h4>
+          <h4> {continent && continent.name} </h4>
           <h2>{title}</h2>
           {/* <h4>
             {date.toLocaleDateString(undefined, {

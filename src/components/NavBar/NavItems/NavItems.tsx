@@ -7,18 +7,18 @@ import Close from "../../../../public/Close.png";
 import SearchIcon from "../../../../public/SearchIcon.png";
 
 export interface NavProps {
-  postCategories: CategoryProps[];
+  postContinents: ContinentProps[];
   openMobileNav?: boolean;
   setHideSearch: (value: boolean) => void;
 }
 
-interface CategoryProps {
+interface ContinentProps {
   name: string;
   slug: string;
 }
 
 const VerticalNav = ({
-  postCategories,
+  postContinents,
   openMobileNav,
   setHideSearch,
 }: NavProps) => {
@@ -29,12 +29,12 @@ const VerticalNav = ({
         <S.StyledItems>
           <a href="/"> Home </a>
         </S.StyledItems>
-        {postCategories &&
-          postCategories.map((category, index) => {
+        {postContinents &&
+          postContinents.map((continent, index) => {
             if (index < 3) {
               return (
                 <S.StyledItems key={index}>
-                  <a href={"/" + category.slug}> {category.name} </a>
+                  <a href={"/" + continent.slug}> {continent.name} </a>
                 </S.StyledItems>
               );
             }
@@ -42,12 +42,12 @@ const VerticalNav = ({
         <S.ImageContainer href="/">
           <Logo />
         </S.ImageContainer>
-        {postCategories &&
-          postCategories.map((category, index) => {
+        {postContinents &&
+          postContinents.map((continent, index) => {
             if (index > 2) {
               return (
                 <S.StyledItems key={index}>
-                  <a href={"/" + category.slug}> {category.name} </a>
+                  <a href={"/" + continent.slug}> {continent.name} </a>
                 </S.StyledItems>
               );
             }
@@ -68,7 +68,7 @@ const VerticalNav = ({
   );
 };
 
-const NavItems = ({ postCategories, setHideSearch }: NavProps) => {
+const NavItems = ({ postContinents, setHideSearch }: NavProps) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [hideSearchBar, setHideSearchBar] = React.useState(true);
   const [openSearch, setOpenSearch] = useState(false);
@@ -88,7 +88,7 @@ const NavItems = ({ postCategories, setHideSearch }: NavProps) => {
       </S.StyledMenuIcon>
       <VerticalNav
         openMobileNav={openMenu}
-        postCategories={postCategories}
+        postContinents={postContinents}
         setHideSearch={setHideSearch}
       />
       <S.StyledSearchIcon
