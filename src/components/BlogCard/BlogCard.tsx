@@ -7,7 +7,7 @@ interface BlogCardProps {
   title: string;
   slug: string;
   image: ImageProps;
-  datePublished: string;
+  // datePublished: string;
   category?: CategoryProps;
   postPreview: string;
 }
@@ -25,12 +25,12 @@ const BlogCard = ({
   title,
   slug,
   image,
-  datePublished,
+  // datePublished: string;
   category,
   postPreview,
 }: BlogCardProps) => {
   const postLink = "/" + category?.slug + "/" + slug;
-  const date = new Date(datePublished);
+  // const date = new Date(datePublished);
 
   return (
     <S.BlogCardContainer>
@@ -46,13 +46,13 @@ const BlogCard = ({
             <S.CategoryTitle>{category.name}</S.CategoryTitle>
           </Link>
         )}
-        <span>
+        {/* <span>
           {date.toLocaleDateString(undefined, {
             day: "numeric",
             month: "short",
             year: "numeric",
           })}
-        </span>
+        </span> */}
         <S.StyledSafeHtml content={postPreview.substring(0, 150) + "..."} />
       </S.BlogTextContainer>
     </S.BlogCardContainer>

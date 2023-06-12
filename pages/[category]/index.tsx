@@ -9,6 +9,8 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
+// datePublished above category in both gql calls
+
 const GET_SINGLE_CATEGORY = gql`
   query Category($slug: String!) {
     category(where: { slug: $slug }) {
@@ -20,7 +22,7 @@ const GET_SINGLE_CATEGORY = gql`
         image {
           url
         }
-        datePublished
+        
         category {
           name
           slug
@@ -45,7 +47,7 @@ export const GET_CATEGORIES = gql`
         image {
           url
         }
-        datePublished
+        
         category {
           name
           slug
@@ -91,7 +93,7 @@ const CategoryPosts = ({ category }: any) => {
         title={post.title}
         slug={post.slug}
         image={post.image}
-        datePublished={post.datePublished}
+        // datePublished={post.datePublished}
         category={post.category}
         postPreview={post.postPreview}
       />

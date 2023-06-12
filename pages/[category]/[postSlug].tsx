@@ -6,12 +6,13 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
+// datePublished between slug and content
 const GET_SINGLE_POST = gql`
   query Post($slug: String!) {
     post(where: { slug: $slug }) {
       title
       slug
-      datePublished
+      
       content {
         html
       }
@@ -38,7 +39,7 @@ const GET_ALL_POSTS = gql`
       content {
         html
       }
-      datePublished
+      
       category {
         name
         slug
@@ -46,6 +47,8 @@ const GET_ALL_POSTS = gql`
     }
   }
 `;
+
+// datePublished above category{}
 
 export const getStaticPaths = async () => {
   const { posts }: any = await graphcms.request(GET_ALL_POSTS);
@@ -74,7 +77,8 @@ const BlogPost = ({ post }: any) => {
     <ArticleRenderer
       title={post.title}
       image={post.image}
-      datePublished={post.datePublished}
+      // datePublished={post.datePublished}
+
       content={post.content}
       category={post.category}
     />

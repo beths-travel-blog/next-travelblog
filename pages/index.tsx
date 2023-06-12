@@ -32,7 +32,7 @@ export const GET_ALL_POSTS = gql`
       content {
         html
       }
-      datePublished
+      
       category {
         name
         slug
@@ -40,6 +40,8 @@ export const GET_ALL_POSTS = gql`
     }
   }
 `;
+
+// datePublished above last category {}
 
 export const getStaticProps = async () => {
   // fetch request
@@ -62,7 +64,8 @@ const Home: NextPage = ({ posts }: any) => {
         title={post.title}
         slug={post.slug}
         image={post.image}
-        datePublished={post.datePublished}
+        // datePublished={post.datePublished}
+
         category={post.category}
         postPreview={post.postPreview}
       />
