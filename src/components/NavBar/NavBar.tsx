@@ -7,7 +7,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 export interface NavProps {
   continents: ContinentProps[];
-  postData: any;
+  countryData: any;
 }
 
 interface ContinentProps {
@@ -30,7 +30,7 @@ const NavBar = (props: NavProps) => {
       </S.StyledNav>
       <SearchBar
         placeholder="What are you looking for?"
-        data={props.postData}
+        data={props.countryData}
         hideSearch={hideSearch}
       />
     </React.Fragment>
