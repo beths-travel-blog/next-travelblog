@@ -31,7 +31,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <meta name="description" content="Plane it by ear: travel blog" />
       </Head>
       <GlobalStyle />
-      <NavBar postContinents={continents} postData={pageProps.data["countries"]} />
+      <NavBar continents={continents} postData={pageProps.data["countries"]} />
       <Component {...pageProps} />
       <Footer />
     </React.Fragment>
