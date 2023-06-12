@@ -7,7 +7,7 @@ import { GraphQLClient } from "graphql-request";
 import GlobalStyle from "../src/styles/global";
 import NavBar from "../src/components/NavBar/NavBar";
 import Footer from "../src/components/Footer/Footer";
-import { GET_ALL_POSTS } from "./index";
+import { GET_ALL_COUNTRIES } from "./index";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -31,7 +31,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <meta name="description" content="Plane it by ear: travel blog" />
       </Head>
       <GlobalStyle />
-      <NavBar postContinents={continents} postData={pageProps.data["posts"]} />
+      <NavBar postContinents={continents} postData={pageProps.data["countries"]} />
       <Component {...pageProps} />
       <Footer />
     </React.Fragment>
@@ -45,7 +45,7 @@ MyApp.getInitialProps = async () => {
   let pageProps: any = {};
 
   try {
-    let data: any = await graphcms.request(GET_ALL_POSTS);
+    let data: any = await graphcms.request(GET_ALL_COUNTRIES);
 
     pageProps.data = data;
   } catch (error) {}

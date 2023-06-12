@@ -20,9 +20,9 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
-export const GET_ALL_POSTS = gql`
+export const GET_ALL_COUNTRIES = gql`
   {
-    posts {
+    countries {
       title
       slug
       image {
@@ -45,29 +45,29 @@ export const GET_ALL_POSTS = gql`
 
 export const getStaticProps = async () => {
   // fetch request
-  const { posts }: any = await graphcms.request(GET_ALL_POSTS);
+  const { countries }: any = await graphcms.request(GET_ALL_COUNTRIES);
   return {
     props: {
-      posts,
+      countries,
     },
     revalidate: 30, // if new content, regenerate every 30 seconds
   };
 };
 
-const Home: NextPage = ({ posts }: any) => {
+const Home: NextPage = ({ countries }: any) => {
   const gridItemColSpan = [10, 6, 6, 6];
   const gridItemColStart = [2, 4, 4, 4];
-  const blogCards = posts.map((post: any, i: number) => (
+  const blogCards = countries.map((country: any, i: number) => (
     <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart} key={i}>
       <BlogCard
         key={i}
-        title={post.title}
-        slug={post.slug}
-        image={post.image}
-        // datePublished={post.datePublished}
+        title={country.title}
+        slug={country.slug}
+        image={country.image}
+        // datePublished={country.datePublished}
 
-        continent={post.continent}
-        postPreview={post.postPreview}
+        continent={country.continent}
+        postPreview={country.postPreview}
       />
     </GridItem>
   ));
@@ -85,7 +85,7 @@ const Home: NextPage = ({ posts }: any) => {
           <img src={Fraser.src} />
         </CarouselItem>
       </Carousel> */}
-      <Seperator text="Recent Posts" />
+      <Seperator text="Recent Countries" />
       <Grid columns={12}>{blogCards}</Grid>
     </>
   );

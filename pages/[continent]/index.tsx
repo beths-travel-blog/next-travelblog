@@ -16,7 +16,7 @@ const GET_SINGLE_CONTINENT = gql`
     continent(where: { slug: $slug }) {
       name
       slug
-      posts {
+      countries {
         title
         slug
         image {
@@ -41,7 +41,7 @@ export const GET_CONTINENTS = gql`
     continents {
       name
       slug
-      posts {
+      countries {
         title
         slug
         image {
@@ -85,16 +85,16 @@ export const getStaticProps = async ({ params }: any) => {
 const ContinentPosts = ({ continent }: any) => {
   const gridItemColSpan = [10, 6, 6, 6];
   const gridItemColStart = [2, 4, 4, 4];
-  const blogCards = continent.posts.map((post: any, i: number) => (
+  const blogCards = continent.countries.map((country: any, i: number) => (
     <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart} key={i}>
       <BlogCard
         key={i}
-        title={post.title}
-        slug={post.slug}
-        image={post.image}
-        // datePublished={post.datePublished}
-        continent={post.continent}
-        postPreview={post.postPreview}
+        title={country.title}
+        slug={country.slug}
+        image={country.image}
+        // datePublished={country.datePublished}
+        continent={country.continent}
+        postPreview={country.postPreview}
       />
     </GridItem>
   ));

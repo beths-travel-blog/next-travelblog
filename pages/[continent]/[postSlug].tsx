@@ -7,9 +7,9 @@ const graphcms = new GraphQLClient(
 );
 
 // datePublished between slug and content
-const GET_SINGLE_POST = gql`
-  query Post($slug: String!) {
-    post(where: { slug: $slug }) {
+const GET_SINGLE_COUNTRY = gql`
+  query Country($slug: String!) {
+    country(where: { slug: $slug }) {
       title
       slug
       
@@ -27,9 +27,9 @@ const GET_SINGLE_POST = gql`
   }
 `;
 
-const GET_ALL_POSTS = gql`
+const GET_ALL_COUNTRIES = gql`
   {
-    posts {
+    countries {
       title
       slug
       image {
@@ -50,10 +50,10 @@ const GET_ALL_POSTS = gql`
 // datePublished above continent{}
 
 export const getStaticPaths = async () => {
-  const { posts }: any = await graphcms.request(GET_ALL_POSTS);
+  const { countries }: any = await graphcms.request(GET_ALL_COUNTRIES);
   return {
-    paths: posts.map((post: any) => ({
-      params: { continent: post.continent.slug, postSlug: post.slug },
+    paths: countries.map((country: any) => ({
+      params: { continent: country.continent.slug, postSlug: country.slug },
     })),
     fallback: false,
   };
@@ -61,25 +61,25 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: any) => {
   const slug = params.postSlug;
-  const data: any = await graphcms.request(GET_SINGLE_POST, { slug });
-  const post = data.post;
+  const data: any = await graphcms.request(GET_SINGLE_COUNTRY, { slug });
+  const country = data.country;
   return {
     props: {
-      post,
+      country,
     },
     revalidate: 30,
   };
 };
 
-const BlogPost = ({ post }: any) => {
+const BlogPost = ({ country }: any) => {
   return (
     <ArticleRenderer
-      title={post.title}
-      image={post.image}
-      // datePublished={post.datePublished}
+      title={country.title}
+      image={country.image}
+      // datePublished={country.datePublished}
 
-      content={post.content}
-      continent={post.continent}
+      content={country.content}
+      continent={country.continent}
     />
   );
 };
