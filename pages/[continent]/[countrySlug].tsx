@@ -53,14 +53,14 @@ export const getStaticPaths = async () => {
   const { countries }: any = await graphcms.request(GET_ALL_COUNTRIES);
   return {
     paths: countries.map((country: any) => ({
-      params: { continent: country.continent.slug, postSlug: country.slug },
+      params: { continent: country.continent.slug, countrySlug: country.slug },
     })),
     fallback: false,
   };
 };
 
 export const getStaticProps = async ({ params }: any) => {
-  const slug = params.postSlug;
+  const slug = params.countrySlug;
   const data: any = await graphcms.request(GET_SINGLE_COUNTRY, { slug });
   const country = data.country;
   return {
