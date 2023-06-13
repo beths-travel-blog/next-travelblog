@@ -1,5 +1,8 @@
 import { GraphQLClient, gql } from "graphql-request";
 
+import Grid from "../../../src/components/Grid/Grid";
+import GridItem from "../../../src/components/Grid/GridItem";
+import BlogCard from "../../../src/components/BlogCard/BlogCard";
 import ArticleRenderer from "../../../src/components/ArticleRenderer/ArticleRenderer";
 
 const graphcms = new GraphQLClient(
@@ -71,15 +74,41 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 const BlogPost = ({ country }: any) => {
+
+  const CountryPosts = () => {
+    const gridItemColSpan = [10, 6, 6, 6];
+    const gridItemColStart = [2, 4, 4, 4];
+    const blogCards = country.places.map((place: any, i: number) => (
+      <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart} key={i}>
+        <BlogCard
+          key={i}
+          title={place.title}
+          slug={place.slug}
+          image={{"url": ""}}
+          // datePublished={place.datePublished}
+          continent={place.continent}
+          postPreview={place.postPreview}
+        />
+      </GridItem>
+    ));
+  
+    return <Grid columns={12}>
+        {blogCards}
+    </Grid>;
+  };
+
+
   return (
+    <div>
     <ArticleRenderer
       title={country.title}
       image={country.image}
       // datePublished={country.datePublished}
-
       content={country.content}
       continent={country.continent}
     />
+    <CountryPosts/>
+    </div>
   );
 };
 
