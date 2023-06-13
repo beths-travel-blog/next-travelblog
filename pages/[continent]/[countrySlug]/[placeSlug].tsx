@@ -15,18 +15,12 @@ const GET_SINGLE_PLACE = gql`
       postPreview
       country {
         title
-        slug
-        image {
-          url
-        }
-        continent {
-          name
-          slug
-        }
-        postPreview
-        content {
-          html
-        }
+      }
+      image {
+        url
+      }
+      content {
+        html
       }
     }
 }
@@ -35,18 +29,11 @@ const GET_SINGLE_PLACE = gql`
 const GET_ALL_PLACES = gql`
   {
     places {
-      title
       slug
-      postPreview
-      content {
-        html
-      }
       country {
-        title
         slug
         continent {
           slug
-          name
         }
       }
     }
@@ -84,7 +71,7 @@ const PlaceBlogPost = ({ place }: any) => {
       image={{"url" : ""}}
       // datePublished={place.datePublished}
       content={'Test'}
-      country={place.country.slug}
+      country={place.country.title}
     />
   );
 };

@@ -38,17 +38,8 @@ const GET_SINGLE_COUNTRY = gql`
 const GET_ALL_COUNTRIES = gql`
   {
     countries {
-      title
       slug
-      image {
-        url
-      }
-      postPreview
-      content {
-        html
-      }
       continent {
-        name
         slug
       }
     }

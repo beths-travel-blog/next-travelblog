@@ -22,7 +22,6 @@ const GET_SINGLE_CONTINENT = gql`
         image {
           url
         }
-        
         continent {
           name
           slug
@@ -39,23 +38,7 @@ const GET_SINGLE_CONTINENT = gql`
 export const GET_CONTINENTS = gql`
   {
     continents {
-      name
       slug
-      countries {
-        title
-        slug
-        image {
-          url
-        }
-        continent {
-          name
-          slug
-        }
-        postPreview
-        content {
-          html
-        }
-      }
     }
   }
 `;
