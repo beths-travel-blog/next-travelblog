@@ -18,9 +18,18 @@ const GET_SINGLE_COUNTRY = gql`
       image {
         url
       }
+      postPreview
       continent {
         name
         slug
+      }
+      places {
+        title
+        slug
+        postPreview
+        image {
+          url
+        }
       }
     }
   }

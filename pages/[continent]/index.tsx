@@ -99,7 +99,10 @@ const ContinentPosts = ({ continent }: any) => {
     </GridItem>
   ));
 
-  return <Grid columns={12}>{blogCards}</Grid>;
+  return <Grid columns={12}>
+      <GridItem colSpan={12} colStart={7}><h1>{continent.name}</h1></GridItem>
+      {blogCards}
+  </Grid>;
 };
 
 export default ContinentPosts;
