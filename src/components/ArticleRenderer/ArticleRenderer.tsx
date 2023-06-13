@@ -8,6 +8,7 @@ interface ArticleProps {
   // datePublished: string;
   content: any; // string?
   continent?: ContinentProps;
+  country?: CountryProps;
 }
 
 interface ImageProps {
@@ -15,6 +16,10 @@ interface ImageProps {
 }
 
 interface ContinentProps {
+  name?: string;
+}
+
+interface CountryProps {
   name?: string;
 }
 
@@ -49,6 +54,7 @@ const ArticleRenderer = ({
   // datePublished,
   content,
   continent,
+  country,
 }: ArticleProps) => {
   const gridItemColSpan = [10, 6, 6, 6];
   const gridItemColStart = [2, 4, 4, 4];
@@ -63,6 +69,7 @@ const ArticleRenderer = ({
           colStart={gridItemColStart}
         >
           <h4> {continent && continent.name} </h4>
+          <h4> {country && country.name} </h4>
           <h2>{title}</h2>
           {/* <h4>
             {date.toLocaleDateString(undefined, {
