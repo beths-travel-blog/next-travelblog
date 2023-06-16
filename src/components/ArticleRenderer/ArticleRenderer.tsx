@@ -1,5 +1,4 @@
 import * as S from "./styles";
-import Grid from "../Grid/Grid";
 import SafeHtml from "../../elements/SafeHtml";
 
 interface ArticleProps {
@@ -62,8 +61,7 @@ const ArticleRenderer = ({
   // const date = new Date(datePublished);
 
   return (
-    <main>
-      <Grid columns={12}>
+      <>
         <S.ArticleInfoContainer
           colSpan={gridItemColSpan}
           colStart={gridItemColStart}
@@ -88,8 +86,7 @@ const ArticleRenderer = ({
         >
           <SafeHtml content={content.html} />
         </S.ElementGridItem>
-      </Grid>
-    </main>
+      </>
   );
 };
 

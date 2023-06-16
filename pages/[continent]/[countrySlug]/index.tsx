@@ -92,23 +92,22 @@ const BlogPost = ({ country }: any) => {
       </GridItem>
     ));
   
-    return <Grid columns={12}>
-        {blogCards}
-    </Grid>;
+    return <>{blogCards}</>
   };
 
-
   return (
-    <div>
-    <ArticleRenderer
-      title={country.title}
-      image={country.image}
-      // datePublished={country.datePublished}
-      content={country.content}
-      continent={country.continent}
-    />
-    <CountryPosts/>
-    </div>
+    <main>
+      <Grid columns={12}>
+        <ArticleRenderer
+          title={country.title}
+          image={country.image}
+          // datePublished={country.datePublished}
+          content={country.content}
+          continent={country.continent}
+        />
+        <CountryPosts/>
+      </Grid>
+    </main>
   );
 };
 
