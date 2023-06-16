@@ -83,10 +83,11 @@ const BlogPost = ({ country }: any) => {
         <BlogCard
           key={i}
           title={place.title}
-          slug={place.slug}
+          countrySlug={country.slug}
+          placeSlug={place.slug}
           image={{"url": ""}}
           // datePublished={place.datePublished}
-          continent={place.continent}
+          continent={country.continent}
           postPreview={place.postPreview}
         />
       </GridItem>

@@ -73,7 +73,7 @@ const ContinentPosts = ({ continent }: any) => {
       <BlogCard
         key={i}
         title={country.title}
-        slug={country.slug}
+        countrySlug={country.slug}
         image={country.image}
         // datePublished={country.datePublished}
         continent={country.continent}

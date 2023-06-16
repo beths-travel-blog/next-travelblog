@@ -62,7 +62,7 @@ const Home: NextPage = ({ countries }: any) => {
       <BlogCard
         key={i}
         title={country.title}
-        slug={country.slug}
+        countrySlug={country.slug}
         image={country.image}
         // datePublished={country.datePublished}
 

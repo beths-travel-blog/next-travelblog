@@ -5,7 +5,8 @@ import * as S from "./styles";
 
 interface BlogCardProps {
   title: string;
-  slug: string;
+  countrySlug: string;
+  placeSlug?: string;
   image: ImageProps;
   // datePublished: string;
   continent?: ContinentProps;
@@ -23,13 +24,17 @@ interface ContinentProps {
 
 const BlogCard = ({
   title,
-  slug,
+  countrySlug,
+  placeSlug,
   image,
   // datePublished: string;
   continent,
   postPreview,
 }: BlogCardProps) => {
-  const postLink = "/" + continent?.slug + "/" + slug;
+  
+  const postLink = placeSlug ?
+  "/" + continent?.slug + "/" + countrySlug + "/" + placeSlug :
+  "/" + continent?.slug + "/" + countrySlug;
   // const date = new Date(datePublished);
 
   return (
