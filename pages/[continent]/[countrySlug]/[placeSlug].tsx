@@ -1,5 +1,6 @@
 import { GraphQLClient, gql } from "graphql-request";
 
+import Grid from "../../../src/components/Grid/Grid";
 import ArticleRenderer from "../../../src/components/ArticleRenderer/ArticleRenderer";
 
 const graphcms = new GraphQLClient(
@@ -66,13 +67,17 @@ export const getStaticProps = async ({ params }: any) => {
 
 const PlaceBlogPost = ({ place }: any) => {
   return (
-    <ArticleRenderer
-      title={place.title}
-      image={{"url" : ""}}
-      // datePublished={place.datePublished}
-      content={'Test'}
-      country={place.country.title}
-    />
+    <main>
+      <Grid columns={12}>
+        <ArticleRenderer
+          title={place.title}
+          image={place.image}
+          // datePublished={place.datePublished}
+          content={place.content}
+          country={place.country.title}
+        />
+      </Grid>
+    </main>
   );
 };
 
