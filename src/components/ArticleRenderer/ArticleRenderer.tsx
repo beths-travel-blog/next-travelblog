@@ -5,9 +5,19 @@ interface ArticleProps {
   title: string;
   image: ImageProps;
   // datePublished: string;
-  content: any; // string?
+  content: ContentProps; // string?
   continent?: ContinentProps;
   country?: CountryProps;
+  thingsToDo?: ContentProps;
+  tips?: ContentProps;
+  gettingTo?: ContentProps;
+  gettingAround?: ContentProps;
+  whereToEat?: ContentProps;
+  whereToStay?: ContentProps;
+}
+
+interface ContentProps {
+  html: string;
 }
 
 interface ImageProps {
@@ -54,13 +64,18 @@ const ArticleRenderer = ({
   content,
   continent,
   country,
+  thingsToDo,
+  tips,
+  gettingTo,
+  gettingAround,
+  whereToEat,
+  whereToStay
 }: ArticleProps) => {
   const gridItemColSpan = [10, 6, 6, 6];
   const gridItemColStart = [2, 4, 4, 4];
 
   // const date = new Date(datePublished);
-
-  return (
+return (
       <>
         <S.ArticleInfoContainer
           colSpan={gridItemColSpan}
@@ -85,6 +100,12 @@ const ArticleRenderer = ({
           colStart={gridItemColStart}
         >
           <SafeHtml content={content.html} />
+          <SafeHtml content={thingsToDo ? thingsToDo.html : ''} />
+          <SafeHtml content={tips ? tips.html : ''} />
+          <SafeHtml content={gettingTo ? gettingTo.html : ''} />
+          <SafeHtml content={gettingAround ? gettingAround.html : ''} />
+          <SafeHtml content={whereToEat ? whereToEat.html : ''} />
+          <SafeHtml content={whereToStay ? whereToStay.html : ''} />
         </S.ElementGridItem>
       </>
   );

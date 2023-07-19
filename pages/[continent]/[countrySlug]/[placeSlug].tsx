@@ -23,8 +23,26 @@ const GET_SINGLE_PLACE = gql`
       content {
         html
       }
+      thingsToDo {
+        html
+      }
+      tips {
+        html
+      }
+      gettingTo {
+        html
+      }
+      gettingAround {
+        html
+      }
+      whereToEat {
+        html
+      }
+      whereToStay {
+        html
+      }
     }
-}
+  }
 `;
 
 const GET_ALL_PLACES = gql`
@@ -75,6 +93,12 @@ const PlaceBlogPost = ({ place }: any) => {
           // datePublished={place.datePublished}
           content={place.content}
           country={place.country.title}
+          thingsToDo={place.thingsToDo}
+          tips={place.tips}
+          gettingTo={place.gettingTo}
+          gettingAround={place.gettingAround}
+          whereToEat={place.whereToEat}
+          whereToStay={place.whereToStay}
         />
       </Grid>
     </main>
