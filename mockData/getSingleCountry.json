@@ -1,0 +1,25 @@
+  {
+    "country": {
+      "title": "Peru",
+      "slug": "peru",
+      "content": {
+        "html": "<p>peru is cool</p>"
+      },
+      "image": {
+        "url": "https://media.graphassets.com/ewf3mRhOL6fe5w2fB1wg"
+      },
+      "postPreview": "peru is cool",
+      "continent": {
+        "name": "South America",
+        "slug": "south-america"
+      },
+      "places": [
+        {
+          "title": "Lima",
+          "slug": "lima",
+          "postPreview": "lima is cool",
+          "image": null
+        }
+      ]
+    }
+  }

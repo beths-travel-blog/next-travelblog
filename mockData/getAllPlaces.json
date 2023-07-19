@@ -1,0 +1,38 @@
+{
+    "places": [
+      {
+        "title": "Lima",
+        "slug": "lima",
+        "image": null,
+        "postPreview": "lima is cool",
+        "content": {
+          "html": "<p>Test place</p>"
+        },
+        "country": {
+          "title": "Peru",
+          "slug": "peru",
+          "continent": {
+            "slug": "south-america",
+            "name": "South America"
+          }
+        }
+      },
+      {
+        "title": "Ubud",
+        "slug": "ubud",
+        "image": null,
+        "postPreview": "jsoifohfio",
+        "content": {
+          "html": "<p>kjfjhwn</p>"
+        },
+        "country": {
+          "title": "Indonesia",
+          "slug": "indonesia",
+          "continent": {
+            "slug": "asia",
+            "name": "Asia"
+          }
+        }
+      }
+    ]
+  }

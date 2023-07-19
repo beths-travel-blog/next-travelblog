@@ -1,0 +1,22 @@
+{
+    "continents": [
+      {
+        "slug": "asia"
+      },
+      {
+        "slug": "europe"
+      },
+      {
+        "slug": "australasia"
+      },
+      {
+        "slug": "north-america"
+      },
+      {
+        "slug": "south-america"
+      },
+      {
+        "slug": "africa"
+      }
+    ]
+  }

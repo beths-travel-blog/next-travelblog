@@ -1,0 +1,14 @@
+{
+    "place": {
+      "title": "Lima",
+      "slug": "lima",
+      "postPreview": "lima is cool",
+      "country": {
+        "title": "Peru"
+      },
+      "image": null,
+      "content": {
+        "html": "<p>Test place</p>"
+      }
+    }
+  }
