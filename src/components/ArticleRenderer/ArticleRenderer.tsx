@@ -1,11 +1,15 @@
 import * as S from "./styles";
 import SafeHtml from "../../elements/SafeHtml";
 
+import Carousel from "../../components/Carousel/Carousel";
+import { CarouselItem } from "../../components/Carousel/Carousel";
+
 interface ArticleProps {
   title: string;
   image: ImageProps;
+  images: ImageProps[];
   // datePublished: string;
-  content: ContentProps; // string?
+  content?: ContentProps; // string?
   continent?: ContinentProps;
   country?: CountryProps;
   thingsToDo?: ContentProps;
@@ -60,6 +64,7 @@ interface CountryProps {
 const ArticleRenderer = ({
   title,
   image,
+  images,
   // datePublished,
   content,
   continent,
@@ -73,6 +78,14 @@ const ArticleRenderer = ({
 }: ArticleProps) => {
   const gridItemColSpan = [10, 6, 6, 6];
   const gridItemColStart = [2, 4, 4, 4];
+
+  const imageCarousel = images.map((image: any, i) => {
+    return (
+        <CarouselItem>
+          <img src={image.url} alt={title}/>
+        </CarouselItem>
+    );
+  })
 
   // const date = new Date(datePublished);
 return (
@@ -93,13 +106,13 @@ return (
           </h4> */}
         </S.ArticleInfoContainer>
         <S.ImageGridItem colSpan={gridItemColSpan} colStart={gridItemColStart}>
-          <img src={image.url} alt={title} width="100%" height="auto" />
+            <Carousel>{imageCarousel}</Carousel>
         </S.ImageGridItem>
         <S.ElementGridItem
           colSpan={gridItemColSpan}
           colStart={gridItemColStart}
         >
-          <SafeHtml content={content.html} />
+          <SafeHtml content={content ? content.html : ''} />
           <SafeHtml content={thingsToDo ? thingsToDo.html : ''} />
           <SafeHtml content={tips ? tips.html : ''} />
           <SafeHtml content={gettingTo ? gettingTo.html : ''} />

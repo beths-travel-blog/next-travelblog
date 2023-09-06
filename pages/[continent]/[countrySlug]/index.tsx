@@ -15,13 +15,12 @@ const GET_SINGLE_COUNTRY = gql`
     country(where: { slug: $slug }) {
       title
       slug
-      content {
-        html
-      }
       image {
         url
       }
-      postPreview
+      images {
+        url
+      }
       continent {
         name
         slug
@@ -29,7 +28,6 @@ const GET_SINGLE_COUNTRY = gql`
       places {
         title
         slug
-        postPreview
         image {
           url
         }
@@ -85,10 +83,9 @@ const BlogPost = ({ country }: any) => {
           title={place.title}
           countrySlug={country.slug}
           placeSlug={place.slug}
-          image={{"url": ""}}
+          image={place.image}
           // datePublished={place.datePublished}
           continent={country.continent}
-          postPreview={place.postPreview}
         />
       </GridItem>
     ));
@@ -102,8 +99,8 @@ const BlogPost = ({ country }: any) => {
         <ArticleRenderer
           title={country.title}
           image={country.image}
+          images={country.images}
           // datePublished={country.datePublished}
-          content={country.content}
           continent={country.continent}
         />
         <CountryPosts/>

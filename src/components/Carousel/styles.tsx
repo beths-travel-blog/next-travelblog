@@ -13,7 +13,6 @@ export const CarouselItem = styled.div<CarouselItemProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
   background-color: green;
   color: #fff;
 

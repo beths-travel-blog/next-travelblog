@@ -13,11 +13,13 @@ const GET_SINGLE_PLACE = gql`
     place(where: { slug: $slug }) {
       title
       slug
-      postPreview
       country {
         title
       }
       image {
+        url
+      }
+      images {
         url
       }
       content {
@@ -90,6 +92,7 @@ const PlaceBlogPost = ({ place }: any) => {
         <ArticleRenderer
           title={place.title}
           image={place.image}
+          images={place.images}
           // datePublished={place.datePublished}
           content={place.content}
           country={place.country.title}

@@ -10,7 +10,6 @@ interface BlogCardProps {
   image: ImageProps;
   // datePublished: string;
   continent?: ContinentProps;
-  postPreview: string;
 }
 
 interface ImageProps {
@@ -29,7 +28,6 @@ const BlogCard = ({
   image,
   // datePublished: string;
   continent,
-  postPreview,
 }: BlogCardProps) => {
   
   const postLink = placeSlug ?
@@ -58,7 +56,6 @@ const BlogCard = ({
             year: "numeric",
           })}
         </span> */}
-        <S.StyledSafeHtml content={postPreview.substring(0, 150) + "..."} />
       </S.BlogTextContainer>
     </S.BlogCardContainer>
   );

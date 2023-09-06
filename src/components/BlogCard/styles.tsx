@@ -6,12 +6,11 @@ export const BlogCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 30px 0;
-  width: 100%;
+  width: 250px;
   overflow: hidden;
 
   @media (min-width: 900px) {
     height: 300px;
-    flex-direction: row;
     margin: 50px 0;
   }
 `;
@@ -19,16 +18,14 @@ export const BlogCardContainer = styled.div`
 export const BlogCardImage = styled.img`
   max-width: 100%;
   height: 300px;
-  object-fit: cover;
+  // object-fit: cover;
 
   @media (min-width: 900px) {
     width: 100%;
-    max-width: 250px;
   }
 
   @media (min-width: 1100px) {
     width: 100%;
-    max-width: 300px;
   }
 
   &:hover {
@@ -37,13 +34,15 @@ export const BlogCardImage = styled.img`
 `;
 
 export const BlogTextContainer = styled.div`
+  background-color: #FBF6F2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 30px;
-
-  width: 100%;
+  padding: 10px 30px;
+  margin: 0 auto;
+  position: relative;
+  top: -30px;
 `;
 
 export const ArticleTitle = styled.h3`
