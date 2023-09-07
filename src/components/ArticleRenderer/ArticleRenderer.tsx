@@ -105,9 +105,9 @@ return (
             })}
           </h4> */}
         </S.ArticleInfoContainer>
-        <S.ImageGridItem colSpan={gridItemColSpan} colStart={gridItemColStart}>
+        <S.CarouselGridItem colSpan={12} colStart={1}>
             <Carousel>{imageCarousel}</Carousel>
-        </S.ImageGridItem>
+        </S.CarouselGridItem>
         <S.ElementGridItem
           colSpan={gridItemColSpan}
           colStart={gridItemColStart}

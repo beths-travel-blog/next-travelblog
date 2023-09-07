@@ -19,7 +19,7 @@ const Carousel = ({ children }: CarouselProps) => {
   const updateIndex = (newIndex: number) => {
     if (newIndex < 0) {
       newIndex = React.Children.count(children) - 1;
-    } else if (newIndex >= React.Children.count(children)) {
+    } else if (newIndex >= React.Children.count(children)-3) { // -3 to prevent blank spaces in carousel, would be better as an infinite loop
       newIndex = 0;
     }
 
@@ -32,7 +32,7 @@ const Carousel = ({ children }: CarouselProps) => {
       if (!paused) {
         updateIndex(activeIndex + 1);
       }
-    }, 5000);
+    }, 3000);
 
     return () => {
       if (interval) {
@@ -53,39 +53,25 @@ const Carousel = ({ children }: CarouselProps) => {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <S.Inner style={{ transform: `translateX(-${activeIndex * 33.333}%)` }}>
-        {React.Children.map(children, (child, index) => {
-          return React.cloneElement(child, { width: "33.333%" });
-        })}
-      </S.Inner>
-      <S.Indicators>
-        <button
+      <S.LeftButton
           onClick={() => {
             updateIndex(activeIndex - 1);
           }}
         >
-          Prev
-        </button>
+        <S.ArrowIcon viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" ></path></S.ArrowIcon>
+      </S.LeftButton>
+      <S.Inner style={{ transform: `translateX(-${activeIndex * 25}%)` }}>
         {React.Children.map(children, (child, index) => {
-          return (
-            <S.IndicatorButtons
-              active={index === activeIndex}
-              onClick={() => {
-                updateIndex(index);
-              }}
-            >
-              {index + 1}
-            </S.IndicatorButtons>
-          );
+          return React.cloneElement(child, { width: "25%" });
         })}
-        <button
+      </S.Inner>
+      <S.RightButton
           onClick={() => {
             updateIndex(activeIndex + 1);
           }}
         >
-          Next
-        </button>
-      </S.Indicators>
+          <S.ArrowIcon viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" transform="translate(100, 100) rotate(180) "></path></S.ArrowIcon>
+      </S.RightButton>
     </S.Carousel>
   );
 };

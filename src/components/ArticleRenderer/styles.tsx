@@ -23,7 +23,7 @@ export const ArticleInfoContainer = styled(GridItem)`
   }
 `;
 
-export const ImageGridItem = styled(GridItem)`
+export const CarouselGridItem = styled(GridItem)`
   margin: 50px 0;
   display: flex;
   flex-direction: row;
