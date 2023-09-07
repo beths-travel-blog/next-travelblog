@@ -26,10 +26,6 @@ const GET_SINGLE_CONTINENT = gql`
           name
           slug
         }
-        postPreview
-        content {
-          html
-        }
       }
     }
   }
@@ -77,7 +73,6 @@ const ContinentPosts = ({ continent }: any) => {
         image={country.image}
         // datePublished={country.datePublished}
         continent={country.continent}
-        postPreview={country.postPreview}
       />
     </GridItem>
   ));
