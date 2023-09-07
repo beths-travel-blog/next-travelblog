@@ -1,32 +1,20 @@
 import styled from "styled-components";
 
-import SafeHtml from "../../elements/SafeHtml";
-
 export const BlogCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 30px 0;
-  width: 250px;
   overflow: hidden;
 
   @media (min-width: 900px) {
-    height: 300px;
     margin: 50px 0;
   }
 `;
 
 export const BlogCardImage = styled.img`
-  max-width: 100%;
   height: 300px;
-  // object-fit: cover;
-
-  @media (min-width: 900px) {
-    width: 100%;
-  }
-
-  @media (min-width: 1100px) {
-    width: 100%;
-  }
+  width: 100%;
+  object-fit: cover;
 
   &:hover {
     cursor: pointer;
@@ -35,6 +23,9 @@ export const BlogCardImage = styled.img`
 
 export const BlogTextContainer = styled.div`
   background-color: #FBF6F2;
+  padding: 15px;
+  box-shadow: 0 0 0 3px #fff inset;
+  border: 10px solid #fbf6f3;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,14 +55,5 @@ export const ContinentTitle = styled.h4`
   &:hover {
     text-decoration: underline;
     cursor: pointer;
-  }
-`;
-
-export const StyledSafeHtml = styled(SafeHtml)`
-  display: none;
-  text-align: center;
-
-  @media (min-width: 900px) {
-    display: block;
   }
 `;

@@ -5,10 +5,8 @@ import React from "react";
 import { GraphQLClient, gql } from "graphql-request";
 
 import PhotoGrid from "../src/components/PhotoGrid/PhotoGrid";
-import Grid from "../src/components/Grid/Grid";
-import GridItem from "../src/components/Grid/GridItem";
 import Seperator from "../src/components/Seperator/Seperator";
-import BlogCard from "../src/components/BlogCard/BlogCard";
+import BlogCardGrid from "../src/components/BlogCardGrid/BlogCardGrid"
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -44,26 +42,12 @@ export const getStaticProps = async () => {
 };
 
 const Home: NextPage = ({ countries }: any) => {
-  const gridItemColSpan = [10, 6, 6, 6];
-  const gridItemColStart = [2, 4, 4, 4];
-  const blogCards = countries.map((country: any, i: number) => (
-    <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart} key={i}>
-      <BlogCard
-        key={i}
-        title={country.title}
-        countrySlug={country.slug}
-        image={country.image}
-        // datePublished={country.datePublished}
 
-        continent={country.continent}
-      />
-    </GridItem>
-  ));
   return (
     <>
       <PhotoGrid />
       <Seperator text="Recent Countries" />
-      <Grid columns={12}>{blogCards}</Grid>
+      <BlogCardGrid countries={countries} />
     </>
   );
 };

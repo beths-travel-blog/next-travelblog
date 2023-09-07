@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import MasonryLayout from "./MasonryLayout";
+import MasonryLayout from "../MasonryLayout/MasonryLayout";
 
 import Bungee from "../../../public/TravelPhotos/bungee.jpg";
 import VFootprints from "../../../public/TravelPhotos/V_footprints.jpg";

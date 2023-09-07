@@ -44,11 +44,11 @@ const BlogCard = ({
         <Link href={postLink}>
           <S.ArticleTitle>{title}</S.ArticleTitle>
         </Link>
-        {continent?.slug && (
+        {/* {continent?.slug && (
           <Link href={continent.slug}>
             <S.ContinentTitle>{continent.name}</S.ContinentTitle>
           </Link>
-        )}
+        )} */}
         {/* <span>
           {date.toLocaleDateString(undefined, {
             day: "numeric",
