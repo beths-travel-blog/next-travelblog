@@ -5,10 +5,10 @@ import GridItem from "../../../src/components/Grid/GridItem";
 import BlogCard from "../../../src/components/BlogCard/BlogCard";
 
 export interface GridProps {
-    countries: CountryProps[];
+    blogPosts: postProps[];
 }
   
-interface CountryProps {
+interface postProps {
     title: string;
     slug: string;
     placeSlug?: string;
@@ -26,11 +26,11 @@ interface ContinentProps {
     slug?: string;
 }
 
-const BlogCardGrid = ({ countries }: GridProps) => {
+const BlogCardGrid = ({ blogPosts }: GridProps) => {
   const gridItemColSpan = [12, 6, 4, 3];
   const totalColumns = 12;
   const gridItemRowOffset = 2;
-  const blogCards = countries.map((country: any, i: number) => {
+  const blogCards = blogPosts.map((post: any, i: number) => {
     const colStart = gridItemColSpan.map(
       (colSpan) => (i % (totalColumns / colSpan)) * colSpan + 1
     );
@@ -42,11 +42,11 @@ const BlogCardGrid = ({ countries }: GridProps) => {
     <GridItem colSpan={gridItemColSpan} rowStart={rowStart} colStart={colStart} key={i}>
       <BlogCard
         key={i}
-        title={country.title}
-        countrySlug={country.slug}
-        image={country.image}
-        // datePublished={country.datePublished}
-        continent={country.continent}
+        title={post.title}
+        countrySlug={post.slug}
+        image={post.image}
+        // datePublished={post.datePublished}
+        continent={post.continent}
       />
     </GridItem>)
 });

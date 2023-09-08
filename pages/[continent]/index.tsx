@@ -3,6 +3,7 @@ import { GraphQLClient, gql } from "graphql-request";
 
 import Grid from "../../src/components/Grid/Grid";
 import GridItem from "../../src/components/Grid/GridItem";
+import BlogCardGrid from "../../src/components/BlogCardGrid/BlogCardGrid";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -61,9 +62,12 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 const ContinentPosts = ({ continent }: any) => {
-  return <Grid columns={12}>
-            <GridItem colSpan={12} colStart={7}><h1>{continent.name}</h1></GridItem>
-         </Grid>;
+  return <main>
+            <Grid columns={12}>
+              <GridItem colSpan={12} colStart={7}><h1>{continent.name}</h1></GridItem>
+            </Grid>;
+            <BlogCardGrid blogPosts={continent.countries}/>
+          </main>  
 };
 
 

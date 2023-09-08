@@ -41,7 +41,6 @@ export const Carousel = styled.div`
   overflow: hidden;
   position: relative;
   height: 100%;
-  z-index: -1;
 `;
 
 export const Inner = styled.div`

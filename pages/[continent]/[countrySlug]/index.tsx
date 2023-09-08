@@ -2,8 +2,9 @@ import { GraphQLClient, gql } from "graphql-request";
 
 import Grid from "../../../src/components/Grid/Grid";
 import GridItem from "../../../src/components/Grid/GridItem";
-import BlogCard from "../../../src/components/BlogCard/BlogCard";
 import ArticleRenderer from "../../../src/components/ArticleRenderer/ArticleRenderer";
+import BlogCardGrid from "../../../src/components/BlogCardGrid/BlogCardGrid";
+import { count } from "console";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -72,27 +73,6 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 const BlogPost = ({ country }: any) => {
-
-  const CountryPosts = () => {
-    const gridItemColSpan = [10, 6, 6, 6];
-    const gridItemColStart = [2, 4, 4, 4];
-    const blogCards = country.places.map((place: any, i: number) => (
-      <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart} key={i}>
-        <BlogCard
-          key={i}
-          title={place.title}
-          countrySlug={country.slug}
-          placeSlug={place.slug}
-          image={place.image}
-          // datePublished={place.datePublished}
-          continent={country.continent}
-        />
-      </GridItem>
-    ));
-  
-    return <>{blogCards}</>
-  };
-
   return (
     <main>
       <Grid columns={12}>
@@ -103,8 +83,8 @@ const BlogPost = ({ country }: any) => {
           // datePublished={country.datePublished}
           continent={country.continent}
         />
-        <CountryPosts/>
       </Grid>
+      <BlogCardGrid blogPosts={country.places} />
     </main>
   );
 };
