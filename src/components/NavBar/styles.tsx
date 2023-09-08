@@ -12,6 +12,7 @@ export const StyledNav = styled.nav`
 
   position: sticky;
   top: 0;
+  z-index: 100;
 
   @media (min-width: 900px) {
     min-height: 230px;
@@ -23,7 +24,7 @@ export const StyledMenuIcon = styled.div<NavProps>`
   position: fixed;
   top: 30px;
   left: 20px;
-  z-index: 20;
+  z-index: 101;
 
   @media (min-width: 900px) {
     display: none;
