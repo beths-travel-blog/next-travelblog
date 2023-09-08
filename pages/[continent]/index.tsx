@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { GraphQLClient, gql } from "graphql-request";
 
 import Grid from "../../src/components/Grid/Grid";
@@ -39,6 +40,10 @@ export const GET_CONTINENTS = gql`
   }
 `;
 
+const Heading = styled.h1`
+  text-align: center;
+`
+
 export const getStaticPaths = async () => {
   const { continents }: any = await graphcms.request(GET_CONTINENTS);
   return {
@@ -64,9 +69,9 @@ export const getStaticProps = async ({ params }: any) => {
 const ContinentPosts = ({ continent }: any) => {
   return <main>
             <Grid columns={12}>
-              <GridItem colSpan={12} colStart={7}><h1>{continent.name}</h1></GridItem>
+              <GridItem colSpan={6} colStart={4}><Heading>{continent.name}</Heading></GridItem>
             </Grid>;
-            <BlogCardGrid blogPosts={continent.countries}/>
+            <BlogCardGrid blogPosts={continent.countries} postGrid={false}/>
           </main>  
 };
 

@@ -1,17 +1,39 @@
 // Can edit this file to share state between pages
+import React from "react";
 import Head from "next/head";
 import type { AppProps } from "next/app";
-import React from "react";
-import { GraphQLClient } from "graphql-request";
+import { GraphQLClient, gql } from "graphql-request";
 
 import GlobalStyle from "../src/styles/global";
 import NavBar from "../src/components/NavBar/NavBar";
 import Footer from "../src/components/Footer/Footer";
-import { GET_ALL_COUNTRIES } from "./index";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
+
+export const GET_ALL_COUNTRIES = gql`
+  {
+    countries {
+      title
+      slug
+      image {
+        url
+      }
+      places {
+        title
+        slug
+        image {
+          url
+        } 
+      }      
+      continent {
+        name
+        slug
+      }
+    }
+  }
+`;
 
 // have to manually add any new continents this way, add the gql query here?
 const continents = [

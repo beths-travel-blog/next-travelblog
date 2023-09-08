@@ -12,24 +12,19 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
-export const GET_ALL_COUNTRIES = gql`
+const GET_ALL_PLACES = gql`
   {
-    countries {
-      title
+    places {
       slug
       image {
         url
       }
-      places {
-        title
+      title
+      country {
         slug
-        image {
-          url
-        } 
-      }      
-      continent {
-        name
-        slug
+        continent {
+          slug
+        }
       }
     }
   }
@@ -39,22 +34,21 @@ export const GET_ALL_COUNTRIES = gql`
 
 export const getStaticProps = async () => {
   // fetch request
-  const { countries }: any = await graphcms.request(GET_ALL_COUNTRIES);
+  const { places }: any = await graphcms.request(GET_ALL_PLACES);
   return {
     props: {
-      countries,
+      places,
     },
     revalidate: 30, // if new content, regenerate every 30 seconds
   };
 };
 
-const Home: NextPage = ({ countries }: any) => {
-
+const Home: NextPage = ({ places }: any) => {
   return (
     <>
       <PhotoGrid />
       <Seperator text="Recent Countries" />
-      <BlogCardGrid blogPosts={countries} />
+      <BlogCardGrid blogPosts={places} postGrid={true}/>
     </>
   );
 };

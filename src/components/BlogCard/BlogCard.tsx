@@ -5,34 +5,22 @@ import * as S from "./styles";
 
 interface BlogCardProps {
   title: string;
-  countrySlug: string;
-  placeSlug?: string;
+  postLink: string;
   image: ImageProps;
   // datePublished: string;
-  continent?: ContinentProps;
 }
 
 interface ImageProps {
   url: string;
 }
 
-interface ContinentProps {
-  name?: string;
-  slug?: string;
-}
-
 const BlogCard = ({
   title,
-  countrySlug,
-  placeSlug,
+  postLink,
   image,
   // datePublished: string;
-  continent,
 }: BlogCardProps) => {
   
-  const postLink = placeSlug ?
-  "/" + continent?.slug + "/" + countrySlug + "/" + placeSlug :
-  "/" + continent?.slug + "/" + countrySlug;
   // const date = new Date(datePublished);
 
   return (

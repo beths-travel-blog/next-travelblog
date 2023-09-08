@@ -1,10 +1,8 @@
 import { GraphQLClient, gql } from "graphql-request";
 
 import Grid from "../../../src/components/Grid/Grid";
-import GridItem from "../../../src/components/Grid/GridItem";
 import ArticleRenderer from "../../../src/components/ArticleRenderer/ArticleRenderer";
 import BlogCardGrid from "../../../src/components/BlogCardGrid/BlogCardGrid";
-import { count } from "console";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -31,6 +29,12 @@ const GET_SINGLE_COUNTRY = gql`
         slug
         image {
           url
+        }
+        country {
+          slug
+          continent {
+            slug
+          }
         }
       }
     }
@@ -84,7 +88,7 @@ const BlogPost = ({ country }: any) => {
           continent={country.continent}
         />
       </Grid>
-      <BlogCardGrid blogPosts={country.places} />
+      <BlogCardGrid blogPosts={country.places} postGrid={true}/>
     </main>
   );
 };
