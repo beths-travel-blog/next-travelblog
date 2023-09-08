@@ -6,7 +6,7 @@ import { GraphQLClient, gql } from "graphql-request";
 
 import PhotoGrid from "../src/components/PhotoGrid/PhotoGrid";
 import Seperator from "../src/components/Seperator/Seperator";
-import BlogCardGrid from "../src/components/BlogCardGrid/BlogCardGrid"
+import BlogCardGrid from "../src/components/BlogCardGrid/BlogCardGrid";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"

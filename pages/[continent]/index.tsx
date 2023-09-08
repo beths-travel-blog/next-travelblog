@@ -3,7 +3,6 @@ import { GraphQLClient, gql } from "graphql-request";
 
 import Grid from "../../src/components/Grid/Grid";
 import GridItem from "../../src/components/Grid/GridItem";
-import BlogCard from "../../src/components/BlogCard/BlogCard";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -62,34 +61,11 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 const ContinentPosts = ({ continent }: any) => {
-  const gridItemColSpan = [12, 6, 4, 3];
-  const totalColumns = 12;
-  const gridItemRowOffset = 2;
-  const blogCards = continent.countries.map((country: any, i: number) => {
-    const colStart = gridItemColSpan.map(
-      (colSpan) => (i % (totalColumns / colSpan)) * colSpan + 1
-    );
-    const rowStart = gridItemColSpan.map((colSpan) =>
-      Math.floor(i / (totalColumns / colSpan) + gridItemRowOffset)
-    );
-
-    return (
-    <GridItem colSpan={gridItemColSpan} rowStart={rowStart} colStart={colStart} key={i}>
-      <BlogCard
-        key={i}
-        title={country.title}
-        countrySlug={country.slug}
-        image={country.image}
-        // datePublished={country.datePublished}
-        continent={country.continent}
-      />
-    </GridItem>)
-});
-
-  return <Grid columns={12} colGap={100}>
-      <GridItem colSpan={12} colStart={7}><h1>{continent.name}</h1></GridItem>
-      {blogCards}
-  </Grid>;
+  return <Grid columns={12}>
+            <GridItem colSpan={12} colStart={7}><h1>{continent.name}</h1></GridItem>
+         </Grid>;
 };
+
+
 
 export default ContinentPosts;
