@@ -6,7 +6,6 @@ import Grid from "../Grid/Grid";
 import GridItem from "../Grid/GridItem";
 
 import Bungee from "../../../public/TravelPhotos/bungee.jpg";
-import Footprints from "../../../public/TravelPhotos/footprints.jpg";
 import Fraser from "../../../public/TravelPhotos/fraser.jpg";
 
 const StyledGrid = styled(Grid)`
@@ -29,10 +28,6 @@ const FeaturedImages = () => {
   const imageAttributes = [
     {
       src: Bungee.src,
-      alt: "",
-    },
-    {
-      src: Footprints.src,
       alt: "",
     },
     {

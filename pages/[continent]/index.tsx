@@ -62,10 +62,19 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 const ContinentPosts = ({ continent }: any) => {
-  const gridItemColSpan = [10, 6, 6, 6];
-  const gridItemColStart = [2, 4, 4, 4];
-  const blogCards = continent.countries.map((country: any, i: number) => (
-    <GridItem colSpan={gridItemColSpan} colStart={gridItemColStart} key={i}>
+  const gridItemColSpan = [12, 6, 4, 3];
+  const totalColumns = 12;
+  const gridItemRowOffset = 2;
+  const blogCards = continent.countries.map((country: any, i: number) => {
+    const colStart = gridItemColSpan.map(
+      (colSpan) => (i % (totalColumns / colSpan)) * colSpan + 1
+    );
+    const rowStart = gridItemColSpan.map((colSpan) =>
+      Math.floor(i / (totalColumns / colSpan) + gridItemRowOffset)
+    );
+
+    return (
+    <GridItem colSpan={gridItemColSpan} rowStart={rowStart} colStart={colStart} key={i}>
       <BlogCard
         key={i}
         title={country.title}
@@ -74,10 +83,10 @@ const ContinentPosts = ({ continent }: any) => {
         // datePublished={country.datePublished}
         continent={country.continent}
       />
-    </GridItem>
-  ));
+    </GridItem>)
+});
 
-  return <Grid columns={12}>
+  return <Grid columns={12} colGap={100}>
       <GridItem colSpan={12} colStart={7}><h1>{continent.name}</h1></GridItem>
       {blogCards}
   </Grid>;

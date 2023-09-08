@@ -3,12 +3,8 @@ import styled from "styled-components";
 export const BlogCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 30px 0;
+  margin: 20px 0;
   overflow: hidden;
-
-  @media (min-width: 900px) {
-    margin: 50px 0;
-  }
 `;
 
 export const BlogCardImage = styled.img`

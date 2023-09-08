@@ -5,16 +5,8 @@ import MasonryLayout from "../MasonryLayout/MasonryLayout";
 import BlogCard from "../BlogCard/BlogCard";
 
 const StyledMasonryLayout = styled(MasonryLayout)`
-  // padding: 0 100px;
-`;
-
-const StyledBlogCard = styled(BlogCard)`
-  // width: 100%;
-  height: 150px;
-  object-fit: cover;
-
   @media (min-width: 900px) {
-    height: 200px;
+    padding: 0 100px;
   }
 `;
 
@@ -43,9 +35,9 @@ interface ContinentProps {
 const PhotoGrid = ({countries}: GridProps) => {
 
   return (
-    <StyledMasonryLayout minWidth={300} gap={"10px"}>
+    <StyledMasonryLayout minWidth={300} gap={"30px"}>
       {countries.map((country: any, i: number) => (
-        <StyledBlogCard
+        <BlogCard
         key={i}
         title={country.title}
         countrySlug={country.slug}
