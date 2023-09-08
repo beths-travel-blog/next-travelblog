@@ -19,6 +19,13 @@ export const GET_ALL_COUNTRIES = gql`
       slug
       image {
         url
+      }
+      places {
+        title
+        slug
+        image {
+          url
+        } 
       }      
       continent {
         name

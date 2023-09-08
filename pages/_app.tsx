@@ -13,7 +13,7 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
-// have to manually add any new continents this way
+// have to manually add any new continents this way, add the gql query here?
 const continents = [
   { name: "Asia", slug: "asia" },
   { name: "Europe", slug: "europe" },
