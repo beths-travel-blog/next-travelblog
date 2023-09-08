@@ -47,7 +47,7 @@ const Home: NextPage = ({ places }: any) => {
   return (
     <>
       <PhotoGrid />
-      <Seperator text="Recent Countries" />
+      <Seperator text="Recent Posts" />
       <BlogCardGrid blogPosts={places} postGrid={true}/>
     </>
   );
