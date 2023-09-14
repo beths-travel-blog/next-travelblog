@@ -12,14 +12,11 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
-export const GET_ALL_COUNTRIES = gql`
+export const GET_ALL_DATA = gql`
   {
     countries {
-      title
       slug
-      image {
-        url
-      }
+      title
       places {
         title
         slug
@@ -28,24 +25,41 @@ export const GET_ALL_COUNTRIES = gql`
         } 
       }      
       continent {
-        name
+        title
         slug
+      }
+    }
+    continents {
+      slug
+      title
+      countries {
+        title
+        slug
+        places {
+          title
+          slug
+        }
+      }
+    }
+    places {
+      slug
+      title
+      country {
+        title
+        slug
+        continent {
+          title
+          slug
+        }
       }
     }
   }
 `;
 
-// have to manually add any new continents this way, add the gql query here?
-const continents = [
-  { name: "Asia", slug: "asia" },
-  { name: "Europe", slug: "europe" },
-  { name: "North America", slug: "north-america" },
-  { name: "South America", slug: "south-america" },
-  { name: "Australasia", slug: "australasia" },
-  { name: "Africa", slug: "africa" },
-];
-
 const MyApp = ({ Component, pageProps }: AppProps) => {
+
+  const allData = [...pageProps.data["continents"], ...pageProps.data["countries"], ...pageProps.data["places"]]
+
   return (
     <React.Fragment>
       <Head>
@@ -53,7 +67,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <meta name="description" content="Plane it by ear: travel blog" />
       </Head>
       <GlobalStyle />
-      <NavBar continents={continents} countryData={pageProps.data["countries"]} />
+      <NavBar continents={pageProps.data["continents"]} countryData={allData} />
       <Component {...pageProps} />
       <Footer />
     </React.Fragment>
@@ -67,7 +81,7 @@ MyApp.getInitialProps = async () => {
   let pageProps: any = {};
 
   try {
-    let data: any = await graphcms.request(GET_ALL_COUNTRIES);
+    let data: any = await graphcms.request(GET_ALL_DATA);
 
     pageProps.data = data;
   } catch (error) {}

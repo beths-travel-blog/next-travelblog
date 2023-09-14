@@ -16,7 +16,7 @@ export interface NavProps {
 }
 
 interface ContinentProps {
-  name: string;
+  title: string;
   slug: string;
 }
 
@@ -39,7 +39,7 @@ const NavLinks = ({
           <div> Destinations </div>
             <S.DropdownContent>
               {continents.map((continent, _i) => (
-                <a href={"/" + continent.slug}> {continent.name} </a>
+                <a href={"/" + continent.slug}> {continent.title} </a>
               ))}
             </S.DropdownContent>
         </S.StyledItems>

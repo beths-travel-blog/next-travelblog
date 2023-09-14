@@ -21,7 +21,7 @@ const GET_SINGLE_COUNTRY = gql`
         url
       }
       continent {
-        name
+        title
         slug
       }
       places {

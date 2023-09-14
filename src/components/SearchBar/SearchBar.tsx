@@ -66,9 +66,14 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
         {filteredData.length != 0 && (
           <S.DataResultContainer>
             {filteredData.slice(0, 15).map((value, key) => {
+
+              const placeSlug = value["country"] && "/" + value["country"]["continent"]["slug"] + "/" + value["country"]["slug"] + "/" + value["slug"];
+              const countrySlug = value["continent"] && "/" + value["continent"]["slug"] + "/" + value["slug"];
+              const continentSlug = value["slug"] && "/" + value["slug"];
+
               return (
                 <S.DataItem
-                  href={"/" + value["continent"]["slug"] + "/" + value["slug"]}
+                  href={placeSlug ? placeSlug : countrySlug ? countrySlug : continentSlug}
                   target="_self" // change to blank to open in new tab
                 >
                   <p>{value["title"]} </p>

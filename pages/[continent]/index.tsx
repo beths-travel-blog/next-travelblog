@@ -15,7 +15,7 @@ const graphcms = new GraphQLClient(
 const GET_SINGLE_CONTINENT = gql`
   query Continent($slug: String!) {
     continent(where: { slug: $slug }) {
-      name
+      title
       slug
       countries {
         title
@@ -24,7 +24,7 @@ const GET_SINGLE_CONTINENT = gql`
           url
         }
         continent {
-          name
+          title
           slug
         }
       }
@@ -69,7 +69,7 @@ export const getStaticProps = async ({ params }: any) => {
 const ContinentPosts = ({ continent }: any) => {
   return <main>
             <Grid columns={12}>
-              <GridItem colSpan={6} colStart={4}><Heading>{continent.name}</Heading></GridItem>
+              <GridItem colSpan={6} colStart={4}><Heading>{continent.title}</Heading></GridItem>
             </Grid>;
             <BlogCardGrid blogPosts={continent.countries} postGrid={false}/>
           </main>  
