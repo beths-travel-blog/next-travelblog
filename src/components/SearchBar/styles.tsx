@@ -20,7 +20,7 @@ export const SearchContainer = styled.div<SearchBarProps>`
   display: ${(props) => (props.hideSearch ? "none" : "flex")};
   flex-direction: row;
   justify-content: center;
-  margin: 100px 0 500px;
+  margin: 100px 0 100px;
   input {
     background-color: white;
     border: 0;
@@ -28,6 +28,10 @@ export const SearchContainer = styled.div<SearchBarProps>`
     padding: 15px;
     height: 30px;
     width: 300px;
+  }
+
+  @media (min-width: 900px) {
+    margin: 0;
   }
 `;
 
@@ -53,6 +57,11 @@ export const DataResultContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
+
+  @media (min-width: 900px) {
+    position: absolute;
+    margin-top: 62px;
+  }
 `;
 
 export const DataItem = styled.a`

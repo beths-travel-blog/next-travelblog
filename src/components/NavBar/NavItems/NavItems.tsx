@@ -4,12 +4,15 @@ import * as S from "../styles";
 import Logo from "../../Logo/Logo";
 import Menu from "../../../../public/Menu.png";
 import Close from "../../../../public/Close.png";
+import SearchBar from "../../SearchBar/SearchBar";
 import SearchIcon from "../../../../public/SearchIcon.png";
 
 export interface NavProps {
   continents: ContinentProps[];
+  countryData: any;
   openMobileNav?: boolean;
-  setHideSearch: (value: boolean) => void;
+  hideSearch?: boolean;
+  setHideSearch?: (value: boolean) => void;
 }
 
 interface ContinentProps {
@@ -19,11 +22,10 @@ interface ContinentProps {
 
 const NavLinks = ({
   continents,
+  countryData,
+  hideSearch,
   openMobileNav,
-  setHideSearch,
 }: NavProps) => {
-  const [hideSearchBar, setHideSearchBar] = React.useState(true);
-
   return (
     <>
       <S.StyledList openMobileNav={openMobileNav}>
@@ -44,23 +46,17 @@ const NavLinks = ({
         <S.StyledItems>
           <a href={"/"}> Travel Tips </a>
         </S.StyledItems>
-        <S.StyledImage
-          src={hideSearchBar ? SearchIcon.src : Close.src}
-          tabIndex={0}
-          alt="Search"
-          width={50}
-          height={50}
-          onClick={() => {
-            setHideSearch(!hideSearchBar);
-            setHideSearchBar(!hideSearchBar);
-          }}
+        <SearchBar
+          placeholder="What are you looking for?"
+          data={countryData}
+          hideSearch={hideSearch}
         />
       </S.StyledList>
     </>
   );
 };
 
-const NavItems = ({continents, setHideSearch }: NavProps) => {
+const NavItems = ({continents, countryData, setHideSearch }: NavProps) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [hideSearchBar, setHideSearchBar] = React.useState(true);
   const [openSearch, setOpenSearch] = useState(false);
@@ -69,7 +65,10 @@ const NavItems = ({continents, setHideSearch }: NavProps) => {
     <React.Fragment>
       <S.StyledMenuIcon
         openMobileNav={openMenu}
-        onClick={() => setOpenMenu(!openMenu)}
+        onClick={() => {
+          setOpenMenu(!openMenu)
+          setHideSearchBar(!hideSearchBar);
+        }}
       >
         <img
           src={openMenu === false ? Menu.src : Close.src}
@@ -80,12 +79,13 @@ const NavItems = ({continents, setHideSearch }: NavProps) => {
       </S.StyledMenuIcon>
       <NavLinks
         continents={continents}
+        countryData={countryData}
         openMobileNav={openMenu}
-        setHideSearch={setHideSearch}
+        hideSearch={!hideSearchBar}
       />
       <S.StyledSearchIcon
         onClick={() => {
-          setHideSearch(!hideSearchBar);
+          setHideSearch && setHideSearch(!hideSearchBar);
           setHideSearchBar(!hideSearchBar);
           setOpenSearch(!openSearch);
         }}

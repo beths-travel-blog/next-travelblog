@@ -44,6 +44,24 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
             value={wordEntered}
             onChange={handleFilter}
           />
+          <S.SearchIconContainer>
+              {filteredData.length === 0 ? (
+                <S.StyledImage
+                  src={SearchIcon.src}
+                  alt="Search"
+                  width={30}
+                  height={30}
+                />
+              ) : (
+                <S.StyledImage
+                  src={Close.src}
+                  onClick={clearInput}
+                  alt="Close"
+                  width={20}
+                  height={20}
+                />
+              )}
+          </S.SearchIconContainer>
         </S.SearchInput>
         {filteredData.length != 0 && (
           <S.DataResultContainer>
@@ -60,24 +78,6 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
           </S.DataResultContainer>
         )}
       </S.TextContainer>
-      <S.SearchIconContainer>
-        {filteredData.length === 0 ? (
-          <S.StyledImage
-            src={SearchIcon.src}
-            alt="Search"
-            width={30}
-            height={30}
-          />
-        ) : (
-          <S.StyledImage
-            src={Close.src}
-            onClick={clearInput}
-            alt="Close"
-            width={20}
-            height={20}
-          />
-        )}
-      </S.SearchIconContainer>
     </S.SearchContainer>
   );
 };

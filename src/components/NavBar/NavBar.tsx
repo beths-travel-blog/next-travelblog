@@ -25,6 +25,7 @@ const NavBar = (props: NavProps) => {
         </a>
         <NavItems
           continents={props.continents}
+          countryData={props.countryData}
           setHideSearch={setHideSearch}
         />
       </S.StyledNav>
