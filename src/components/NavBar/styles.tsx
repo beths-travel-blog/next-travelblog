@@ -62,28 +62,23 @@ export const StyledList = styled.ul<NavProps>`
 
   @media (min-width: 900px) {
     flex-flow: row nowrap;
-    transform: ${(props) =>
-      props.openMobileNav ? "translateX(100%)" : "translateX(0)"};
+    transform: ${(props) => props.openMobileNav ? "translateX(100%)" : "translateX(0)"};
     position: absolute;
     width: 100%;
     justify-content: flex-end;
     margin-top: 0px;
     align-items: center;
-    margin-left: 20px;
     padding-top: 0;
     height: 250px;
   }
 
-  * {
-    width: 10%;
+  & > :nth-child(2),  & > :nth-child(3), & > :nth-child(4){
+      padding: 30px;
   }
 
   & > :nth-child(5) {
-    width: 30%;
-  }
-
-  & > :nth-child(9) {
     object-fit: contain;
+    padding: 30px 50px 30px 30px;
   }
 `;
 
@@ -92,6 +87,7 @@ export const StyledItems = styled.li`
   font-size: 30px;
   text-transform: uppercase;
   padding: 10px 0;
+  white-space: nowrap;
 
   @media (min-width: 900px) {
     font-size: 14px;
@@ -106,10 +102,11 @@ export const StyledItems = styled.li`
 
 export const ImageContainer = styled.a`
   display: none;
+  width: 100%;
+  padding-left: 50px;
 
   @media (min-width: 900px) {
     display: flex;
-    justify-content: center;
   }
 `;
 
