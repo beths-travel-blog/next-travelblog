@@ -43,6 +43,29 @@ export const StyledSearchIcon = styled.div<{ openSearch: boolean }>`
   }
 `;
 
+export const ImageContainer = styled.a`
+  display: none;
+  width: 100%;
+  padding-left: 50px;
+
+  @media (min-width: 900px) {
+    display: flex;
+  }
+`;
+
+export const StyledImage = styled.img`
+  display: none;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (min-width: 900px) {
+    display: block;
+  }
+`;
+
 export const StyledList = styled.ul<NavProps>`
   display: flex;
   flex-flow: column nowrap;
@@ -89,6 +112,12 @@ export const StyledItems = styled.li`
   padding: 10px 0;
   white-space: nowrap;
 
+  &:hover {
+    div {
+      display: block;
+    }
+  }
+
   @media (min-width: 900px) {
     font-size: 14px;
     padding: 0;
@@ -100,25 +129,25 @@ export const StyledItems = styled.li`
   }
 `;
 
-export const ImageContainer = styled.a`
+export const DropdownContent = styled.div`
   display: none;
-  width: 100%;
-  padding-left: 50px;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
-  @media (min-width: 900px) {
-    display: flex;
-  }
-`;
-
-export const StyledImage = styled.img`
-  display: none;
-  opacity: 0.5;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  @media (min-width: 900px) {
+  a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
     display: block;
+    text-align: left;
   }
-`;
+
+  a:hover {
+    text-decoration: underline;
+    color: #fcb900
+}
+`
+

@@ -7,28 +7,22 @@ import Close from "../../../../public/Close.png";
 import SearchIcon from "../../../../public/SearchIcon.png";
 
 export interface NavProps {
-  // continents: ContinentProps[];
+  continents: ContinentProps[];
   openMobileNav?: boolean;
   setHideSearch: (value: boolean) => void;
 }
 
-// interface ContinentProps {
-//   name: string;
-//   slug: string;
-// }
+interface ContinentProps {
+  name: string;
+  slug: string;
+}
 
 const NavLinks = ({
-  // continents,
+  continents,
   openMobileNav,
   setHideSearch,
 }: NavProps) => {
   const [hideSearchBar, setHideSearchBar] = React.useState(true);
-
-  const navLinkText = [
-    { name: "Home", slug: "" },
-    { name: "Destinations", slug: "" },
-    { name: "Travel Tips", slug: "" },
-  ];
 
   return (
     <>
@@ -36,13 +30,20 @@ const NavLinks = ({
         <S.ImageContainer href="/">
             <Logo />
         </S.ImageContainer>
-        {navLinkText.map((link, index) => {
-              return (
-                <S.StyledItems key={index}>
-                  <a href={"/" + link.slug}> {link.name} </a>
-                </S.StyledItems>
-              );
-          })}
+        <S.StyledItems>
+          <a href={"/"}> Home </a>
+        </S.StyledItems>
+        <S.StyledItems>
+          <div> Destinations </div>
+            <S.DropdownContent>
+              {continents.map((continent, _i) => (
+                <a href={"/" + continent.slug}> {continent.name} </a>
+              ))}
+            </S.DropdownContent>
+        </S.StyledItems>
+        <S.StyledItems>
+          <a href={"/"}> Travel Tips </a>
+        </S.StyledItems>
         <S.StyledImage
           src={hideSearchBar ? SearchIcon.src : Close.src}
           tabIndex={0}
@@ -59,7 +60,7 @@ const NavLinks = ({
   );
 };
 
-const NavItems = ({setHideSearch }: NavProps) => {
+const NavItems = ({continents, setHideSearch }: NavProps) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [hideSearchBar, setHideSearchBar] = React.useState(true);
   const [openSearch, setOpenSearch] = useState(false);
@@ -78,6 +79,7 @@ const NavItems = ({setHideSearch }: NavProps) => {
         />
       </S.StyledMenuIcon>
       <NavLinks
+        continents={continents}
         openMobileNav={openMenu}
         setHideSearch={setHideSearch}
       />
