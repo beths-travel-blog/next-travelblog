@@ -29,11 +29,11 @@ interface ImageProps {
 }
 
 interface ContinentProps {
-  name?: string;
+  title?: string;
 }
 
 interface CountryProps {
-  name?: string;
+  title?: string;
 }
 
 // const widgetMap: any = {
@@ -63,7 +63,6 @@ interface CountryProps {
 
 const ArticleRenderer = ({
   title,
-  image,
   images,
   // datePublished,
   content,
@@ -94,8 +93,8 @@ return (
           colSpan={gridItemColSpan}
           colStart={gridItemColStart}
         >
-          <h4> {continent && continent.name} </h4>
-          <h4> {country && country.name} </h4>
+          <h4> {continent && continent.title} </h4>
+          <h4> {country && country.title} </h4>
           <h2>{title}</h2>
           {/* <h4>
             {date.toLocaleDateString(undefined, {

@@ -23,15 +23,15 @@ interface ContinentProps {
 const NavLinks = ({
   continents,
   countryData,
-  hideSearch,
   openMobileNav,
+  hideSearch,
 }: NavProps) => {
   return (
     <>
       <S.StyledList openMobileNav={openMobileNav}>
-        <S.ImageContainer href="/">
-            <Logo />
-        </S.ImageContainer>
+        <S.DesktopLogo href="/">
+            <Logo/>
+        </S.DesktopLogo>
         <S.StyledItems>
           <a href={"/"}> Home </a>
         </S.StyledItems>

@@ -1,15 +1,10 @@
 import styled from "styled-components";
 
-interface NavProps {
-  openMobileNav?: boolean;
-}
-
 export const StyledNav = styled.nav`
   width: 100%;
   display: flex;
   justify-content: center;
   background: #fff;
-
   position: sticky;
   top: 0;
   z-index: 100;
@@ -19,7 +14,7 @@ export const StyledNav = styled.nav`
   }
 `;
 
-export const StyledMenuIcon = styled.div<NavProps>`
+export const StyledMenuIcon = styled.div<{openMobileNav: boolean}>`
   display: block;
   position: fixed;
   top: 30px;
@@ -43,13 +38,21 @@ export const StyledSearchIcon = styled.div<{ openSearch: boolean }>`
   }
 `;
 
-export const ImageContainer = styled.a`
+export const DesktopLogo = styled.a`
   display: none;
   width: 100%;
   padding-left: 50px;
 
   @media (min-width: 900px) {
     display: flex;
+  }
+`;
+
+export const MobileLogo = styled.a`
+  display: flex;
+
+  @media (min-width: 900px) {
+    display: none;
   }
 `;
 
@@ -66,7 +69,7 @@ export const StyledImage = styled.img`
   }
 `;
 
-export const StyledList = styled.ul<NavProps>`
+export const StyledList = styled.ul<{openMobileNav?: boolean}>`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -85,6 +88,7 @@ export const StyledList = styled.ul<NavProps>`
 
   @media (min-width: 900px) {
     flex-flow: row nowrap;
+    background-color: transparent;
     transform: ${(props) => props.openMobileNav ? "translateX(100%)" : "translateX(0)"};
     position: absolute;
     width: 100%;

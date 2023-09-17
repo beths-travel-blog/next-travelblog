@@ -19,7 +19,7 @@ Initialise defaults in hygraph in project settings -> api access
 
 ## Code
 
-getStaticProps works only for page components inside pages folder and needs getStaticPaths
+getStaticProps works only for page components inside pages folder
 
 Tutorial: https://www.youtube.com/watch?v=Dc7LAgqy1_E&t=2223s
 

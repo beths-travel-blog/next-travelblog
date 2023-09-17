@@ -23,13 +23,13 @@ interface ImageProps {
 }
 
 interface CountryProps {
-  name?: string;
+  title?: string;
   slug?: string;
   continent?: string;
 }
 
 interface ContinentProps {
-  name?: string;
+  title?: string;
   slug?: string;
 }
 
