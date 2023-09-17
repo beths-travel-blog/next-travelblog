@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const StyledNav = styled.nav`
+export const StyledNav = styled.nav<{navBackground: boolean}>`
   width: 100%;
   display: flex;
   justify-content: center;
-  background: #fff;
+  background-color: ${(props) => props.navBackground ? "#fff" : "f0f"};
   position: sticky;
   top: 0;
   z-index: 100;
@@ -109,12 +109,16 @@ export const StyledList = styled.ul<{openMobileNav?: boolean}>`
   }
 `;
 
-export const StyledItems = styled.li`
+export const StyledItems = styled.li<{navBackground: boolean}>`
   text-align: center;
   font-size: 30px;
   text-transform: uppercase;
   padding: 10px 0;
   white-space: nowrap;
+
+  a, div {
+    color: ${(props) => props.navBackground ? "#000" : "#fff"};
+  }
 
   &:hover {
     div {

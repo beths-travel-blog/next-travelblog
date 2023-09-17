@@ -22,7 +22,7 @@ export const SearchContainer = styled.div<SearchBarProps>`
   justify-content: center;
   margin: 100px 0 100px;
   input {
-    background-color: white;
+    background-color: transparent;
     border: 0;
     font-size: 18px;
     padding: 15px;
@@ -41,10 +41,17 @@ export const TextContainer = styled.div`
   align-items: center;
 `;
 
+export const StyledInput = styled.input<{navBackground: boolean}>`
+  &::placeholder {
+    color: ${(props) =>
+      props.navBackground ? "#000" : "#fff"};
+  }
+`
+
 export const SearchIconContainer = styled.div`
   height: 60px;
   width: 50px;
-  background-color: white;
+  background-color: transparent;
   display: grid;
   place-items: center;
 `;
@@ -53,7 +60,7 @@ export const DataResultContainer = styled.div`
   margin-top: 5px;
   width: 300px;
   height: 200px;
-  background-color: white;
+  background-color: #fcb900;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;

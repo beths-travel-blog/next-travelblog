@@ -7,10 +7,11 @@ import Close from "../../../public/Close.png";
 interface SearchBarProps {
   hideSearch?: boolean;
   placeholder?: any;
+  navBackground: boolean;
   data?: any;
 }
 
-const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
+const SearchBar = ({ hideSearch, placeholder, navBackground, data }: SearchBarProps) => {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
@@ -38,9 +39,10 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
     <S.SearchContainer hideSearch={hideSearch}>
       <S.TextContainer>
         <S.SearchInput>
-          <input
+          <S.StyledInput
             type="text"
             placeholder={placeholder}
+            navBackground={navBackground}
             value={wordEntered}
             onChange={handleFilter}
           />

@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import LogoPlane from "../../../public/LogoPlane.png";
 import LogoName from "../../../public/LogoName.png";
+import LogoPlaneWhite from "../../../public/LogoPlaneWhite.png";
+import LogoNameWhite from "../../../public/LogoNameWhite.png";
 
 const StyledLogo = styled.div`
   display: flex;
@@ -48,16 +50,33 @@ export const StyledLogoText = styled.img`
 `;
 
 const Logo = () => {
+
+  const [navBackground, setNavBackground] = React.useState<boolean>(false);
+
+  const changeNavBackground = () => {
+    // >= width of header
+    if (window.scrollY >= 230) {
+      setNavBackground(true)
+    }
+    else {
+      setNavBackground(false)
+    }
+  }
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", changeNavBackground)
+  }
+  
   return (
     <StyledLogo>
       <StyledLogoImage
-        src={LogoPlane.src}
+        src={navBackground ? LogoPlane.src : LogoPlaneWhite.src}
         alt="Plane It By Ear Logo"
         width={100}
         height={"auto"}
       />
       <StyledLogoText
-        src={LogoName.src}
+        src={navBackground ? LogoName.src : LogoNameWhite.src}
         alt="Plane It By Ear Logo"
         width={200}
         height={"auto"}

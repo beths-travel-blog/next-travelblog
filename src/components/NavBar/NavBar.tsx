@@ -17,13 +17,31 @@ interface ContinentProps {
 
 const NavBar = (props: NavProps) => {
   const [hideSearch, setHideSearch] = React.useState(true);
+
+  const [navBackground, setNavBackground] = React.useState(false);
+
+  const changeNavBackground = () => {
+    // >= width of header
+    if (window.scrollY >= 230) {
+      setNavBackground(true)
+    }
+    else {
+      setNavBackground(false)
+    }
+  }
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", changeNavBackground)
+  }
+
   return (
     <React.Fragment>
-      <S.StyledNav>
+      <S.StyledNav navBackground={navBackground}>
         <S.MobileLogo href="/">
           <Logo/>
         </S.MobileLogo>
         <NavItems
+          navBackground={navBackground}
           continents={props.continents}
           countryData={props.countryData}
           setHideSearch={setHideSearch}
@@ -33,6 +51,7 @@ const NavBar = (props: NavProps) => {
         placeholder="What are you looking for?"
         data={props.countryData}
         hideSearch={hideSearch}
+        navBackground={navBackground}
       />
     </React.Fragment>
   );

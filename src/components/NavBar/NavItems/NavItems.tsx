@@ -12,6 +12,7 @@ export interface NavProps {
   countryData: any;
   openMobileNav?: boolean;
   hideSearch?: boolean;
+  navBackground: boolean;
   setHideSearch?: (value: boolean) => void;
 }
 
@@ -24,6 +25,7 @@ const NavLinks = ({
   continents,
   countryData,
   openMobileNav,
+  navBackground,
   hideSearch,
 }: NavProps) => {
   return (
@@ -32,10 +34,10 @@ const NavLinks = ({
         <S.DesktopLogo href="/">
             <Logo/>
         </S.DesktopLogo>
-        <S.StyledItems>
+        <S.StyledItems navBackground={navBackground}>
           <a href={"/"}> Home </a>
         </S.StyledItems>
-        <S.StyledItems>
+        <S.StyledItems navBackground={navBackground}>
           <div> Destinations </div>
             <S.DropdownContent>
               {continents.map((continent, _i) => (
@@ -43,12 +45,13 @@ const NavLinks = ({
               ))}
             </S.DropdownContent>
         </S.StyledItems>
-        <S.StyledItems>
+        <S.StyledItems navBackground={navBackground}>
           <a href={"/"}> Travel Tips </a>
         </S.StyledItems>
         <SearchBar
           placeholder="What are you looking for?"
           data={countryData}
+          navBackground={navBackground}
           hideSearch={hideSearch}
         />
       </S.StyledList>
@@ -56,7 +59,7 @@ const NavLinks = ({
   );
 };
 
-const NavItems = ({continents, countryData, setHideSearch }: NavProps) => {
+const NavItems = ({continents, countryData, navBackground, setHideSearch }: NavProps) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [hideSearchBar, setHideSearchBar] = React.useState(true);
   const [openSearch, setOpenSearch] = useState(false);
@@ -81,6 +84,7 @@ const NavItems = ({continents, countryData, setHideSearch }: NavProps) => {
         continents={continents}
         countryData={countryData}
         openMobileNav={openMenu}
+        navBackground={navBackground}
         hideSearch={!hideSearchBar}
       />
       <S.StyledSearchIcon
