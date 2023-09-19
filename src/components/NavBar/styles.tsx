@@ -10,7 +10,7 @@ export const StyledNav = styled.nav`
   z-index: 100;
 
   @media (min-width: 900px) {
-    min-height: 230px;
+    min-height: 120px;
   }
 `;
 
@@ -93,14 +93,13 @@ export const StyledList = styled.ul<{openMobileNav?: boolean}>`
     position: absolute;
     width: 100%;
     justify-content: flex-end;
-    margin-top: 0px;
     align-items: center;
-    padding-top: 0;
-    height: 250px;
+    padding-top: 10px;
+    height: 100px;
   }
 
   & > :nth-child(2),  & > :nth-child(3), & > :nth-child(4){
-      padding: 30px;
+      padding: 20px;
   }
 
   & > :nth-child(5) {

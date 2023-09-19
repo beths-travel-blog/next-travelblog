@@ -27,7 +27,7 @@ export const SearchContainer = styled.div<SearchBarProps>`
     font-size: 18px;
     padding: 15px;
     height: 30px;
-    width: 300px;
+    width: 250px;
   }
 
   @media (min-width: 900px) {
@@ -51,7 +51,7 @@ export const SearchIconContainer = styled.div`
 
 export const DataResultContainer = styled.div`
   margin-top: 5px;
-  width: 300px;
+  width: 250px;
   height: 200px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

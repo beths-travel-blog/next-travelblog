@@ -6,7 +6,7 @@ import LogoName from "../../../public/LogoName.png";
 
 const StyledLogo = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 
   @keyframes rotate {
@@ -32,18 +32,18 @@ const StyledLogo = styled.div`
 `;
 
 export const StyledLogoImage = styled.img`
-  width: 100px;
+  width: 80px;
 
   @media (min-width: 900px) {
-    width: 150px;
+    width: 120px;
   }
 `;
 
 export const StyledLogoText = styled.img`
-  width: 200px;
+  width: 170px;
 
   @media (min-width: 900px) {
-    width: 300px;
+    width: 250px;
   }
 `;
 

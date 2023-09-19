@@ -37,8 +37,9 @@ const GET_HOMEPAGE_DATA = gql`
 `;
 
 const FeaturedImage = styled.img`
+  // position: sticky;
+  // top: 125px;
   width: 100%;
-  margin-top: -230px; // fix this blocking search on mobile
 `
 
 // datePublished above last continent {}
