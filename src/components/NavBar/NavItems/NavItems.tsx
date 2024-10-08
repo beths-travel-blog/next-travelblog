@@ -47,7 +47,7 @@ const NavLinks = ({
           <a href={"/"}> Travel Tips </a>
         </S.StyledItems>
         <SearchBar
-          placeholder="What are you looking for?"
+          placeholder="SEARCH THE BLOG"
           data={countryData}
           hideSearch={hideSearch}
         />

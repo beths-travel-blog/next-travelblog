@@ -1,7 +1,7 @@
 import { GraphQLClient, gql } from "graphql-request";
 
 import Grid from "../../../src/components/Grid/Grid";
-import ArticleRenderer from "../../../src/components/ArticleRenderer/ArticleRenderer";
+import PlaceRenderer from "../../../src/components/PlaceRenderer/PlaceRenderer";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -89,7 +89,7 @@ const PlaceBlogPost = ({ place }: any) => {
   return (
     <main>
       <Grid columns={12}>
-        <ArticleRenderer
+        <PlaceRenderer
           title={place.title}
           image={place.image}
           images={place.images}

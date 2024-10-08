@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import GridItem from "../Grid/GridItem";
 
+// to do: not used?
 export const ArticleInfoContainer = styled(GridItem)`
   display: flex;
   flex-direction: column;
@@ -30,8 +31,6 @@ export const CarouselGridItem = styled(GridItem)`
 `;
 
 export const ElementGridItem = styled(GridItem)`
-  margin-bottom: 50px;
-
   p {
     margin: 0 0 30px;
   }

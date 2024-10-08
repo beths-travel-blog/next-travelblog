@@ -1,6 +1,32 @@
+update node version, need > 16.15
 sort out any props
 unused imports
 notes in code
 commented out code
 add places to search
-overrides
+overrides / for no connection
+warnings
+check alts, title not right choice
+
+other
+move tips to country schema, add visa and time of year?
+
+commit changes and bring dev up to date
+
+error message when going to page that doesn't exist eg. south-america/mexico
+
+search to do: in code for more todos
+
+
+
+now:
+merge place content into article renderer
+change schema to have tips for country
+take out content from schema and place renderer props
+change getting to to travel and remove getting around
+new grid needs to be responsive
+
+
+checks
+tests
+responsive

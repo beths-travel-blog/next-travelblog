@@ -30,7 +30,7 @@ const NavBar = (props: NavProps) => {
         />
       </S.StyledNav>
       <SearchBar
-        placeholder="What are you looking for?"
+        placeholder="SEARCH THE BLOG"
         data={props.countryData}
         hideSearch={hideSearch}
       />

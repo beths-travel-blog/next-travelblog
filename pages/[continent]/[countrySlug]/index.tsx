@@ -1,7 +1,9 @@
+import React from "react";
+import styled from "styled-components";
 import { GraphQLClient, gql } from "graphql-request";
 
 import Grid from "../../../src/components/Grid/Grid";
-import ArticleRenderer from "../../../src/components/ArticleRenderer/ArticleRenderer";
+import GridItem from "../../../src/components/Grid/GridItem";
 import BlogCardGrid from "../../../src/components/BlogCardGrid/BlogCardGrid";
 
 const graphcms = new GraphQLClient(
@@ -52,6 +54,11 @@ const GET_ALL_COUNTRIES = gql`
   }
 `;
 
+// to do: style this
+const Heading = styled.h1`
+  text-align: center;
+`
+
 // datePublished above continent{}
 
 export const getStaticPaths = async () => {
@@ -76,21 +83,18 @@ export const getStaticProps = async ({ params }: any) => {
   };
 };
 
-const BlogPost = ({ country }: any) => {
+const CountryPosts = ({ country }: any) => {
+
+
   return (
     <main>
       <Grid columns={12}>
-        <ArticleRenderer
-          title={country.title}
-          image={country.image}
-          images={country.images}
-          // datePublished={country.datePublished}
-          continent={country.continent}
-        />
+        <GridItem colSpan={6} colStart={4}><Heading>{country.title}</Heading></GridItem>
+        <GridItem colSpan={6} colStart={4}><Heading> tips </Heading></GridItem>
       </Grid>
       <BlogCardGrid blogPosts={country.places} postGrid={true}/>
     </main>
   );
 };
 
-export default BlogPost;
+export default CountryPosts;
