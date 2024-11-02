@@ -30,6 +30,10 @@ change getting to to travel and remove getting around
 new grid needs to be responsive
 offline data
 make offline data more relevant
+save all content from hygraph
+add date published
+go through schemas and check which ones should be required
+travel tips directs to home
 
 
 checks

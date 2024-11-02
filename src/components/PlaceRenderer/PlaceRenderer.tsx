@@ -13,13 +13,9 @@ interface ArticleProps {
   image: ImageProps;
   images: ImageProps[];
   // datePublished: string;
-  content?: ContentProps; // string?
   continent?: ContinentProps;
   country?: CountryProps;
   thingsToDo?: ContentProps;
-  tips?: ContentProps; //remove
-  gettingTo?: ContentProps;
-  gettingAround?: ContentProps;
   whereToEat?: ContentProps;
   whereToStay?: ContentProps;
 }
@@ -45,20 +41,12 @@ interface CountryProps {
 const PlaceRenderer = ({
   title,
   images,
-  // datePublished,
-  content,
-  continent,
-  country,
+  // datePublished,,
   thingsToDo,
-  tips,
-  gettingTo,
-  gettingAround,
   whereToEat,
   whereToStay
 }: ArticleProps) => {
   const gridItemColSpan = [12, 12, 6, 6];
-  const gridItemColStart = [1, 1, 7, 7];
-  const gridItemRowSpan = [ 1, 1, 4, 4];
 
   const imageCarousel = images.map((image: any, i) => {
     return (
@@ -72,22 +60,19 @@ const PlaceRenderer = ({
 return (
       <>
         <GridItem colSpan={12} colStart={1}>
-        <Grid columns={12}>
-          <S.ElementGridItem colSpan={gridItemColSpan} colStart={1} rowSpan={1} rowStart={1}>
-            <h2>{title}</h2>
-            {/* to do: <h4>
+          {/* to do:
+          <h4>
             {date.toLocaleDateString(undefined, {
               day: "numeric",
               month: "short",
               year: "numeric",
             })}
-            </h4> */}
-          </S.ElementGridItem>
-          <S.ElementGridItem colSpan={gridItemColSpan} colStart={gridItemColStart} rowSpan={gridItemRowSpan} rowStart={[2, 2, 1, 1]}> PICTURE </S.ElementGridItem>
-          <S.ElementGridItem colSpan={gridItemColSpan} colStart={1} rowSpan={[1, 1, 3, 3]} rowStart={[3, 3, 2, 2]}> <SafeHtml content={gettingTo ? gettingTo.html : ''}/> </S.ElementGridItem>
-          <S.ElementGridItem colSpan={12} colStart={1} rowSpan={gridItemRowSpan} rowStart={[4, 4, 5, 5]}> <SafeHtml content={whereToStay ? whereToStay.html : ''}/> </S.ElementGridItem>
-          <S.ElementGridItem colSpan={12} colStart={gridItemColStart} rowSpan={gridItemRowSpan} rowStart={5}> <SafeHtml content={whereToEat ? whereToEat.html : ''}/> </S.ElementGridItem>
-          <S.ElementGridItem colSpan={12} colStart={1} rowSpan={gridItemRowSpan} rowStart={[6, 6, 9, 9]}> <SafeHtml content={thingsToDo ? thingsToDo.html : ''}/> </S.ElementGridItem>
+          </h4> */}
+        <Grid columns={12}>
+          <S.ElementGridItem colSpan={gridItemColSpan} colStart={1} rowSpan={2} rowStart={1}> <h2>{title}</h2> </S.ElementGridItem>
+          <S.ElementGridItem colSpan={gridItemColSpan} colStart={1} rowSpan={3} rowStart={3}> <SafeHtml content={whereToStay ? whereToStay.html : ''}/> </S.ElementGridItem>
+          <S.ElementGridItem colSpan={gridItemColSpan} colStart={[1, 1, 7, 7]} rowSpan={5} rowStart={[6, 6, 1, 1]}> <SafeHtml content={whereToEat ? whereToEat.html : ''}/> </S.ElementGridItem>
+          <S.ElementGridItem colSpan={12} colStart={1} rowStart={[11, 11, 6, 6]}> <SafeHtml content={thingsToDo ? thingsToDo.html : ''}/> </S.ElementGridItem>
         </Grid> 
         </GridItem>
         <S.CarouselGridItem colSpan={12} colStart={1}>

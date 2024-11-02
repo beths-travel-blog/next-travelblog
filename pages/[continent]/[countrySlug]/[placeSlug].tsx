@@ -22,19 +22,7 @@ const GET_SINGLE_PLACE = gql`
       images {
         url
       }
-      content {
-        html
-      }
       thingsToDo {
-        html
-      }
-      tips {
-        html
-      }
-      gettingTo {
-        html
-      }
-      gettingAround {
         html
       }
       whereToEat {
@@ -99,12 +87,8 @@ const PlaceBlogPost = ({ place }: any) => {
           image={place.image}
           images={place.images}
           // datePublished={place.datePublished}
-          content={place.content}
           country={place.country.title}
           thingsToDo={place.thingsToDo}
-          tips={place.tips}
-          gettingTo={place.gettingTo}
-          gettingAround={place.gettingAround}
           whereToEat={place.whereToEat}
           whereToStay={place.whereToStay}
         />
