@@ -1,3 +1,6 @@
+develop is developing branch
+main is master
+
 update node version, need > 16.15
 sort out any props
 unused imports
@@ -25,6 +28,8 @@ change schema to have tips for country
 take out content from schema and place renderer props
 change getting to to travel and remove getting around
 new grid needs to be responsive
+offline data
+make offline data more relevant
 
 
 checks

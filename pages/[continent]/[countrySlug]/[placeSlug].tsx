@@ -61,6 +61,11 @@ const GET_ALL_PLACES = gql`
   }
 `;
 
+// for offline dev
+// import singleplace from './singleplace.json';
+// import allplaces from './allplaces.json';
+
+
 // datePublished above continent{}
 
 export const getStaticPaths = async () => {
