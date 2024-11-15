@@ -69,10 +69,19 @@ return (
             })}
           </h4> */}
         <Grid columns={12}>
-          <S.ElementGridItem colSpan={gridItemColSpan} colStart={1} rowSpan={2} rowStart={1}> <h2>{title}</h2> </S.ElementGridItem>
-          <S.ElementGridItem colSpan={gridItemColSpan} colStart={1} rowSpan={3} rowStart={3}> <SafeHtml content={whereToStay ? whereToStay.html : ''}/> </S.ElementGridItem>
-          <S.ElementGridItem colSpan={gridItemColSpan} colStart={[1, 1, 7, 7]} rowSpan={5} rowStart={[6, 6, 1, 1]}> <SafeHtml content={whereToEat ? whereToEat.html : ''}/> </S.ElementGridItem>
-          <S.ElementGridItem colSpan={12} colStart={1} rowStart={[11, 11, 6, 6]}> <SafeHtml content={thingsToDo ? thingsToDo.html : ''}/> </S.ElementGridItem>
+          <S.ElementGridItem colSpan={gridItemColSpan} colStart={1} rowSpan={2} rowStart={1}>
+            <h1>{title}</h1>
+          </S.ElementGridItem>
+          <S.ElementGridItem colSpan={gridItemColSpan} colStart={1} rowSpan={3} rowStart={3}>
+            <SafeHtml content={whereToStay ? whereToStay.html : ''}/>
+          </S.ElementGridItem>
+          <S.ElementGridItem colSpan={gridItemColSpan} colStart={[1, 1, 7, 7]} rowSpan={5} rowStart={[6, 6, 1, 1]}>
+            <h2> Where To Eat </h2>
+            <SafeHtml content={whereToEat ? whereToEat.html : ''}/>
+          </S.ElementGridItem>
+          <S.ElementGridItem colSpan={12} colStart={1} rowStart={[11, 11, 6, 6]}>
+            <SafeHtml content={thingsToDo ? thingsToDo.html : ''}/>
+          </S.ElementGridItem>
         </Grid> 
         </GridItem>
         <S.CarouselGridItem colSpan={12} colStart={1}>

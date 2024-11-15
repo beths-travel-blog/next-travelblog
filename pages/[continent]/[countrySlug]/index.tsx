@@ -16,24 +16,6 @@ const GET_SINGLE_COUNTRY = gql`
     country(where: { slug: $slug }) {
       title
       slug
-      image {
-        url
-      }
-      atms {
-        html
-      }
-      timeOfYear {
-        html
-      }
-      simCards {
-        html
-      }
-      travel {
-        html
-      }
-      images {
-        url
-      }
       continent {
         title
         slug
@@ -50,6 +32,27 @@ const GET_SINGLE_COUNTRY = gql`
             slug
           }
         }
+      }
+      image {
+        url
+      }
+      images {
+        url
+      }
+      generalInfo {
+        html
+      }
+      tips {
+        html
+      }
+      atms
+      timeOfYear
+      simCards
+      visa {
+        html
+      }
+      travel {
+        html
       }
     }
   }
@@ -102,9 +105,12 @@ const CountryPosts = ({ country }: any) => {
     <main>
       <Grid columns={12}>
         <GridItem colSpan={6} colStart={4}><Heading>{country.title}</Heading></GridItem>
-        <GridItem colSpan={6} colStart={4}><> {country.atms ? country.atms.html : ''} </></GridItem>
-        <GridItem colSpan={6} colStart={4}><> {country.timeOfYear ? country.timeOfYear.html : ''} </></GridItem>
-        <GridItem colSpan={6} colStart={4}><> {country.simCards ? country.simCards.html : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.generalInfo ? country.generalInfo.html : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.tips ? country.tips.html : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.atms ? country.atms : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.timeOfYear ? country.timeOfYear : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.simCards ? country.simCards : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.visa ? country.visa.html : ''} </></GridItem>
         <GridItem colSpan={6} colStart={4}><> {country.travel ? country.travel.html : ''} </></GridItem>
 
       </Grid>

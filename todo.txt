@@ -34,6 +34,8 @@ save all content from hygraph
 add date published
 go through schemas and check which ones should be required
 travel tips directs to home
+safehtml???
+global style sheet
 
 
 checks

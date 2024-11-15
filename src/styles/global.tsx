@@ -2,10 +2,9 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     * {
-        /* font-family: 'Montserrat', sans-serif; */
-        font-family: 'Lato', sans-serif;
-        font-weight: 300;
-        color: #000;
+        font-family: 'Raleway', sans-serif;
+        // font-weight: 300;
+        // color: #000;
     }
 
     a {
