@@ -5,22 +5,21 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
-yarn dev -> localhost:3000
+npm run dev -> localhost:3000
 ```
 
 ## Set Up
 
-https://api-eu-west-2.hygraph.com/v2/cl8o9g9ar0niy01t86qd4esxo/master
+Install latest node: nvm install node, nvm use node
+Check version: node -v
+Install packages: npm install
 
-Use node 16
-yarn add graphql graphql-request
+Graphiql: https://api-eu-west-2.hygraph.com/v2/cl8o9g9ar0niy01t86qd4esxo/master
 
-Initialise defaults in hygraph in project settings -> api access
 
-## Code
+## Code Tips
 
-getStaticProps works only for page components inside pages folder
-
+getStaticProps: works only for page components inside pages folder
 Tutorial: https://www.youtube.com/watch?v=Dc7LAgqy1_E&t=2223s
 
 ## Default readme

@@ -40,7 +40,7 @@ export const GET_CONTINENTS = gql`
   }
 `;
 
-const Heading = styled.h1`
+const Heading = styled.h1` // to do: don't need align center as in global style
   text-align: center;
 `
 

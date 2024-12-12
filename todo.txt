@@ -23,6 +23,8 @@ search to do: in code for more todos
 
 
 now:
+fix carousel!!
+fix error about stylesheet in head
 merge place content into article renderer
 change schema to have tips for country
 take out content from schema and place renderer props

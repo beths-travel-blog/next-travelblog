@@ -5,8 +5,8 @@ import Grid from "../Grid/Grid";
 import GridItem from "../Grid/GridItem";
 // to do: style this and remove import
 
-import Carousel from "../Carousel/Carousel";
-import { CarouselItem } from "../Carousel/Carousel";
+// import Carousel from "../Carousel/Carousel";
+// import { CarouselItem } from "../Carousel/Carousel";
 
 interface ArticleProps {
   title: string;
@@ -48,13 +48,13 @@ const PlaceRenderer = ({
 }: ArticleProps) => {
   const gridItemColSpan = [12, 12, 6, 6];
 
-  const imageCarousel = images.map((image: any, i) => {
-    return (
-        <CarouselItem>
-          <img src={image.url} alt={title}/>
-        </CarouselItem>
-    );
-  })
+  // const imageCarousel = images.map((image: any, i) => {
+  //   return (
+  //       <CarouselItem>
+  //         <img src={image.url} alt={title}/>
+  //       </CarouselItem>
+  //   );
+  // })
 
   // to do: const date = new Date(datePublished);
 return (
@@ -68,7 +68,7 @@ return (
               year: "numeric",
             })}
           </h4> */}
-        <Grid columns={12}>
+        <Grid columns={12} rows={12}>
           <S.ElementGridItem colSpan={gridItemColSpan} colStart={1} rowSpan={2} rowStart={1}>
             <h1>{title}</h1>
           </S.ElementGridItem>
@@ -79,14 +79,14 @@ return (
             <h2> Where To Eat </h2>
             <SafeHtml content={whereToEat ? whereToEat.html : ''}/>
           </S.ElementGridItem>
-          <S.ElementGridItem colSpan={12} colStart={1} rowStart={[11, 11, 6, 6]}>
+          <S.ElementGridItem colSpan={12} colStart={1} rowSpan={2} rowStart={[11, 11, 6, 6]}>
             <SafeHtml content={thingsToDo ? thingsToDo.html : ''}/>
           </S.ElementGridItem>
         </Grid> 
         </GridItem>
-        <S.CarouselGridItem colSpan={12} colStart={1}>
+        {/* <S.CarouselGridItem colSpan={12} colStart={1}>
             <Carousel>{imageCarousel}</Carousel>
-        </S.CarouselGridItem>
+        </S.CarouselGridItem> */}
       </>
   );
 };

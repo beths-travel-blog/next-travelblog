@@ -24,8 +24,6 @@ export interface OnTagOptions {
 const StyledText = styled.div`
   ul {
     list-style: initial;
-    margin-top: 24px;
-    margin-left: 16px;
   }
 
   table {
