@@ -28,7 +28,7 @@ interface ImageProps {
 }
 
 interface ContinentProps {
-    name?: string;
+    title?: string;
     slug?: string;
 }
 
@@ -44,7 +44,7 @@ const BlogGrid = ({countries}: GridProps) => {
         image={country.image}
         // datePublished={country.datePublished}
         continent={country.continent}
-    />
+        />
       ))}
     </StyledMasonryLayout>
   );

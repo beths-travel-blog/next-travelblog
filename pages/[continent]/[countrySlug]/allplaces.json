@@ -1,0 +1,10 @@
+[
+  {
+    "slug": "buenos-aires",
+    "country": { "slug": "argentina", "continent": [{}] }
+  },
+  {
+    "slug": "mexico-city",
+    "country": { "slug": "mexico", "continent": [{}] }
+  }
+]

@@ -4,71 +4,59 @@ import * as S from "../styles";
 import Logo from "../../Logo/Logo";
 import Menu from "../../../../public/Menu.png";
 import Close from "../../../../public/Close.png";
+import SearchBar from "../../SearchBar/SearchBar";
 import SearchIcon from "../../../../public/SearchIcon.png";
 
 export interface NavProps {
   continents: ContinentProps[];
+  countryData: any;
   openMobileNav?: boolean;
-  setHideSearch: (value: boolean) => void;
+  hideSearch?: boolean;
+  setHideSearch?: (value: boolean) => void;
 }
 
 interface ContinentProps {
-  name: string;
+  title: string;
   slug: string;
 }
 
-const VerticalNav = ({
+const NavLinks = ({
   continents,
+  countryData,
   openMobileNav,
-  setHideSearch,
+  hideSearch,
 }: NavProps) => {
-  const [hideSearchBar, setHideSearchBar] = React.useState(true);
   return (
     <>
       <S.StyledList openMobileNav={openMobileNav}>
+        <S.DesktopLogo href="/">
+            <Logo/>
+        </S.DesktopLogo>
         <S.StyledItems>
-          <a href="/"> Home </a>
+          <a href={"/"}> Home </a>
         </S.StyledItems>
-        {continents &&
-          continents.map((continent, index) => {
-            if (index < 3) {
-              return (
-                <S.StyledItems key={index}>
-                  <a href={"/" + continent.slug}> {continent.name} </a>
-                </S.StyledItems>
-              );
-            }
-          })}
-        <S.ImageContainer href="/">
-          <Logo />
-        </S.ImageContainer>
-        {continents &&
-          continents.map((continent, index) => {
-            if (index > 2) {
-              return (
-                <S.StyledItems key={index}>
-                  <a href={"/" + continent.slug}> {continent.name} </a>
-                </S.StyledItems>
-              );
-            }
-          })}
-        <S.StyledImage
-          src={hideSearchBar ? SearchIcon.src : Close.src}
-          tabIndex={0}
-          alt="Search"
-          width={50}
-          height={50}
-          onClick={() => {
-            setHideSearch(!hideSearchBar);
-            setHideSearchBar(!hideSearchBar);
-          }}
+        <S.StyledItems>
+          <div> Destinations </div>
+            <S.DropdownContent>
+              {continents.map((continent, _i) => (
+                <a href={"/" + continent.slug}> {continent.title} </a>
+              ))}
+            </S.DropdownContent>
+        </S.StyledItems>
+        <S.StyledItems>
+          <a href={"/"}> Travel Tips </a>
+        </S.StyledItems>
+        <SearchBar
+          placeholder="SEARCH THE BLOG"
+          data={countryData}
+          hideSearch={hideSearch}
         />
       </S.StyledList>
     </>
   );
 };
 
-const NavItems = ({ continents, setHideSearch }: NavProps) => {
+const NavItems = ({continents, countryData, setHideSearch }: NavProps) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [hideSearchBar, setHideSearchBar] = React.useState(true);
   const [openSearch, setOpenSearch] = useState(false);
@@ -77,7 +65,10 @@ const NavItems = ({ continents, setHideSearch }: NavProps) => {
     <React.Fragment>
       <S.StyledMenuIcon
         openMobileNav={openMenu}
-        onClick={() => setOpenMenu(!openMenu)}
+        onClick={() => {
+          setOpenMenu(!openMenu)
+          setHideSearchBar(!hideSearchBar);
+        }}
       >
         <img
           src={openMenu === false ? Menu.src : Close.src}
@@ -86,14 +77,15 @@ const NavItems = ({ continents, setHideSearch }: NavProps) => {
           height={30}
         />
       </S.StyledMenuIcon>
-      <VerticalNav
-        openMobileNav={openMenu}
+      <NavLinks
         continents={continents}
-        setHideSearch={setHideSearch}
+        countryData={countryData}
+        openMobileNav={openMenu}
+        hideSearch={!hideSearchBar}
       />
       <S.StyledSearchIcon
         onClick={() => {
-          setHideSearch(!hideSearchBar);
+          setHideSearch && setHideSearch(!hideSearchBar);
           setHideSearchBar(!hideSearchBar);
           setOpenSearch(!openSearch);
         }}

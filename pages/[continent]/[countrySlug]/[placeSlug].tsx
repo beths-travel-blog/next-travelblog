@@ -1,7 +1,7 @@
 import { GraphQLClient, gql } from "graphql-request";
 
 import Grid from "../../../src/components/Grid/Grid";
-import ArticleRenderer from "../../../src/components/ArticleRenderer/ArticleRenderer";
+import PlaceRenderer from "../../../src/components/PlaceRenderer/PlaceRenderer";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -22,19 +22,7 @@ const GET_SINGLE_PLACE = gql`
       images {
         url
       }
-      content {
-        html
-      }
       thingsToDo {
-        html
-      }
-      tips {
-        html
-      }
-      gettingTo {
-        html
-      }
-      gettingAround {
         html
       }
       whereToEat {
@@ -60,6 +48,11 @@ const GET_ALL_PLACES = gql`
     }
   }
 `;
+
+// for offline dev
+// import singleplace from './singleplace.json';
+// import allplaces from './allplaces.json';
+
 
 // datePublished above continent{}
 
@@ -89,17 +82,13 @@ const PlaceBlogPost = ({ place }: any) => {
   return (
     <main>
       <Grid columns={12}>
-        <ArticleRenderer
+        <PlaceRenderer
           title={place.title}
           image={place.image}
           images={place.images}
           // datePublished={place.datePublished}
-          content={place.content}
           country={place.country.title}
           thingsToDo={place.thingsToDo}
-          tips={place.tips}
-          gettingTo={place.gettingTo}
-          gettingAround={place.gettingAround}
           whereToEat={place.whereToEat}
           whereToStay={place.whereToStay}
         />

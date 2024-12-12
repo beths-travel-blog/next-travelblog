@@ -11,7 +11,7 @@ export interface NavProps {
 }
 
 interface ContinentProps {
-  name: string;
+  title: string;
   slug: string;
 }
 
@@ -20,16 +20,17 @@ const NavBar = (props: NavProps) => {
   return (
     <React.Fragment>
       <S.StyledNav>
-        <a href="/">
-          <Logo />
-        </a>
+        <S.MobileLogo href="/">
+          <Logo/>
+        </S.MobileLogo>
         <NavItems
           continents={props.continents}
+          countryData={props.countryData}
           setHideSearch={setHideSearch}
         />
       </S.StyledNav>
       <SearchBar
-        placeholder="What are you looking for?"
+        placeholder="SEARCH THE BLOG"
         data={props.countryData}
         hideSearch={hideSearch}
       />

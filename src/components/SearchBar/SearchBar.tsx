@@ -44,13 +44,36 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
             value={wordEntered}
             onChange={handleFilter}
           />
+          <S.SearchIconContainer>
+              {filteredData.length === 0 ? (
+                <S.StyledImage
+                  src={SearchIcon.src}
+                  alt="Search"
+                  width={30}
+                  height={30}
+                />
+              ) : (
+                <S.StyledImage
+                  src={Close.src}
+                  onClick={clearInput}
+                  alt="Close"
+                  width={20}
+                  height={20}
+                />
+              )}
+          </S.SearchIconContainer>
         </S.SearchInput>
         {filteredData.length != 0 && (
           <S.DataResultContainer>
             {filteredData.slice(0, 15).map((value, key) => {
+
+              const placeSlug = value["country"] && "/" + value["country"]["continent"]["slug"] + "/" + value["country"]["slug"] + "/" + value["slug"];
+              const countrySlug = value["continent"] && "/" + value["continent"]["slug"] + "/" + value["slug"];
+              const continentSlug = value["slug"] && "/" + value["slug"];
+
               return (
                 <S.DataItem
-                  href={"/" + value["continent"]["slug"] + "/" + value["slug"]}
+                  href={placeSlug ? placeSlug : countrySlug ? countrySlug : continentSlug}
                   target="_self" // change to blank to open in new tab
                 >
                   <p>{value["title"]} </p>
@@ -60,24 +83,6 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
           </S.DataResultContainer>
         )}
       </S.TextContainer>
-      <S.SearchIconContainer>
-        {filteredData.length === 0 ? (
-          <S.StyledImage
-            src={SearchIcon.src}
-            alt="Search"
-            width={30}
-            height={30}
-          />
-        ) : (
-          <S.StyledImage
-            src={Close.src}
-            onClick={clearInput}
-            alt="Close"
-            width={20}
-            height={20}
-          />
-        )}
-      </S.SearchIconContainer>
     </S.SearchContainer>
   );
 };

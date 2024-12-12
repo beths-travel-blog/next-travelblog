@@ -1,25 +1,20 @@
 import styled from "styled-components";
 
-interface NavProps {
-  openMobileNav?: boolean;
-}
-
 export const StyledNav = styled.nav`
   width: 100%;
   display: flex;
   justify-content: center;
   background: #fff;
-
   position: sticky;
   top: 0;
   z-index: 100;
 
   @media (min-width: 900px) {
-    min-height: 230px;
+    min-height: 120px;
   }
 `;
 
-export const StyledMenuIcon = styled.div<NavProps>`
+export const StyledMenuIcon = styled.div<{openMobileNav: boolean}>`
   display: block;
   position: fixed;
   top: 30px;
@@ -43,7 +38,38 @@ export const StyledSearchIcon = styled.div<{ openSearch: boolean }>`
   }
 `;
 
-export const StyledList = styled.ul<NavProps>`
+export const DesktopLogo = styled.a`
+  display: none;
+  width: 100%;
+  padding-left: 50px;
+
+  @media (min-width: 900px) {
+    display: flex;
+  }
+`;
+
+export const MobileLogo = styled.a`
+  display: flex;
+
+  @media (min-width: 900px) {
+    display: none;
+  }
+`;
+
+export const StyledImage = styled.img`
+  display: none;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (min-width: 900px) {
+    display: block;
+  }
+`;
+
+export const StyledList = styled.ul<{openMobileNav?: boolean}>`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -62,28 +88,23 @@ export const StyledList = styled.ul<NavProps>`
 
   @media (min-width: 900px) {
     flex-flow: row nowrap;
-    transform: ${(props) =>
-      props.openMobileNav ? "translateX(100%)" : "translateX(0)"};
+    background-color: transparent;
+    transform: ${(props) => props.openMobileNav ? "translateX(100%)" : "translateX(0)"};
     position: absolute;
     width: 100%;
     justify-content: flex-end;
-    margin-top: 0px;
     align-items: center;
-    margin-left: 20px;
-    padding-top: 0;
-    height: 250px;
+    padding-top: 10px;
+    height: 100px;
   }
 
-  * {
-    width: 10%;
+  & > :nth-child(2),  & > :nth-child(3), & > :nth-child(4){
+      padding: 20px;
   }
 
   & > :nth-child(5) {
-    width: 30%;
-  }
-
-  & > :nth-child(9) {
     object-fit: contain;
+    padding: 30px 50px 30px 30px;
   }
 `;
 
@@ -92,6 +113,13 @@ export const StyledItems = styled.li`
   font-size: 30px;
   text-transform: uppercase;
   padding: 10px 0;
+  white-space: nowrap;
+
+  &:hover {
+    div {
+      display: block;
+    }
+  }
 
   @media (min-width: 900px) {
     font-size: 14px;
@@ -104,24 +132,25 @@ export const StyledItems = styled.li`
   }
 `;
 
-export const ImageContainer = styled.a`
+export const DropdownContent = styled.div`
   display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
-  @media (min-width: 900px) {
-    display: flex;
-    justify-content: center;
-  }
-`;
-
-export const StyledImage = styled.img`
-  display: none;
-  opacity: 0.5;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  @media (min-width: 900px) {
+  a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
     display: block;
+    text-align: left;
   }
-`;
+
+  a:hover {
+    text-decoration: underline;
+    color: #fcb900
+}
+`
+

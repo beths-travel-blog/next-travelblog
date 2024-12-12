@@ -1,7 +1,9 @@
+import React from "react";
+import styled from "styled-components";
 import { GraphQLClient, gql } from "graphql-request";
 
 import Grid from "../../../src/components/Grid/Grid";
-import ArticleRenderer from "../../../src/components/ArticleRenderer/ArticleRenderer";
+import GridItem from "../../../src/components/Grid/GridItem";
 import BlogCardGrid from "../../../src/components/BlogCardGrid/BlogCardGrid";
 
 const graphcms = new GraphQLClient(
@@ -14,14 +16,8 @@ const GET_SINGLE_COUNTRY = gql`
     country(where: { slug: $slug }) {
       title
       slug
-      image {
-        url
-      }
-      images {
-        url
-      }
       continent {
-        name
+        title
         slug
       }
       places {
@@ -37,6 +33,27 @@ const GET_SINGLE_COUNTRY = gql`
           }
         }
       }
+      image {
+        url
+      }
+      images {
+        url
+      }
+      generalInfo {
+        html
+      }
+      tips {
+        html
+      }
+      atms
+      timeOfYear
+      simCards
+      visa {
+        html
+      }
+      travel {
+        html
+      }
     }
   }
 `;
@@ -51,6 +68,11 @@ const GET_ALL_COUNTRIES = gql`
     }
   }
 `;
+
+// to do: style this
+const Heading = styled.h1`
+  text-align: center;
+`
 
 // datePublished above continent{}
 
@@ -76,21 +98,25 @@ export const getStaticProps = async ({ params }: any) => {
   };
 };
 
-const BlogPost = ({ country }: any) => {
+const CountryPosts = ({ country }: any) => {
+
+
   return (
     <main>
       <Grid columns={12}>
-        <ArticleRenderer
-          title={country.title}
-          image={country.image}
-          images={country.images}
-          // datePublished={country.datePublished}
-          continent={country.continent}
-        />
+        <GridItem colSpan={6} colStart={4}><Heading>{country.title}</Heading></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.generalInfo ? country.generalInfo.html : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.tips ? country.tips.html : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.atms ? country.atms : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.timeOfYear ? country.timeOfYear : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.simCards ? country.simCards : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.visa ? country.visa.html : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}><> {country.travel ? country.travel.html : ''} </></GridItem>
+
       </Grid>
       <BlogCardGrid blogPosts={country.places} postGrid={true}/>
     </main>
   );
 };
 
-export default BlogPost;
+export default CountryPosts;
