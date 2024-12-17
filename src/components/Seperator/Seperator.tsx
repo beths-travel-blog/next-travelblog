@@ -17,7 +17,7 @@ const SeperatorContainer = styled.div`
   }
 `;
 
-const StyledSeperator = styled.div`
+const StyledSeperator = styled.div.attrs({ role: "presentation" })`
   flex: 1;
   height: 1px;
   background-color: grey;

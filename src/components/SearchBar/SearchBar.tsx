@@ -18,7 +18,7 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value: any) => {
-      // value.places.length > 0 ? value.places[0].title.toLowerCase().includes(searchWord.toLowerCase()) when all places in
+      // to do ??? value.places.length > 0 ? value.places[0].title.toLowerCase().includes(searchWord.toLowerCase()) when all places in
       return value.title.toLowerCase().includes(searchWord.toLowerCase());
     });
 

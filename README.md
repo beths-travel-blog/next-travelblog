@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Check node version with node -v then run the development server:
 
 ```bash
 npm run dev -> localhost:3000
@@ -16,6 +16,9 @@ Install packages: npm install
 
 Graphiql: https://api-eu-west-2.hygraph.com/v2/cl8o9g9ar0niy01t86qd4esxo/master
 
+
+## Tests
+npm test
 
 ## Code Tips
 
