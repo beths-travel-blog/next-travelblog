@@ -5,8 +5,8 @@ import Grid from "../Grid/Grid";
 import GridItem from "../Grid/GridItem";
 // to do: style this and remove import
 
-// import Carousel from "../Carousel/Carousel";
-// import { CarouselItem } from "../Carousel/Carousel";
+import Carousel from "../Carousel/Carousel";
+import { CarouselItem } from "../Carousel/Carousel";
 
 interface ArticleProps {
   title: string;
@@ -48,20 +48,21 @@ const PlaceRenderer = ({
 }: ArticleProps) => {
   const gridItemColSpan = [12, 12, 6, 6];
 
-  // const imageCarousel = images.map((image: any, i) => {
-  //   return (
-  //       <CarouselItem>
-  //         <img src={image.url} alt={title}/>
-  //       </CarouselItem>
-  //   );
-  // })
+  const imageCarousel = images.map((image: any, i) => {
+    return (
+        <CarouselItem>
+          <img src={image.url} alt={title}/>
+        </CarouselItem>
+    );
+  })
 
   // to do: const date = new Date(datePublished);
   // to do: make this look less messy
   // remove outer griditem?
+  // change col span to 2?
 return (
       <>
-        <GridItem colSpan={12} colStart={1}>
+      
           {/* to do:
           <h4>
             {date.toLocaleDateString(undefined, {
@@ -70,7 +71,7 @@ return (
               year: "numeric",
             })}
           </h4> */}
-        <S.ContentGrid columns={12} rows={12}>
+          
           <S.ContentGridItem
             colSpan={gridItemColSpan}
             colStart={1}
@@ -100,11 +101,10 @@ return (
             rowStart={[11, 11, 6, 6]}>
             <SafeHtml content={thingsToDo ? thingsToDo.html : ''}/>
           </S.ContentGridItem>
-        </S.ContentGrid> 
-        </GridItem>
-        {/* <S.CarouselGridItem colSpan={12} colStart={1}>
+
+        <S.CarouselGridItem colSpan={12} colStart={1}>
             <Carousel>{imageCarousel}</Carousel>
-        </S.CarouselGridItem> */}
+        </S.CarouselGridItem>
       </>
   );
 };
