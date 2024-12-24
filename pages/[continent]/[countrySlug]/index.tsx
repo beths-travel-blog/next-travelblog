@@ -5,6 +5,7 @@ import { GraphQLClient, gql } from "graphql-request";
 import Grid from "../../../src/components/Grid/Grid";
 import GridItem from "../../../src/components/Grid/GridItem";
 import BlogCardGrid from "../../../src/components/BlogCardGrid/BlogCardGrid";
+import SafeHtml from "../../../src/elements/SafeHtml";
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -105,13 +106,13 @@ const CountryPosts = ({ country }: any) => {
     <main>
       <Grid columns={12}>
         <GridItem colSpan={6} colStart={4}><Heading>{country.title}</Heading></GridItem>
-        <GridItem colSpan={6} colStart={4}><> {country.generalInfo ? country.generalInfo.html : ''} </></GridItem>
-        <GridItem colSpan={6} colStart={4}><> {country.tips ? country.tips.html : ''} </></GridItem>
-        <GridItem colSpan={6} colStart={4}><> {country.atms ? country.atms : ''} </></GridItem>
-        <GridItem colSpan={6} colStart={4}><> {country.timeOfYear ? country.timeOfYear : ''} </></GridItem>
-        <GridItem colSpan={6} colStart={4}><> {country.simCards ? country.simCards : ''} </></GridItem>
-        <GridItem colSpan={6} colStart={4}><> {country.visa ? country.visa.html : ''} </></GridItem>
-        <GridItem colSpan={6} colStart={4}><> {country.travel ? country.travel.html : ''} </></GridItem>
+        <GridItem colSpan={6} colStart={4}>  <SafeHtml content={country.generalInfo ? country.generalInfo.html : ''}/> </GridItem>
+        <GridItem colSpan={6} colStart={4}> <SafeHtml content={country.tips ? country.tips.html : ''}/> </GridItem>
+        <GridItem colSpan={6} colStart={4}> {country.atms ? country.atms : ''} </GridItem>
+        <GridItem colSpan={6} colStart={4}> {country.timeOfYear ? country.timeOfYear : ''} </GridItem>
+        <GridItem colSpan={6} colStart={4}> {country.simCards ? country.simCards : ''} </GridItem>
+        <GridItem colSpan={6} colStart={4}> <SafeHtml content={country.visa ? country.visa.html : ''}/> </GridItem>
+        <GridItem colSpan={6} colStart={4}> <SafeHtml content={country.travel ? country.travel.html : ''}/> </GridItem>
 
       </Grid>
       <BlogCardGrid blogPosts={country.places} postGrid={true}/>

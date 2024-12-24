@@ -41,7 +41,7 @@ interface CountryProps {
 const PlaceRenderer = ({
   title,
   images,
-  // datePublished,,
+  // datePublished,
   thingsToDo,
   whereToEat,
   whereToStay
@@ -57,6 +57,8 @@ const PlaceRenderer = ({
   // })
 
   // to do: const date = new Date(datePublished);
+  // to do: make this look less messy
+  // remove outer griditem?
 return (
       <>
         <GridItem colSpan={12} colStart={1}>
@@ -68,21 +70,37 @@ return (
               year: "numeric",
             })}
           </h4> */}
-        <Grid columns={12} rows={12}>
-          <S.ElementGridItem colSpan={gridItemColSpan} colStart={1} rowSpan={2} rowStart={1}>
+        <S.ContentGrid columns={12} rows={12}>
+          <S.ContentGridItem
+            colSpan={gridItemColSpan}
+            colStart={1}
+            rowSpan={2}
+            rowStart={1}>
             <h1>{title}</h1>
-          </S.ElementGridItem>
-          <S.ElementGridItem colSpan={gridItemColSpan} colStart={1} rowSpan={3} rowStart={3}>
+          </S.ContentGridItem>
+          <S.ContentGridItem
+            colSpan={gridItemColSpan}
+            colStart={1}
+            rowSpan={3}
+            rowStart={3}>
             <SafeHtml content={whereToStay ? whereToStay.html : ''}/>
-          </S.ElementGridItem>
-          <S.ElementGridItem colSpan={gridItemColSpan} colStart={[1, 1, 7, 7]} rowSpan={5} rowStart={[6, 6, 1, 1]}>
+          </S.ContentGridItem>
+          <S.ContentGridItem
+            colSpan={gridItemColSpan}
+            colStart={[1, 1, 7, 7]}
+            rowSpan={5}
+            rowStart={[6, 6, 1, 1]}>
             <h2> Where To Eat </h2>
             <SafeHtml content={whereToEat ? whereToEat.html : ''}/>
-          </S.ElementGridItem>
-          <S.ElementGridItem colSpan={12} colStart={1} rowSpan={2} rowStart={[11, 11, 6, 6]}>
+          </S.ContentGridItem>
+          <S.ContentGridItem
+            colSpan={12}
+            colStart={1}
+            rowSpan={2}
+            rowStart={[11, 11, 6, 6]}>
             <SafeHtml content={thingsToDo ? thingsToDo.html : ''}/>
-          </S.ElementGridItem>
-        </Grid> 
+          </S.ContentGridItem>
+        </S.ContentGrid> 
         </GridItem>
         {/* <S.CarouselGridItem colSpan={12} colStart={1}>
             <Carousel>{imageCarousel}</Carousel>
