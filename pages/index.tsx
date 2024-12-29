@@ -60,7 +60,7 @@ const Home: NextPage = ({ places, imageAssets }: any) => {
     <>
       <PhotoGrid images={imageAssets[0].images}/>
       <Seperator text="Featured Guides" />
-      <BlogCardGrid blogPosts={places} postGrid={true}/>
+      <BlogCardGrid blogPosts={places.slice(0, 4)} postGrid={true}/>
     </>
   );
 };

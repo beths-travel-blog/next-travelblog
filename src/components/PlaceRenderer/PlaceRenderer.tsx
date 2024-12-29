@@ -1,13 +1,6 @@
 import * as S from "./styles";
 import SafeHtml from "../../elements/SafeHtml";
 
-import Grid from "../Grid/Grid";
-import GridItem from "../Grid/GridItem";
-// to do: style this and remove import
-
-import Carousel from "../Carousel/Carousel";
-import { CarouselItem } from "../Carousel/Carousel";
-
 interface ArticleProps {
   title: string;
   image: ImageProps;
@@ -47,14 +40,6 @@ const PlaceRenderer = ({
   whereToStay
 }: ArticleProps) => {
   const gridItemColSpan = [12, 12, 6, 6];
-
-  const imageCarousel = images.map((image: any, i) => {
-    return (
-        <CarouselItem>
-          <img src={image.url} alt={title}/>
-        </CarouselItem>
-    );
-  })
 
   // to do: const date = new Date(datePublished);
   // to do: make this look less messy
@@ -101,10 +86,6 @@ return (
             rowStart={[11, 11, 6, 6]}>
             <SafeHtml content={thingsToDo ? thingsToDo.html : ''}/>
           </S.ContentGridItem>
-
-        <S.CarouselGridItem colSpan={12} colStart={1}>
-            <Carousel>{imageCarousel}</Carousel>
-        </S.CarouselGridItem>
       </>
   );
 };

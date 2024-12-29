@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
         letter-spacing: 1.5px;
     }
 
-    h1, h2 {
+    h1 {
         text-align: center;
     }
 
@@ -20,16 +20,14 @@ const GlobalStyle = createGlobalStyle`
 
     h1 {
         font-size: ${spacing(3)}; // to do: make every value use spacing
-        margin: 20px 0;
 
         @media (min-width: 900px) {
             font-size: ${spacing(5)};
-            margin: 40px 0;
         }
     }
 
     h2 {
-        font-size: 20px;
+        font-size: ${spacing(2)};
         margin: 20px 0;
 
         @media (min-width: 900px) {
@@ -39,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h3 {
-        font-size: 16px;
+        font-size: ${spacing(1.5)};
         margin: 10px 0;
 
         @media (min-width: 900px) {
@@ -48,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h4 {
-        font-size: 8px;
+        font-size: ${spacing(1)};
         margin: 0;
 
         @media (min-width: 900px) {

@@ -66,7 +66,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <title> Plane It By Ear Home Page </title>
         <meta name="description" content="Plane it by ear: travel blog" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Raleway&family=Taviraj&Montserrat&Jost&Merriweather&Bricolage+Grotesque&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
         />
       </Head>

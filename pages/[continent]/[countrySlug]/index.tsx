@@ -2,10 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { GraphQLClient, gql } from "graphql-request";
 
+import Carousel from "../../../src/components/Carousel/Carousel";
+import { CarouselItem } from "../../../src/components/Carousel/Carousel";
+import BlogCardGrid from "../../../src/components/BlogCardGrid/BlogCardGrid";
 import Grid from "../../../src/components/Grid/Grid";
 import GridItem from "../../../src/components/Grid/GridItem";
-import BlogCardGrid from "../../../src/components/BlogCardGrid/BlogCardGrid";
 import SafeHtml from "../../../src/elements/SafeHtml";
+import spacing from "../../../src/utils/spacing"
 
 const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
@@ -99,21 +102,50 @@ export const getStaticProps = async ({ params }: any) => {
   };
 };
 
-const CountryPosts = ({ country }: any) => {
+const ComponentHeading = styled.h2`
+  font-weight: 500;
+  margin: ${spacing(2)} 0;
+`
 
+export const CarouselGridItem = styled(GridItem)`
+  margin: 50px 0;
+  display: flex;
+  flex-direction: row;
+`;
+
+const CountryPosts = ({ country }: any) => {
+  const imageCarousel = country.images.map((image: any, i: any) => {
+    return (
+        <CarouselItem>
+          <img src={image.url}/>
+        </CarouselItem>
+    );
+  })
 
   return (
     <main>
       <Grid columns={12}>
-        <GridItem colSpan={6} colStart={4}><Heading>{country.title}</Heading></GridItem>
-        <GridItem colSpan={6} colStart={4}>  <SafeHtml content={country.generalInfo ? country.generalInfo.html : ''}/> </GridItem>
-        <GridItem colSpan={6} colStart={4}> <SafeHtml content={country.tips ? country.tips.html : ''}/> </GridItem>
-        <GridItem colSpan={6} colStart={4}> {country.atms ? country.atms : ''} </GridItem>
-        <GridItem colSpan={6} colStart={4}> {country.timeOfYear ? country.timeOfYear : ''} </GridItem>
-        <GridItem colSpan={6} colStart={4}> {country.simCards ? country.simCards : ''} </GridItem>
-        <GridItem colSpan={6} colStart={4}> <SafeHtml content={country.visa ? country.visa.html : ''}/> </GridItem>
-        <GridItem colSpan={6} colStart={4}> <SafeHtml content={country.travel ? country.travel.html : ''}/> </GridItem>
-
+        <GridItem colSpan={6} colStart={4}>
+          <Heading>{country.title}</Heading>
+        </GridItem>
+        <CarouselGridItem colSpan={12} colStart={1}>
+          <Carousel>{imageCarousel}</Carousel>
+        </CarouselGridItem>
+        <GridItem colSpan={6} colStart={4}>
+          <SafeHtml content={country.generalInfo ? country.generalInfo.html : ''}/>
+          <ComponentHeading>Tips</ComponentHeading>
+          <SafeHtml content={country.tips ? country.tips.html : ''}/>
+          <ComponentHeading>Visa</ComponentHeading>
+          <SafeHtml content={country.visa ? country.visa.html : ''}/>
+          <ComponentHeading>When to Visit</ComponentHeading>
+          {country.timeOfYear ? country.timeOfYear : ''}
+          <ComponentHeading>Travelling Around</ComponentHeading>
+          <SafeHtml content={country.travel ? country.travel.html : ''}/> 
+          <ComponentHeading>Sim Cards</ComponentHeading>
+          {country.simCards ? country.simCards : ''}
+          <ComponentHeading>ATMs</ComponentHeading>
+          {country.atms ? country.atms : ''}
+        </GridItem>
       </Grid>
       <BlogCardGrid blogPosts={country.places} postGrid={true}/>
     </main>
