@@ -5,7 +5,7 @@ import React from "react";
 import styled from "styled-components";
 import { GraphQLClient, gql } from "graphql-request";
 
-// import PhotoGrid from "../src/components/PhotoGrid/PhotoGrid";
+import PhotoGrid from "../src/components/PhotoGrid/PhotoGrid";
 import Seperator from "../src/components/Seperator/Seperator";
 import BlogCardGrid from "../src/components/BlogCardGrid/BlogCardGrid";
 
@@ -29,7 +29,7 @@ const GET_HOMEPAGE_DATA = gql`
       }
     }
     imageAssets {
-      image {
+      images {
         url
       }
     }
@@ -58,8 +58,8 @@ export const getStaticProps = async () => {
 const Home: NextPage = ({ places, imageAssets }: any) => {
   return (
     <>
-      <FeaturedImage src={imageAssets[0].image.url} />
-      <Seperator text="Recent Posts" />
+      <PhotoGrid images={imageAssets[0].images}/>
+      <Seperator text="Recent Guides" />
       <BlogCardGrid blogPosts={places} postGrid={true}/>
     </>
   );

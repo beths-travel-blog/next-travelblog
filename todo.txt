@@ -23,7 +23,9 @@ search to do: in code for more todos
 
 
 now:
-fix carousel!!
+about me section
+loading state on carousel
+add alt to all images
 fix error about stylesheet in head
 merge place content into article renderer
 change schema to have tips for country
