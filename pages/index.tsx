@@ -59,7 +59,7 @@ const Home: NextPage = ({ places, imageAssets }: any) => {
   return (
     <>
       <PhotoGrid images={imageAssets[0].images}/>
-      <Seperator text="Recent Guides" />
+      <Seperator text="Featured Guides" />
       <BlogCardGrid blogPosts={places} postGrid={true}/>
     </>
   );

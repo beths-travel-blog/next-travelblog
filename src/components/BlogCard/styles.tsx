@@ -29,21 +29,24 @@ export const BlogTextContainer = styled.div`
   padding: 10px 30px;
   margin: 0 auto;
   position: relative;
+  width: 30%;
   top: -30px;
 `;
 
 export const ArticleTitle = styled.h3`
+  text-align: center;
+
   &:hover {
     text-decoration: underline;
     cursor: pointer;
   }
 
   @media (min-width: 900px) {
-    font-size: 22px;
+    font-size: 12px;
   }
 
   @media (min-width: 1200px) {
-    font-size: 30px;
+    font-size: 18px;
   }
 `;
 

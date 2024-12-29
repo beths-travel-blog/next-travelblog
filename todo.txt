@@ -24,7 +24,9 @@ search to do: in code for more todos
 
 now:
 about me section
+travel tips
 loading state on carousel
+check mobile responsive
 add alt to all images
 fix error about stylesheet in head
 merge place content into article renderer

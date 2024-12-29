@@ -44,7 +44,11 @@ const BlogCardGrid = ({ blogPosts, postGrid }: GridProps) => {
   const gridItemColSpan = [12, 6, 4, 3];
   const totalColumns = 12;
   const gridItemRowOffset = 2;
-  const blogCards = blogPosts.map((post: any, i: number) => {
+
+  // to do: choose featured posts
+  const recentPosts = blogPosts.slice(0, 4);
+
+  const blogCards = recentPosts.map((post: any, i: number) => {
     const colStart = gridItemColSpan.map(
       (colSpan) => (i % (totalColumns / colSpan)) * colSpan + 1
     );
