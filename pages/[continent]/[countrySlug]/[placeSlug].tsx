@@ -1,4 +1,5 @@
 import { GraphQLClient, gql } from "graphql-request";
+import styled from "styled-components";
 
 import Grid from "../../../src/components/Grid/Grid";
 import PlaceRenderer from "../../../src/components/PlaceRenderer/PlaceRenderer";
@@ -78,21 +79,32 @@ export const getStaticProps = async ({ params }: any) => {
   };
 };
 
+const ContentGrid = styled(Grid)`
+  & > :nth-child(2) {
+    background-color: #66CDAA; 
+  }
+  & > :nth-child(3) {
+    background-color:rgb(158, 220, 199);
+  }
+  & > :nth-child(4) {
+    background-color: #AFE1AF
+  }
+`;
+
 const PlaceBlogPost = ({ place }: any) => {
   return (
     <main>
-      <Grid columns={12}>
+      <ContentGrid columns={12}>
         <PlaceRenderer
           title={place.title}
           image={place.image}
-          images={place.images}
           // datePublished={place.datePublished}
           country={place.country.title}
           thingsToDo={place.thingsToDo}
           whereToEat={place.whereToEat}
           whereToStay={place.whereToStay}
         />
-      </Grid>
+      </ContentGrid>
     </main>
   );
 };

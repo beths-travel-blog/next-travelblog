@@ -4,7 +4,6 @@ import SafeHtml from "../../elements/SafeHtml";
 interface ArticleProps {
   title: string;
   image: ImageProps;
-  images: ImageProps[];
   // datePublished: string;
   continent?: ContinentProps;
   country?: CountryProps;
@@ -29,11 +28,9 @@ interface CountryProps {
   title?: string;
 }
 
-
-
 const PlaceRenderer = ({
   title,
-  images,
+  image,
   // datePublished,
   thingsToDo,
   whereToEat,
@@ -56,19 +53,21 @@ return (
               year: "numeric",
             })}
           </h4> */}
-          
+          <S.TitleImageContainer
+            url={image.url}
+            colSpan={gridItemColSpan}
+            colStart={1}
+            rowSpan={3}
+            rowStart={1}
+            >
+            <h1>{title}</h1>
+          </S.TitleImageContainer>
           <S.ContentGridItem
             colSpan={gridItemColSpan}
             colStart={1}
             rowSpan={2}
-            rowStart={1}>
-            <h1>{title}</h1>
-          </S.ContentGridItem>
-          <S.ContentGridItem
-            colSpan={gridItemColSpan}
-            colStart={1}
-            rowSpan={3}
-            rowStart={3}>
+            rowStart={4}>
+            <S.ElementTitle> Where To Stay </S.ElementTitle>
             <SafeHtml content={whereToStay ? whereToStay.html : ''}/>
           </S.ContentGridItem>
           <S.ContentGridItem
@@ -76,7 +75,7 @@ return (
             colStart={[1, 1, 7, 7]}
             rowSpan={5}
             rowStart={[6, 6, 1, 1]}>
-            <h2> Where To Eat </h2>
+            <S.ElementTitle> Where To Eat </S.ElementTitle>
             <SafeHtml content={whereToEat ? whereToEat.html : ''}/>
           </S.ContentGridItem>
           <S.ContentGridItem
@@ -84,6 +83,7 @@ return (
             colStart={1}
             rowSpan={2}
             rowStart={[11, 11, 6, 6]}>
+            <S.ElementTitle> What to Do </S.ElementTitle>
             <SafeHtml content={thingsToDo ? thingsToDo.html : ''}/>
           </S.ContentGridItem>
       </>

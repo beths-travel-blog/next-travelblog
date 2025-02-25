@@ -57,4 +57,6 @@ const SafeHtml = React.forwardRef(
   }
 );
 
+SafeHtml.displayName = "SafeHtml";
+
 export default SafeHtml;

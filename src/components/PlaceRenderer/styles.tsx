@@ -1,25 +1,30 @@
 import styled from "styled-components";
-import spacing from "../../utils/spacing"
 
-import Grid from "../Grid/Grid";
+import spacing from "../../utils/spacing"
 import GridItem from "../Grid/GridItem";
 
-export const CarouselGridItem = styled(GridItem)`
-  margin: 50px 0;
-  display: flex;
-  flex-direction: row;
-`;
+interface TitleImageProps {
+  url: string;
+}
 
-// export const ContentGrid = styled(Grid)`
-//   & > :nth-child(2),
-//   & > :nth-child(3) {
-//     background-color: #66CDAA;
-//   }
-// `;
+export const TitleImageContainer = styled(GridItem)<TitleImageProps>`
+  background-image: ${(props) => `url(${props.url})`};
+  background-size: cover;
+  margin: ${spacing(2)};
+  padding: ${spacing(3)} ${spacing(5)};
+`;
 
 export const ContentGridItem = styled(GridItem)`
   margin: ${spacing(2)};
   padding: ${spacing(3)} ${spacing(5)};
-  border: solid 1px #66CDAA;
-  // box-shadow: 0 0 0 1px #fff inset;
+`;
+
+export const StyledImage = styled.img`
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+`;
+
+export const ElementTitle = styled.h2`
+  text-align: center;
 `;

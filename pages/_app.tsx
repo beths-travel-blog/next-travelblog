@@ -1,3 +1,5 @@
+// This file is a custom App component
+// Wraps all pages and allows you to persist state, inject global styles, or add providers (e.g., Redux, Context API, etc.).
 // Can edit this file to share state between pages
 import React from "react";
 import Head from "next/head";
@@ -65,10 +67,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title> Plane It By Ear Home Page </title>
         <meta name="description" content="Plane it by ear: travel blog" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <GlobalStyle />
       <NavBar continents={pageProps.data["continents"]} countryData={allData} />

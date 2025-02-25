@@ -1,4 +1,4 @@
-// Application entry point
+// Homepage - acts as the entry point for the root route /
 
 import type { NextPage } from "next";
 import React from "react";
