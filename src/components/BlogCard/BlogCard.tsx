@@ -7,7 +7,6 @@ interface BlogCardProps {
   title: string;
   postLink: string;
   image: ImageProps;
-  // datePublished: string;
 }
 
 interface ImageProps {
@@ -18,10 +17,8 @@ const BlogCard = ({
   title,
   postLink,
   image,
-  // datePublished: string;
 }: BlogCardProps) => {
   
-  // const date = new Date(datePublished);
 
   return (
     <S.BlogCardContainer>
@@ -32,18 +29,6 @@ const BlogCard = ({
         <Link href={postLink}>
           <S.ArticleTitle>{title}</S.ArticleTitle>
         </Link>
-        {/* {continent?.slug && (
-          <Link href={continent.slug}>
-            <S.ContinentTitle>{continent.name}</S.ContinentTitle>
-          </Link>
-        )} */}
-        {/* <span>
-          {date.toLocaleDateString(undefined, {
-            day: "numeric",
-            month: "short",
-            year: "numeric",
-          })}
-        </span> */}
       </S.BlogTextContainer>
     </S.BlogCardContainer>
   );

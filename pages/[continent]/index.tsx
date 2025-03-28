@@ -10,8 +10,6 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
-// datePublished above continent in both gql calls
-
 const GET_SINGLE_CONTINENT = gql`
   query Continent($slug: String!) {
     continent(where: { slug: $slug }) {

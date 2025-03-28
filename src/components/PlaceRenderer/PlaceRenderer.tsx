@@ -4,7 +4,7 @@ import SafeHtml from "../../elements/SafeHtml";
 interface ArticleProps {
   title: string;
   image: ImageProps;
-  // datePublished: string;
+  datePublished: string;
   continent?: ContinentProps;
   country?: CountryProps;
   thingsToDo?: ContentProps;
@@ -31,28 +31,16 @@ interface CountryProps {
 const PlaceRenderer = ({
   title,
   image,
-  // datePublished,
+  datePublished,
   thingsToDo,
   whereToEat,
   whereToStay
 }: ArticleProps) => {
   const gridItemColSpan = [12, 12, 6, 6];
+  const date = new Date(datePublished);
 
-  // to do: const date = new Date(datePublished);
-  // to do: make this look less messy
-  // remove outer griditem?
-  // change col span to 2?
 return (
       <>
-      
-          {/* to do:
-          <h4>
-            {date.toLocaleDateString(undefined, {
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            })}
-          </h4> */}
           <S.TitleImageContainer
             url={image.url}
             colSpan={gridItemColSpan}
@@ -61,6 +49,13 @@ return (
             rowStart={1}
             >
             <h1>{title}</h1>
+            <h4>
+                {date.toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                })}
+          </h4>
           </S.TitleImageContainer>
           <S.ContentGridItem
             colSpan={gridItemColSpan}

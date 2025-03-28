@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
         letter-spacing: 1.5px;
     }
 
-    h1 {
+    h1, h4 {
         text-align: center;
     }
 

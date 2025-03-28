@@ -1,7 +1,3 @@
-develop is developing branch
-main is master
-
-update node version, need > 16.15
 sort out any props
 unused imports
 notes in code

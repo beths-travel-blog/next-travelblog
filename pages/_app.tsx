@@ -65,6 +65,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <React.Fragment>
       <Head>
+        <link rel="icon" href="/favicon.ico" />
         <title> Plane It By Ear Home Page </title>
         <meta name="description" content="Plane it by ear: travel blog" />
       </Head>

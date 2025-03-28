@@ -67,8 +67,8 @@ const Carousel = ({ children }: CarouselProps) => {
         </S.ArrowIcon>
       </S.LeftButton>
       <S.Inner style={{ transform: `translateX(-${activeIndex * slideWidth}%)` }}>
-        {React.Children.map(children, (child) => {
-          return React.cloneElement(child, { width: `${slideWidth}%` }); // Dynamic width for each slide
+        {React.Children.map(children, (child, index) => {
+          return React.cloneElement(child, { width: `${slideWidth}%`, key: index }); // Dynamic width for each slide
         })}
       </S.Inner>
       <S.RightButton

@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Check node version with node -v then run the development server:
+Check node version is >16 then run the development server:
 
 ```bash
 npm run dev -> localhost:3000
@@ -10,9 +10,13 @@ npm run dev -> localhost:3000
 
 ## Set Up
 
-Install latest node: nvm install node, nvm use node
-Check version: node -v
+Node: nvm install node, nvm use node, node -v
+Next: npm outdated, npm install next@latest
 Install packages: npm install
+Clear Cache and Reinstall Dependencies:
+rm -rf node_modules package-lock.json
+npm install
+npm run dev
 
 Graphiql: https://api-eu-west-2.hygraph.com/v2/cl8o9g9ar0niy01t86qd4esxo/master
 
@@ -24,25 +28,6 @@ npm test
 
 getStaticProps: works only for page components inside pages folder
 Tutorial: https://www.youtube.com/watch?v=Dc7LAgqy1_E&t=2223s
-
-## Default readme
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 

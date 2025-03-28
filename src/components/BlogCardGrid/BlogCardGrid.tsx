@@ -14,7 +14,6 @@ interface BlogCardProps {
   title: string;
   placeSlug: string;
   image: ImageProps;
-  // datePublished: string;
   country?: CountryProps;
 }
 
@@ -62,7 +61,6 @@ const BlogCardGrid = ({ blogPosts, postGrid }: GridProps) => {
         title={post.title}
         postLink={postLink}
         image={post.image}
-        // datePublished={post.datePublished}
       />
     </StyledGridItem>)
 });

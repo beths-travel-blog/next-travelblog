@@ -8,7 +8,6 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
-// datePublished between slug and content
 const GET_SINGLE_PLACE = gql`
   query Place($slug: String!) {
     place(where: { slug: $slug }) {
@@ -17,6 +16,7 @@ const GET_SINGLE_PLACE = gql`
       country {
         title
       }
+      datePublished
       image {
         url
       }
@@ -49,13 +49,6 @@ const GET_ALL_PLACES = gql`
     }
   }
 `;
-
-// for offline dev
-// import singleplace from './singleplace.json';
-// import allplaces from './allplaces.json';
-
-
-// datePublished above continent{}
 
 export const getStaticPaths = async () => {
   const { places }: any = await graphcms.request(GET_ALL_PLACES);
@@ -98,7 +91,7 @@ const PlaceBlogPost = ({ place }: any) => {
         <PlaceRenderer
           title={place.title}
           image={place.image}
-          // datePublished={place.datePublished}
+          datePublished={place.datePublished}
           country={place.country.title}
           thingsToDo={place.thingsToDo}
           whereToEat={place.whereToEat}

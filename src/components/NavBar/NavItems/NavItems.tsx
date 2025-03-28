@@ -38,8 +38,8 @@ const NavLinks = ({
         <S.StyledItems>
           <div> Destinations </div>
             <S.DropdownContent>
-              {continents.map((continent, _i) => (
-                <a href={"/" + continent.slug}> {continent.title} </a>
+              {continents.map((continent, index) => (
+                <a key={continent.slug || index} href={"/" + continent.slug}> {continent.title} </a>
               ))}
             </S.DropdownContent>
         </S.StyledItems>

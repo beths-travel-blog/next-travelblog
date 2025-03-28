@@ -14,7 +14,6 @@ const graphcms = new GraphQLClient(
   "https://api-eu-west-2.hygraph.com/v2/cl8rmtxc5316701uk7n83321r/master"
 );
 
-// datePublished between slug and content
 const GET_SINGLE_COUNTRY = gql`
   query Country($slug: String!) {
     country(where: { slug: $slug }) {
@@ -37,6 +36,7 @@ const GET_SINGLE_COUNTRY = gql`
           }
         }
       }
+      datePublished
       image {
         url
       }
@@ -73,12 +73,6 @@ const GET_ALL_COUNTRIES = gql`
   }
 `;
 
-// to do: style this
-const Heading = styled.h1`
-  text-align: center;
-`
-
-// datePublished above continent{}
 
 export const getStaticPaths = async () => {
   const { countries }: any = await graphcms.request(GET_ALL_COUNTRIES);
@@ -102,6 +96,10 @@ export const getStaticProps = async ({ params }: any) => {
   };
 };
 
+const Heading = styled.h1`
+  text-align: center;
+`
+
 const ComponentHeading = styled.h2`
   font-weight: 500;
   margin: ${spacing(2)} 0;
@@ -114,19 +112,28 @@ export const CarouselGridItem = styled(GridItem)`
 `;
 
 const CountryPosts = ({ country }: any) => {
-  const imageCarousel = country.images.map((image: any, i: any) => {
+  const date = new Date(country.datePublished);
+
+  const imageCarousel = country.images.map((image: any, i: number) => {
     return (
-        <CarouselItem>
-          <img src={image.url}/>
-        </CarouselItem>
+      <CarouselItem key={i}>
+        <img src={image.url} alt={`Image ${i}`} />
+      </CarouselItem>
     );
-  })
+  });
 
   return (
     <main>
       <Grid columns={12}>
         <GridItem colSpan={6} colStart={4}>
           <Heading>{country.title}</Heading>
+          <h4>
+                {date.toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                })}
+          </h4>
         </GridItem>
         <CarouselGridItem colSpan={12} colStart={1}>
           <Carousel>{imageCarousel}</Carousel>

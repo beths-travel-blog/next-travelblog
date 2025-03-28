@@ -42,7 +42,6 @@ const FeaturedImage = styled.img`
   width: 100%;
 `
 
-// datePublished above last continent {}
 export const getStaticProps = async () => {
   // fetch request
   const { imageAssets, places }: any = await graphcms.request(GET_HOMEPAGE_DATA);

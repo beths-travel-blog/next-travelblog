@@ -12,6 +12,10 @@ export const TitleImageContainer = styled(GridItem)<TitleImageProps>`
   background-size: cover;
   margin: ${spacing(2)};
   padding: ${spacing(3)} ${spacing(5)};
+
+  h3 {
+    text-align: center;
+  }
 `;
 
 export const ContentGridItem = styled(GridItem)`
