@@ -2,7 +2,6 @@
 
 import type { NextPage } from "next";
 import React from "react";
-import styled from "styled-components";
 import { GraphQLClient, gql } from "graphql-request";
 
 import PhotoGrid from "../src/components/PhotoGrid/PhotoGrid";
