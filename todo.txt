@@ -1,45 +1,14 @@
-sort out any props
-unused imports
-notes in code
-commented out code
-add places to search
 overrides / for no connection
-warnings
 check alts, title not right choice
-
-other
-move tips to country schema, add visa and time of year?
-
-commit changes and bring dev up to date
-
 error message when going to page that doesn't exist eg. south-america/mexico
-
-search to do: in code for more todos
-
-
-
-now:
+search // to do
 about me section
 travel tips
 loading state on carousel
 check mobile responsive
-add alt to all images
-fix error about stylesheet in head
-merge place content into article renderer
-change schema to have tips for country
-take out content from schema and place renderer props
-change getting to to travel and remove getting around
+warnings in browser console and terminal
 new grid needs to be responsive
-offline data
-make offline data more relevant
 save all content from hygraph
-add date published
 go through schemas and check which ones should be required
-travel tips directs to home
-safehtml???
 global style sheet
-
-
-checks
 tests
-responsive
