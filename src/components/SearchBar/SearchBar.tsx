@@ -18,7 +18,6 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value: any) => {
-      // to do ??? value.places.length > 0 ? value.places[0].title.toLowerCase().includes(searchWord.toLowerCase()) when all places in
       return value.title.toLowerCase().includes(searchWord.toLowerCase());
     });
 
@@ -73,6 +72,7 @@ const SearchBar = ({ hideSearch, placeholder, data }: SearchBarProps) => {
 
               return (
                 <S.DataItem
+                  key={""} // to do: add value
                   href={placeSlug ? placeSlug : countrySlug ? countrySlug : continentSlug}
                   target="_self" // change to blank to open in new tab
                 >

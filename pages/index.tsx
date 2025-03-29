@@ -36,12 +36,6 @@ const GET_HOMEPAGE_DATA = gql`
   }
 `;
 
-const FeaturedImage = styled.img`
-  // position: sticky;
-  // top: 125px;
-  width: 100%;
-`
-
 export const getStaticProps = async () => {
   // fetch request
   const { imageAssets, places }: any = await graphcms.request(GET_HOMEPAGE_DATA);

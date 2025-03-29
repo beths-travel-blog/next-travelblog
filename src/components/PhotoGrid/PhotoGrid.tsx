@@ -22,7 +22,7 @@ const StyledImage = styled.img`
 `;
 
 const PhotoGrid = ({images}: PhotoGridProps) => {
-  // alt={images[i].alt}
+  // to do: alt={images[i].alt}
   return (
     <MasonryLayout minWidth={300} gap={"10px"}>
       {images.map((_image, i) => (
