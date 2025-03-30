@@ -52,13 +52,13 @@ const Logo = () => {
     <StyledLogo>
       <StyledLogoImage
         src={LogoPlane.src}
-        alt="Plane It By Ear Logo"
+        alt="Plane image for logo"
         width={100}
         height={"auto"}
       />
       <StyledLogoText
         src={LogoName.src}
-        alt="Plane It By Ear Logo"
+        alt="Plane It By Ear"
         width={200}
         height={"auto"}
       />

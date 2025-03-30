@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import PhotoGrid from "./PhotoGrid";
 
-// Mock MasonryLayout if it's causing issues
 jest.mock("../MasonryLayout/MasonryLayout", () => {
   return jest.fn(({ children }) => <div data-testid="masonry">{children}</div>);
 });
